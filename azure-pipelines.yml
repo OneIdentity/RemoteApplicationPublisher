@@ -33,7 +33,7 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
-    msbuildArgs: '/p:buildId=$(Build.BuildId)'
+    #msbuildArgs: '/p:buildId=$(Build.BuildId)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
   displayName: 'Build $(solution)'
