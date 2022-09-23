@@ -10,11 +10,20 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
+  version: '1.0.0.$(Build.BuildId)'
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
+  isPrerelease: ${{ true }}
+  isReleaseBranch: $[ or( eq(variables['Build.SourceBranch'], 'refs/heads/main'), startsWith(variables['Build.SourceBranch'], 'refs/heads/release-') ) ]
 
 steps:
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: 'env | sort'
+  displayName: 'Display environment variables'
+
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
@@ -24,10 +33,9 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
+    msbuildArgs: '/p:buildId=$(Build.BuildId)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+  displayName: 'Build $(solution)'
 
-- task: VSTest@2
-  inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+
