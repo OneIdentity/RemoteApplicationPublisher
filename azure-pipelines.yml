@@ -10,7 +10,7 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  version: '1.0.0.$(Build.BuildId)'
+  #version: '1.0.0.$(Build.BuildId)'
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
@@ -34,7 +34,6 @@ steps:
   inputs:
     solution: '$(solution)'
     #msbuildArgs: '/p:buildId=$(Build.BuildId)'
-    msbuildArgs: '/p:buildId=1234'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
   displayName: 'Build $(solution)'
