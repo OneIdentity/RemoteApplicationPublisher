@@ -10,11 +10,21 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
+  #version: '1.0.0.$(Build.BuildId)'
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
+  isPrerelease: ${{ true }}
+  isReleaseBranch: $[ or( eq(variables['Build.SourceBranch'], 'refs/heads/main'), startsWith(variables['Build.SourceBranch'], 'refs/heads/release-') ) ]
+  #isReleaseBranch: false
 
 steps:
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: 'env | sort'
+  displayName: 'Display environment variables'
+
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
@@ -24,10 +34,40 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
+    #msbuildArgs: '/p:buildId=$(Build.BuildId)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+  displayName: 'Build $(solution)'
 
-- task: VSTest@2
+- task: ArchiveFiles@2
   inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    rootFolderOrFile: '$(Build.SourcesDirectory)\RemoteApplicationPublisher\bin\$(buildConfiguration)\net6.0-windows'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/RemoteApplicationPublisher-$(Build.BuildId).zip'
+    replaceExistingArchive: true
+    verbose: true
+  displayName: 'Zip artifacts'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: 'RemoteAppliationPublisher'
+  displayName: 'Publishing the artifacts'
+
+- task: GitHubRelease@1
+  inputs:
+    gitHubConnection: 'github.com.SafeguardPipelines'
+    repositoryName: 'OneIdentity/RemoteApplicationPublisher'
+    action: 'create'
+    target: '$(Build.SourceVersion)'
+    tagSource: 'userSpecifiedTag'
+    tag: 'release-1.0.0.$(Build.BuildId)'
+    title: '1.0.0.$(Build.BuildId)'
+    isPreRelease: $(isPrerelease)
+    changeLogCompareToRelease: 'lastFullRelease'
+    changeLogType: 'commitBased'
+    assets: |
+      $(Build.ArtifactStagingDirectory)/**
+  displayName: 'Creating and publishing a release to Github'
+  condition: and(succeeded(), eq(variables.isReleaseBranch, true))
