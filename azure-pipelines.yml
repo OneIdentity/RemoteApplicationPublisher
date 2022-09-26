@@ -38,19 +38,19 @@ steps:
     configuration: '$(buildConfiguration)'
   displayName: 'Build $(solution)'
 
-- task: CopyFiles@2
-  inputs:
-    sourceFolder: '$(Build.SourcesDirectory)\RemoteApplicationPublisher\bin\$(buildConfiguration)\net6.0-windows'
-    contents: '**'
-    targetFolder: $(Build.ArtifactStagingDirectory)
-  displayName: 'Copy files to staging folder'
+#- task: CopyFiles@2
+#  inputs:
+#    sourceFolder: '$(Build.SourcesDirectory)\RemoteApplicationPublisher\bin\$(buildConfiguration)\net6.0-windows'
+#    contents: '**'
+#    targetFolder: $(Build.ArtifactStagingDirectory)
+#  displayName: 'Copy files to staging folder'
 
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(Build.BinariesDirectory)'
-    includeRootFolder: true
+    rootFolderOrFile: '$(Build.SourcesDirectory)\RemoteApplicationPublisher\bin\$(buildConfiguration)\net6.0-windows'
+    includeRootFolder: false
     archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/RemoteApplicationPublisher-$(Build.BuildId).zip'
     replaceExistingArchive: true
     verbose: true
   displayName: 'Zip artifacts'
