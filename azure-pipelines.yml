@@ -40,7 +40,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    sourceFolder: '$(Build.SourcesDirectory)\bin\$(buildConfiguration)\net6.0-windows'
+    sourceFolder: '$(Build.SourcesDirectory)\RemoteApplicationPublisher\bin\$(buildConfiguration)\net6.0-windows'
     contents: '**'
     targetFolder: $(Build.ArtifactStagingDirectory)
   displayName: 'Copy files to staging folder'
