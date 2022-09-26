@@ -11,9 +11,11 @@ pool:
 
 variables:
   #version: '1.0.0.$(Build.BuildId)'
+  installerProject: '$(Build.SourcesDirectory)\RemoteAppPublisherSetup\RemoteAppPublisherSetup.vdproj'
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
+  visualStudioPath: '$(ProgramW6432)\Microsoft Visual Studio\2022\Enterprise'
   isPrerelease: ${{ true }}
   isReleaseBranch: $[ or( eq(variables['Build.SourceBranch'], 'refs/heads/main'), startsWith(variables['Build.SourceBranch'], 'refs/heads/release-') ) ]
   #isReleaseBranch: false
@@ -26,10 +28,18 @@ steps:
   displayName: 'Display environment variables'
 
 - task: NuGetToolInstaller@1
+  displayName: 'Install Nuget CLI'
 
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
+  displayNme: 'Restore packages'
+
+- task: CmdLine@2
+  inputs:
+    script: 'DisableOutOfProcBuild.exe'
+    workingDirectory: '$(VisualStudioPath)\Common7\IDE\CommonExtensions\Microsoft\VSI\DisableOutOfProcBuild'
+  displayName: 'Prepare for MSI build'
 
 - task: VSBuild@1
   inputs:
@@ -38,6 +48,11 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
   displayName: 'Build $(solution)'
+
+- task: CmdLine@2
+  displayName: 'Build installer project'
+  inputs:
+    script: '"$(VisualStudioPath)\Common7\IDE\devenv.com" "$(Solution)" /Project "$(InstallerProject)" /Build "$(BuildConfiguration)|$(BuildPlatform)"'
 
 - task: ArchiveFiles@2
   inputs:
