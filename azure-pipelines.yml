@@ -15,8 +15,8 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
   isPrerelease: ${{ true }}
-  #isReleaseBranch: $[ or( eq(variables['Build.SourceBranch'], 'refs/heads/main'), startsWith(variables['Build.SourceBranch'], 'refs/heads/release-') ) ]
-  isReleaseBranch: false
+  isReleaseBranch: $[ or( eq(variables['Build.SourceBranch'], 'refs/heads/main'), startsWith(variables['Build.SourceBranch'], 'refs/heads/release-') ) ]
+  #isReleaseBranch: false
 
 steps:
 - task: Bash@3
@@ -39,13 +39,6 @@ steps:
     configuration: '$(buildConfiguration)'
   displayName: 'Build $(solution)'
 
-#- task: CopyFiles@2
-#  inputs:
-#    sourceFolder: '$(Build.SourcesDirectory)\RemoteApplicationPublisher\bin\$(buildConfiguration)\net6.0-windows'
-#    contents: '**'
-#    targetFolder: $(Build.ArtifactStagingDirectory)
-#  displayName: 'Copy files to staging folder'
-
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(Build.SourcesDirectory)\RemoteApplicationPublisher\bin\$(buildConfiguration)\net6.0-windows'
@@ -62,19 +55,19 @@ steps:
     artifactName: 'RemoteAppliationPublisher'
   displayName: 'Publishing the artifacts'
 
-- task: GitHubRelease@1
-  inputs:
-    gitHubConnection: 'github.ReleaseServiceAccount'
-    repositoryName: 'OneIdentity/RemoteApplicationPublisher'
-    action: 'create'
-    target: '$(Build.SourceVersion)'
-    tagSource: 'userSpecifiedTag'
-    tag: 'release-1.0.0.$(Build.BuildId)'
-    title: '1.0.0.$(Build.BuildId)'
-    isPreRelease: $(isPrerelease)
-    changeLogCompareToRelease: 'lastFullRelease'
-    changeLogType: 'commitBased'
-    assets: |
-      $(Build.ArtifactStagingDirectory)/**
-  displayName: 'Creating and publishing a release to Github'
-  condition: and(succeeded(), eq(variables.isReleaseBranch, true))
+#- task: GitHubRelease@1
+#  inputs:
+#    gitHubConnection: 'github.ReleaseServiceAccount'
+#    repositoryName: 'OneIdentity/RemoteApplicationPublisher'
+#    action: 'create'
+#    target: '$(Build.SourceVersion)'
+#    tagSource: 'userSpecifiedTag'
+#    tag: 'release-1.0.0.$(Build.BuildId)'
+#    title: '1.0.0.$(Build.BuildId)'
+#    isPreRelease: $(isPrerelease)
+#    changeLogCompareToRelease: 'lastFullRelease'
+#    changeLogType: 'commitBased'
+#    assets: |
+#      $(Build.ArtifactStagingDirectory)/**
+#  displayName: 'Creating and publishing a release to Github'
+#  condition: and(succeeded(), eq(variables.isReleaseBranch, true))
