@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics;
+using System.Reflection;
+using System.Security.Principal;
 
 namespace RemoteApplicationPublisher
 {
@@ -7,6 +9,7 @@ namespace RemoteApplicationPublisher
         public RemoteAppMainWindow()
         {
             InitializeComponent();
+            AdminRelauncher();
         }
 
         private void RemoteAppMainWindow_Disposed(object sender, EventArgs e)
@@ -160,5 +163,41 @@ namespace RemoteApplicationPublisher
 
         }
 
+        private void AdminRelauncher()
+        {
+            if (!IsRunAsAdmin())
+            {
+                ProcessStartInfo proc = new ProcessStartInfo();
+                proc.UseShellExecute = true;
+                proc.WorkingDirectory = Environment.CurrentDirectory;
+                proc.FileName = Assembly.GetEntryAssembly().Location.Replace(".dll", ".exe");;
+        
+                proc.Verb = "runas";
+        
+                try
+                {
+                    Process.Start(proc);
+                    Environment.Exit(0);
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine("This program must be run as an administrator! \n\n" + ex.ToString());
+                }
+            }
+        }
+        
+        private bool IsRunAsAdmin()
+        {
+            try
+            {
+                WindowsIdentity id = WindowsIdentity.GetCurrent();
+                WindowsPrincipal principal = new WindowsPrincipal(id);
+                return principal.IsInRole(WindowsBuiltInRole.Administrator);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }
