@@ -45,8 +45,34 @@ steps:
     targetFolder: $(Build.ArtifactStagingDirectory)
   displayName: 'Copy files to staging folder'
 
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.BinariesDirectory)'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
+    verbose: true
+  displayName: 'Zip artifacts'
+
 - task: PublishBuildArtifacts@1
   inputs:
     pathToPublish: '$(Build.ArtifactStagingDirectory)'
     artifactName: 'RemoteAppliationPublisher'
   displayName: 'Publishing the artifacts'
+
+#- task: GitHubRelease@1
+#  inputs:
+#    gitHubConnection: 'github.ReleaseServiceAccount'
+#    repositoryName: 'OneIdentity/RemoteApplicationPublisher'
+#    action: 'create'
+#    target: '$(Build.SourceVersion)'
+#    tagSource: 'userSpecifiedTag'
+#    tag: 'release-1.0.0.$(Build.BuildId)'
+#    title: '1.0.0.$(Build.BuildId)'
+#    isPreRelease: $(isPrerelease)
+#    changeLogCompareToRelease: 'lastFullRelease'
+#    changeLogType: 'commitBased'
+#    assets: |
+#      $(Build.ArtifactStagingDirectory)/**
+#  displayName: 'Creating and publishing a release to Github'
