@@ -61,18 +61,18 @@ steps:
     artifactName: 'RemoteAppliationPublisher'
   displayName: 'Publishing the artifacts'
 
-#- task: GitHubRelease@1
-#  inputs:
-#    gitHubConnection: 'github.ReleaseServiceAccount'
-#    repositoryName: 'OneIdentity/RemoteApplicationPublisher'
-#    action: 'create'
-#    target: '$(Build.SourceVersion)'
-#    tagSource: 'userSpecifiedTag'
-#    tag: 'release-1.0.0.$(Build.BuildId)'
-#    title: '1.0.0.$(Build.BuildId)'
-#    isPreRelease: $(isPrerelease)
-#    changeLogCompareToRelease: 'lastFullRelease'
-#    changeLogType: 'commitBased'
-#    assets: |
-#      $(Build.ArtifactStagingDirectory)/**
-#  displayName: 'Creating and publishing a release to Github'
+- task: GitHubRelease@1
+  inputs:
+    gitHubConnection: 'github.ReleaseServiceAccount'
+    repositoryName: 'OneIdentity/RemoteApplicationPublisher'
+    action: 'create'
+    target: '$(Build.SourceVersion)'
+    tagSource: 'userSpecifiedTag'
+    tag: 'release-1.0.0.$(Build.BuildId)'
+    title: '1.0.0.$(Build.BuildId)'
+    isPreRelease: $(isPrerelease)
+    changeLogCompareToRelease: 'lastFullRelease'
+    changeLogType: 'commitBased'
+    assets: |
+      $(Build.ArtifactStagingDirectory)/**
+  displayName: 'Creating and publishing a release to Github'
