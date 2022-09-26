@@ -76,3 +76,4 @@ steps:
     assets: |
       $(Build.ArtifactStagingDirectory)/**
   displayName: 'Creating and publishing a release to Github'
+  condition: and(succeeded(), eq(variables.isReleaseBranch, true))
