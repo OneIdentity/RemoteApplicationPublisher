@@ -33,7 +33,7 @@ steps:
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
-  displayNme: 'Restore packages'
+  displayName: 'Restore packages'
 
 - task: CmdLine@2
   inputs:
