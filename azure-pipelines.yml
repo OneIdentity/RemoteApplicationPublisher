@@ -44,3 +44,9 @@ steps:
     contents: '**'
     targetFolder: $(Build.ArtifactStagingDirectory)
   displayName: 'Copy files to staging folder'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: 'RemoteAppliationPublisher'
+  displayName: 'Publishing the artifacts'
