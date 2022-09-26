@@ -15,7 +15,8 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
   isPrerelease: ${{ true }}
-  isReleaseBranch: $[ or( eq(variables['Build.SourceBranch'], 'refs/heads/main'), startsWith(variables['Build.SourceBranch'], 'refs/heads/release-') ) ]
+  #isReleaseBranch: $[ or( eq(variables['Build.SourceBranch'], 'refs/heads/main'), startsWith(variables['Build.SourceBranch'], 'refs/heads/release-') ) ]
+  isReleaseBranch: false
 
 steps:
 - task: Bash@3
