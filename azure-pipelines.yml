@@ -58,6 +58,13 @@ steps:
     verbose: true
   displayName: 'Zip artifacts'
 
+- task: CopyFiles@2
+  inputs:
+    sourceFolder: '$(Build.SourcesDirectory)\$(setupProjectDir)'
+    contents: '**\bin\$(buildConfiguration)\en-us\*.msi'
+    targetFolder: $(Build.ArtifactStagingDirectory)
+  displayName: 'Copy installer to staging folder'
+
 - task: PublishBuildArtifacts@1
   inputs:
     pathToPublish: '$(Build.ArtifactStagingDirectory)'
