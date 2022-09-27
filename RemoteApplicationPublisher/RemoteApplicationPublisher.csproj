@@ -5,15 +5,18 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <ImplicitUsings>disable</ImplicitUsings>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <StartupObject>RemoteApplicationPublisher.Program</StartupObject>
+    <PlatformTarget>x64</PlatformTarget>
+    <Platforms>x64</Platforms>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <NoWarn>1701;1702;8618;8601</NoWarn>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <NoWarn>1701;1702;8618;8601</NoWarn>
   </PropertyGroup>
 

@@ -1,4 +1,6 @@
-﻿namespace RemoteApplicationPublisher
+﻿using System.Windows.Forms;
+
+namespace RemoteApplicationPublisher
 {
     public partial class RemoteAppMainWindow
     {

@@ -12,11 +12,12 @@ pool:
 variables:
   #version: '1.0.0.$(Build.BuildId)'
   solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
+  buildPlatform: 'x64'
   buildConfiguration: 'Release'
   isPrerelease: ${{ true }}
   isReleaseBranch: $[ or( eq(variables['Build.SourceBranch'], 'refs/heads/main'), startsWith(variables['Build.SourceBranch'], 'refs/heads/release-') ) ]
-  #isReleaseBranch: false
+  setupProjectDir: 'RemoteApplicationPublisherSetup'
+  setupProject: '**/$(setupProjectDir)/*.wixproj'
 
 steps:
 - task: Bash@3
@@ -39,6 +40,14 @@ steps:
     configuration: '$(buildConfiguration)'
   displayName: 'Build $(solution)'
 
+- task: VSBuild@1
+  inputs:
+    solution: '$(setupProject)'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  displayName: 'Build $(setupProject)'
+  condition: and(succeeded(), eq(variables.isReleaseBranch, true))
+
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(Build.SourcesDirectory)\RemoteApplicationPublisher\bin\$(buildConfiguration)\net6.0-windows'
@@ -48,12 +57,22 @@ steps:
     replaceExistingArchive: true
     verbose: true
   displayName: 'Zip artifacts'
+  condition: and(succeeded(), eq(variables.isReleaseBranch, true))
+
+- task: CopyFiles@2
+  inputs:
+    sourceFolder: '$(Build.SourcesDirectory)\$(setupProjectDir)'
+    contents: '**\bin\$(buildConfiguration)\en-us\*.msi'
+    targetFolder: $(Build.ArtifactStagingDirectory)
+  displayName: 'Copy installer to staging folder'
+  condition: and(succeeded(), eq(variables.isReleaseBranch, true))
 
 - task: PublishBuildArtifacts@1
   inputs:
     pathToPublish: '$(Build.ArtifactStagingDirectory)'
     artifactName: 'RemoteAppliationPublisher'
   displayName: 'Publishing the artifacts'
+  condition: and(succeeded(), eq(variables.isReleaseBranch, true))
 
 - task: GitHubRelease@1
   inputs:

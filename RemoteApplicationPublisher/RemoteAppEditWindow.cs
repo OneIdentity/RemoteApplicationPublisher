@@ -1,4 +1,9 @@
-﻿namespace RemoteApplicationPublisher
+﻿
+using System;
+using System.IO;
+using System.Windows.Forms;
+
+namespace RemoteApplicationPublisher
 {
 
     public partial class RemoteAppEditWindow : Form

@@ -1,4 +1,8 @@
-﻿namespace RemoteApplicationPublisher
+﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace RemoteApplicationPublisher
 {
     [Microsoft.VisualBasic.CompilerServices.DesignerGenerated()]
     public partial class RemoteAppAboutWindow : Form

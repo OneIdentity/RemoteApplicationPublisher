@@ -1,5 +1,9 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
+using System.Drawing;
+using System.IO;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 using Microsoft.Win32;
 
 namespace RemoteApplicationPublisher
