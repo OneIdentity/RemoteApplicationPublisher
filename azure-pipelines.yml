@@ -40,7 +40,7 @@ steps:
     configuration: '$(buildConfiguration)'
   displayName: 'Build $(solution)'
 
-  - task: VSBuild@1
+- task: VSBuild@1
   inputs:
     solution: '$(setupProject)'
     platform: '$(buildPlatform)'
