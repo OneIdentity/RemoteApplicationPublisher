@@ -46,7 +46,7 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
   displayName: 'Build $(setupProject)'
-  condition: and(succeeded(), eq(variables.isReleaseBranch, true))
+  #condition: and(succeeded(), eq(variables.isReleaseBranch, true))
 
 - task: ArchiveFiles@2
   inputs:
