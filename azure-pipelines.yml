@@ -46,7 +46,7 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
   displayName: 'Build $(setupProject)'
-  #condition: and(succeeded(), eq(variables.isReleaseBranch, true))
+  condition: and(succeeded(), eq(variables.isReleaseBranch, true))
 
 - task: ArchiveFiles@2
   inputs:
@@ -57,6 +57,7 @@ steps:
     replaceExistingArchive: true
     verbose: true
   displayName: 'Zip artifacts'
+  condition: and(succeeded(), eq(variables.isReleaseBranch, true))
 
 - task: CopyFiles@2
   inputs:
@@ -64,12 +65,14 @@ steps:
     contents: '**\bin\$(buildConfiguration)\en-us\*.msi'
     targetFolder: $(Build.ArtifactStagingDirectory)
   displayName: 'Copy installer to staging folder'
+  condition: and(succeeded(), eq(variables.isReleaseBranch, true))
 
 - task: PublishBuildArtifacts@1
   inputs:
     pathToPublish: '$(Build.ArtifactStagingDirectory)'
     artifactName: 'RemoteAppliationPublisher'
   displayName: 'Publishing the artifacts'
+  condition: and(succeeded(), eq(variables.isReleaseBranch, true))
 
 - task: GitHubRelease@1
   inputs:
