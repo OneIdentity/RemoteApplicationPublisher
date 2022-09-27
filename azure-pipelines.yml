@@ -12,11 +12,12 @@ pool:
 variables:
   #version: '1.0.0.$(Build.BuildId)'
   solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
+  buildPlatform: 'x64'
   buildConfiguration: 'Release'
   isPrerelease: ${{ true }}
   isReleaseBranch: $[ or( eq(variables['Build.SourceBranch'], 'refs/heads/main'), startsWith(variables['Build.SourceBranch'], 'refs/heads/release-') ) ]
-  #isReleaseBranch: false
+  setupProjectDir: 'RemoteApplicationPublisherSetup'
+  setupProject: '**/$(setupProjectDir)/*.wixproj'
 
 steps:
 - task: Bash@3
@@ -38,6 +39,14 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
   displayName: 'Build $(solution)'
+
+  - task: VSBuild@1
+  inputs:
+    solution: '$(setupProject)'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  displayName: 'Build $(setupProject)'
+  condition: and(succeeded(), eq(variables.isReleaseBranch, true))
 
 - task: ArchiveFiles@2
   inputs:

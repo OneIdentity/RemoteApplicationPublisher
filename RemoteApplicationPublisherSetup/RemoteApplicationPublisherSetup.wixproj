@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" InitialTargets="EnsureWixToolsetInstalled" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
+    <ProductVersion>3.10</ProductVersion>
+    <ProjectGuid>5eea7966-cb7d-4fe5-8b6e-7b416a4c4eb0</ProjectGuid>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputName>RemoteApplicationPublisherSetup-$(Configuration)-$(Platform)</OutputName>
+    <OutputType>Package</OutputType>
+    <Name>RemoteApplicationPublisherSetup</Name>
+    <DefineSolutionProperties>false</DefineSolutionProperties>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DefineConstants>Debug;SourceDir=bin\$(Configuration)\publish</DefineConstants>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
+    <SuppressValidation>False</SuppressValidation>
+    <SuppressIces>ICE61;ICE63;ICE64</SuppressIces>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>SourceDir=bin\$(Configuration)\publish</DefineConstants>
+    <SuppressIces>ICE61;ICE63;ICE64</SuppressIces>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Component-generated.wxs" />
+    <Compile Include="Product.wxs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RemoteApplicationPublisher\RemoteApplicationPublisher.csproj">
+      <Name>RemoteApplicationPublisher</Name>
+      <Project>{E23CF4FE-4FA6-4554-8A06-D741D336DB0A}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WixExtension Include="WixUIExtension">
+      <HintPath>$(WixExtDir)\WixUIExtension.dll</HintPath>
+      <Name>WixUIExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixUtilExtension">
+      <HintPath>$(WixExtDir)\WixUtilExtension.dll</HintPath>
+      <Name>WixUtilExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixNetFxExtension">
+      <HintPath>$(WixExtDir)\WixNetFxExtension.dll</HintPath>
+      <Name>WixNetFxExtension</Name>
+    </WixExtension>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CommonStrings.wxl" />
+  </ItemGroup>
+  <Import Project="$(WixTargetsPath)" Condition=" '$(WixTargetsPath)' != '' " />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets" Condition=" '$(WixTargetsPath)' == '' AND Exists('$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets') " />
+  <Target Name="EnsureWixToolsetInstalled" Condition=" '$(WixTargetsImported)' != 'true' ">
+    <Error Text="The WiX Toolset v3.11 (or newer) build tools must be installed to build this project. To download the WiX Toolset, see http://wixtoolset.org/releases/" />
+  </Target>
+  <Target Name="BeforeBuild">
+    <Exec Command="dotnet publish $(ProjectDir)\..\RemoteApplicationPublisher\RemoteApplicationPublisher.csproj -c $(Configuration) -o $(ProjectDir)bin\$(Configuration)\Publish --self-contained true -r win-x64" />
+    <HeatDirectory SuppressAllWarnings="true" ToolPath="$(WixToolPath)" AutogenerateGuids="$(HarvestDirectoryAutogenerateGuids)" OutputFile="Component-generated.wxs" SuppressFragments="true" SuppressUniqueIds="true" Transforms="%(HarvestDirectory.Transforms)" Directory="$(ProjectDir)bin\$(Configuration)\Publish" ComponentGroupName="RemoteAppsPub_CommonAssemblies" DirectoryRefId="INSTALLLOCATION" KeepEmptyDirectories="false" PreprocessorVariable="var.SourceDir" SuppressRootDirectory="true" SuppressRegistry="true">
+    </HeatDirectory>
+    <!-- <GetAssemblyIdentity AssemblyFiles="$(ProjectDir)bin\$(Configuration)\Publish\RemoteApplicationPublisher.exe"> -->
+    <!--   <Output TaskParameter="Assemblies" ItemName="AsmInfo" /> -->
+    <!-- </GetAssemblyIdentity> -->
+    <!-- <CreateProperty Value="RemoteApplicationPublisher_%(AsmInfo.Version)_$(Configuration)"> -->
+    <CreateProperty Value="RemoteApplicationPublisher_1.0.0.0_$(Configuration)">
+      <Output TaskParameter="Value" PropertyName="TargetName" />
+    </CreateProperty>
+  </Target>
+  <PropertyGroup>
+    <PreBuildEvent />
+  </PropertyGroup>
+</Project>

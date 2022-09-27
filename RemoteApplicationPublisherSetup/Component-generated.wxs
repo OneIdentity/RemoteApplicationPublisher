@@ -1,0 +1,2053 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="INSTALLLOCATION">
+            <Component Id="Accessibility.dll" Guid="*">
+                <File Id="Accessibility.dll" KeyPath="yes" Source="$(var.SourceDir)\Accessibility.dll" />
+            </Component>
+            <Component Id="api_ms_win_core_console_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_core_console_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-core-console-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_core_console_l1_2_0.dll" Guid="*">
+                <File Id="api_ms_win_core_console_l1_2_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-core-console-l1-2-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_core_datetime_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_core_datetime_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-core-datetime-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_core_debug_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_core_debug_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-core-debug-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_core_errorhandling_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_core_errorhandling_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-core-errorhandling-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_core_fibers_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_core_fibers_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-core-fibers-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_core_file_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_core_file_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-core-file-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_core_file_l1_2_0.dll" Guid="*">
+                <File Id="api_ms_win_core_file_l1_2_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-core-file-l1-2-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_core_file_l2_1_0.dll" Guid="*">
+                <File Id="api_ms_win_core_file_l2_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-core-file-l2-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_core_handle_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_core_handle_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-core-handle-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_core_heap_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_core_heap_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-core-heap-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_core_interlocked_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_core_interlocked_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-core-interlocked-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_core_libraryloader_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_core_libraryloader_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-core-libraryloader-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_core_localization_l1_2_0.dll" Guid="*">
+                <File Id="api_ms_win_core_localization_l1_2_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-core-localization-l1-2-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_core_memory_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_core_memory_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-core-memory-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_core_namedpipe_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_core_namedpipe_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-core-namedpipe-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_core_processenvironment_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_core_processenvironment_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-core-processenvironment-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_core_processthreads_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_core_processthreads_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-core-processthreads-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_core_processthreads_l1_1_1.dll" Guid="*">
+                <File Id="api_ms_win_core_processthreads_l1_1_1.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-core-processthreads-l1-1-1.dll" />
+            </Component>
+            <Component Id="api_ms_win_core_profile_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_core_profile_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-core-profile-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_core_rtlsupport_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_core_rtlsupport_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-core-rtlsupport-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_core_string_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_core_string_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-core-string-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_core_synch_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_core_synch_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-core-synch-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_core_synch_l1_2_0.dll" Guid="*">
+                <File Id="api_ms_win_core_synch_l1_2_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-core-synch-l1-2-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_core_sysinfo_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_core_sysinfo_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-core-sysinfo-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_core_timezone_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_core_timezone_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-core-timezone-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_core_util_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_core_util_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-core-util-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_crt_conio_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_crt_conio_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-crt-conio-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_crt_convert_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_crt_convert_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-crt-convert-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_crt_environment_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_crt_environment_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-crt-environment-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_crt_filesystem_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_crt_filesystem_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-crt-filesystem-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_crt_heap_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_crt_heap_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-crt-heap-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_crt_locale_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_crt_locale_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-crt-locale-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_crt_math_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_crt_math_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-crt-math-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_crt_multibyte_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_crt_multibyte_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-crt-multibyte-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_crt_private_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_crt_private_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-crt-private-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_crt_process_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_crt_process_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-crt-process-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_crt_runtime_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_crt_runtime_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-crt-runtime-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_crt_stdio_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_crt_stdio_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-crt-stdio-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_crt_string_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_crt_string_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-crt-string-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_crt_time_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_crt_time_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-crt-time-l1-1-0.dll" />
+            </Component>
+            <Component Id="api_ms_win_crt_utility_l1_1_0.dll" Guid="*">
+                <File Id="api_ms_win_crt_utility_l1_1_0.dll" KeyPath="yes" Source="$(var.SourceDir)\api-ms-win-crt-utility-l1-1-0.dll" />
+            </Component>
+            <Component Id="clretwrc.dll" Guid="*">
+                <File Id="clretwrc.dll" KeyPath="yes" Source="$(var.SourceDir)\clretwrc.dll" />
+            </Component>
+            <Component Id="clrjit.dll" Guid="*">
+                <File Id="clrjit.dll" KeyPath="yes" Source="$(var.SourceDir)\clrjit.dll" />
+            </Component>
+            <Component Id="coreclr.dll" Guid="*">
+                <File Id="coreclr.dll" KeyPath="yes" Source="$(var.SourceDir)\coreclr.dll" />
+            </Component>
+            <Component Id="createdump.exe" Guid="*">
+                <File Id="createdump.exe" KeyPath="yes" Source="$(var.SourceDir)\createdump.exe" />
+            </Component>
+            <Component Id="D3DCompiler_47_cor3.dll" Guid="*">
+                <File Id="D3DCompiler_47_cor3.dll" KeyPath="yes" Source="$(var.SourceDir)\D3DCompiler_47_cor3.dll" />
+            </Component>
+            <Component Id="dbgshim.dll" Guid="*">
+                <File Id="dbgshim.dll" KeyPath="yes" Source="$(var.SourceDir)\dbgshim.dll" />
+            </Component>
+            <Component Id="DirectWriteForwarder.dll" Guid="*">
+                <File Id="DirectWriteForwarder.dll" KeyPath="yes" Source="$(var.SourceDir)\DirectWriteForwarder.dll" />
+            </Component>
+            <Component Id="hostfxr.dll" Guid="*">
+                <File Id="hostfxr.dll" KeyPath="yes" Source="$(var.SourceDir)\hostfxr.dll" />
+            </Component>
+            <Component Id="hostpolicy.dll" Guid="*">
+                <File Id="hostpolicy.dll" KeyPath="yes" Source="$(var.SourceDir)\hostpolicy.dll" />
+            </Component>
+            <Component Id="Microsoft.CSharp.dll" Guid="*">
+                <File Id="Microsoft.CSharp.dll" KeyPath="yes" Source="$(var.SourceDir)\Microsoft.CSharp.dll" />
+            </Component>
+            <Component Id="Microsoft.DiaSymReader.Native.amd64.dll" Guid="*">
+                <File Id="Microsoft.DiaSymReader.Native.amd64.dll" KeyPath="yes" Source="$(var.SourceDir)\Microsoft.DiaSymReader.Native.amd64.dll" />
+            </Component>
+            <Component Id="Microsoft.VisualBasic.Core.dll" Guid="*">
+                <File Id="Microsoft.VisualBasic.Core.dll" KeyPath="yes" Source="$(var.SourceDir)\Microsoft.VisualBasic.Core.dll" />
+            </Component>
+            <Component Id="Microsoft.VisualBasic.dll" Guid="*">
+                <File Id="Microsoft.VisualBasic.dll" KeyPath="yes" Source="$(var.SourceDir)\Microsoft.VisualBasic.dll" />
+            </Component>
+            <Component Id="Microsoft.VisualBasic.Forms.dll" Guid="*">
+                <File Id="Microsoft.VisualBasic.Forms.dll" KeyPath="yes" Source="$(var.SourceDir)\Microsoft.VisualBasic.Forms.dll" />
+            </Component>
+            <Component Id="Microsoft.Win32.Primitives.dll" Guid="*">
+                <File Id="Microsoft.Win32.Primitives.dll" KeyPath="yes" Source="$(var.SourceDir)\Microsoft.Win32.Primitives.dll" />
+            </Component>
+            <Component Id="Microsoft.Win32.Registry.AccessControl.dll" Guid="*">
+                <File Id="Microsoft.Win32.Registry.AccessControl.dll" KeyPath="yes" Source="$(var.SourceDir)\Microsoft.Win32.Registry.AccessControl.dll" />
+            </Component>
+            <Component Id="Microsoft.Win32.Registry.dll" Guid="*">
+                <File Id="Microsoft.Win32.Registry.dll" KeyPath="yes" Source="$(var.SourceDir)\Microsoft.Win32.Registry.dll" />
+            </Component>
+            <Component Id="Microsoft.Win32.SystemEvents.dll" Guid="*">
+                <File Id="Microsoft.Win32.SystemEvents.dll" KeyPath="yes" Source="$(var.SourceDir)\Microsoft.Win32.SystemEvents.dll" />
+            </Component>
+            <Component Id="mscordaccore.dll" Guid="*">
+                <File Id="mscordaccore.dll" KeyPath="yes" Source="$(var.SourceDir)\mscordaccore.dll" />
+            </Component>
+            <Component Id="mscordaccore_amd64_amd64_6.0.922.41905.dll" Guid="*">
+                <File Id="mscordaccore_amd64_amd64_6.0.922.41905.dll" KeyPath="yes" Source="$(var.SourceDir)\mscordaccore_amd64_amd64_6.0.922.41905.dll" />
+            </Component>
+            <Component Id="mscordbi.dll" Guid="*">
+                <File Id="mscordbi.dll" KeyPath="yes" Source="$(var.SourceDir)\mscordbi.dll" />
+            </Component>
+            <Component Id="mscorlib.dll" Guid="*">
+                <File Id="mscorlib.dll" KeyPath="yes" Source="$(var.SourceDir)\mscorlib.dll" />
+            </Component>
+            <Component Id="mscorrc.dll" Guid="*">
+                <File Id="mscorrc.dll" KeyPath="yes" Source="$(var.SourceDir)\mscorrc.dll" />
+            </Component>
+            <Component Id="msquic.dll" Guid="*">
+                <File Id="msquic.dll" KeyPath="yes" Source="$(var.SourceDir)\msquic.dll" />
+            </Component>
+            <Component Id="netstandard.dll" Guid="*">
+                <File Id="netstandard.dll" KeyPath="yes" Source="$(var.SourceDir)\netstandard.dll" />
+            </Component>
+            <Component Id="PenImc_cor3.dll" Guid="*">
+                <File Id="PenImc_cor3.dll" KeyPath="yes" Source="$(var.SourceDir)\PenImc_cor3.dll" />
+            </Component>
+            <Component Id="PresentationCore.dll" Guid="*">
+                <File Id="PresentationCore.dll" KeyPath="yes" Source="$(var.SourceDir)\PresentationCore.dll" />
+            </Component>
+            <Component Id="PresentationFramework_SystemCore.dll" Guid="*">
+                <File Id="PresentationFramework_SystemCore.dll" KeyPath="yes" Source="$(var.SourceDir)\PresentationFramework-SystemCore.dll" />
+            </Component>
+            <Component Id="PresentationFramework_SystemData.dll" Guid="*">
+                <File Id="PresentationFramework_SystemData.dll" KeyPath="yes" Source="$(var.SourceDir)\PresentationFramework-SystemData.dll" />
+            </Component>
+            <Component Id="PresentationFramework_SystemDrawing.dll" Guid="*">
+                <File Id="PresentationFramework_SystemDrawing.dll" KeyPath="yes" Source="$(var.SourceDir)\PresentationFramework-SystemDrawing.dll" />
+            </Component>
+            <Component Id="PresentationFramework_SystemXml.dll" Guid="*">
+                <File Id="PresentationFramework_SystemXml.dll" KeyPath="yes" Source="$(var.SourceDir)\PresentationFramework-SystemXml.dll" />
+            </Component>
+            <Component Id="PresentationFramework_SystemXmlLinq.dll" Guid="*">
+                <File Id="PresentationFramework_SystemXmlLinq.dll" KeyPath="yes" Source="$(var.SourceDir)\PresentationFramework-SystemXmlLinq.dll" />
+            </Component>
+            <Component Id="PresentationFramework.Aero.dll" Guid="*">
+                <File Id="PresentationFramework.Aero.dll" KeyPath="yes" Source="$(var.SourceDir)\PresentationFramework.Aero.dll" />
+            </Component>
+            <Component Id="PresentationFramework.Aero2.dll" Guid="*">
+                <File Id="PresentationFramework.Aero2.dll" KeyPath="yes" Source="$(var.SourceDir)\PresentationFramework.Aero2.dll" />
+            </Component>
+            <Component Id="PresentationFramework.AeroLite.dll" Guid="*">
+                <File Id="PresentationFramework.AeroLite.dll" KeyPath="yes" Source="$(var.SourceDir)\PresentationFramework.AeroLite.dll" />
+            </Component>
+            <Component Id="PresentationFramework.Classic.dll" Guid="*">
+                <File Id="PresentationFramework.Classic.dll" KeyPath="yes" Source="$(var.SourceDir)\PresentationFramework.Classic.dll" />
+            </Component>
+            <Component Id="PresentationFramework.dll" Guid="*">
+                <File Id="PresentationFramework.dll" KeyPath="yes" Source="$(var.SourceDir)\PresentationFramework.dll" />
+            </Component>
+            <Component Id="PresentationFramework.Luna.dll" Guid="*">
+                <File Id="PresentationFramework.Luna.dll" KeyPath="yes" Source="$(var.SourceDir)\PresentationFramework.Luna.dll" />
+            </Component>
+            <Component Id="PresentationFramework.Royale.dll" Guid="*">
+                <File Id="PresentationFramework.Royale.dll" KeyPath="yes" Source="$(var.SourceDir)\PresentationFramework.Royale.dll" />
+            </Component>
+            <Component Id="PresentationNative_cor3.dll" Guid="*">
+                <File Id="PresentationNative_cor3.dll" KeyPath="yes" Source="$(var.SourceDir)\PresentationNative_cor3.dll" />
+            </Component>
+            <Component Id="PresentationUI.dll" Guid="*">
+                <File Id="PresentationUI.dll" KeyPath="yes" Source="$(var.SourceDir)\PresentationUI.dll" />
+            </Component>
+            <Component Id="ReachFramework.dll" Guid="*">
+                <File Id="ReachFramework.dll" KeyPath="yes" Source="$(var.SourceDir)\ReachFramework.dll" />
+            </Component>
+            <Component Id="RemoteApplicationPublisher.deps.json" Guid="*">
+                <File Id="RemoteApplicationPublisher.deps.json" KeyPath="yes" Source="$(var.SourceDir)\RemoteApplicationPublisher.deps.json" />
+            </Component>
+            <Component Id="RemoteApplicationPublisher.dll" Guid="*">
+                <File Id="RemoteApplicationPublisher.dll" KeyPath="yes" Source="$(var.SourceDir)\RemoteApplicationPublisher.dll" />
+            </Component>
+            <Component Id="RemoteApplicationPublisher.exe" Guid="*">
+                <File Id="RemoteApplicationPublisher.exe" KeyPath="yes" Source="$(var.SourceDir)\RemoteApplicationPublisher.exe" />
+            </Component>
+            <Component Id="RemoteApplicationPublisher.pdb" Guid="*">
+                <File Id="RemoteApplicationPublisher.pdb" KeyPath="yes" Source="$(var.SourceDir)\RemoteApplicationPublisher.pdb" />
+            </Component>
+            <Component Id="RemoteApplicationPublisher.runtimeconfig.json" Guid="*">
+                <File Id="RemoteApplicationPublisher.runtimeconfig.json" KeyPath="yes" Source="$(var.SourceDir)\RemoteApplicationPublisher.runtimeconfig.json" />
+            </Component>
+            <Component Id="System.AppContext.dll" Guid="*">
+                <File Id="System.AppContext.dll" KeyPath="yes" Source="$(var.SourceDir)\System.AppContext.dll" />
+            </Component>
+            <Component Id="System.Buffers.dll" Guid="*">
+                <File Id="System.Buffers.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Buffers.dll" />
+            </Component>
+            <Component Id="System.CodeDom.dll" Guid="*">
+                <File Id="System.CodeDom.dll" KeyPath="yes" Source="$(var.SourceDir)\System.CodeDom.dll" />
+            </Component>
+            <Component Id="System.Collections.Concurrent.dll" Guid="*">
+                <File Id="System.Collections.Concurrent.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Collections.Concurrent.dll" />
+            </Component>
+            <Component Id="System.Collections.dll" Guid="*">
+                <File Id="System.Collections.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Collections.dll" />
+            </Component>
+            <Component Id="System.Collections.Immutable.dll" Guid="*">
+                <File Id="System.Collections.Immutable.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Collections.Immutable.dll" />
+            </Component>
+            <Component Id="System.Collections.NonGeneric.dll" Guid="*">
+                <File Id="System.Collections.NonGeneric.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Collections.NonGeneric.dll" />
+            </Component>
+            <Component Id="System.Collections.Specialized.dll" Guid="*">
+                <File Id="System.Collections.Specialized.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Collections.Specialized.dll" />
+            </Component>
+            <Component Id="System.ComponentModel.Annotations.dll" Guid="*">
+                <File Id="System.ComponentModel.Annotations.dll" KeyPath="yes" Source="$(var.SourceDir)\System.ComponentModel.Annotations.dll" />
+            </Component>
+            <Component Id="System.ComponentModel.DataAnnotations.dll" Guid="*">
+                <File Id="System.ComponentModel.DataAnnotations.dll" KeyPath="yes" Source="$(var.SourceDir)\System.ComponentModel.DataAnnotations.dll" />
+            </Component>
+            <Component Id="System.ComponentModel.dll" Guid="*">
+                <File Id="System.ComponentModel.dll" KeyPath="yes" Source="$(var.SourceDir)\System.ComponentModel.dll" />
+            </Component>
+            <Component Id="System.ComponentModel.EventBasedAsync.dll" Guid="*">
+                <File Id="System.ComponentModel.EventBasedAsync.dll" KeyPath="yes" Source="$(var.SourceDir)\System.ComponentModel.EventBasedAsync.dll" />
+            </Component>
+            <Component Id="System.ComponentModel.Primitives.dll" Guid="*">
+                <File Id="System.ComponentModel.Primitives.dll" KeyPath="yes" Source="$(var.SourceDir)\System.ComponentModel.Primitives.dll" />
+            </Component>
+            <Component Id="System.ComponentModel.TypeConverter.dll" Guid="*">
+                <File Id="System.ComponentModel.TypeConverter.dll" KeyPath="yes" Source="$(var.SourceDir)\System.ComponentModel.TypeConverter.dll" />
+            </Component>
+            <Component Id="System.Configuration.ConfigurationManager.dll" Guid="*">
+                <File Id="System.Configuration.ConfigurationManager.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Configuration.ConfigurationManager.dll" />
+            </Component>
+            <Component Id="System.Configuration.dll" Guid="*">
+                <File Id="System.Configuration.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Configuration.dll" />
+            </Component>
+            <Component Id="System.Console.dll" Guid="*">
+                <File Id="System.Console.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Console.dll" />
+            </Component>
+            <Component Id="System.Core.dll" Guid="*">
+                <File Id="System.Core.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Core.dll" />
+            </Component>
+            <Component Id="System.Data.Common.dll" Guid="*">
+                <File Id="System.Data.Common.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Data.Common.dll" />
+            </Component>
+            <Component Id="System.Data.DataSetExtensions.dll" Guid="*">
+                <File Id="System.Data.DataSetExtensions.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Data.DataSetExtensions.dll" />
+            </Component>
+            <Component Id="System.Data.dll" Guid="*">
+                <File Id="System.Data.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Data.dll" />
+            </Component>
+            <Component Id="System.Design.dll" Guid="*">
+                <File Id="System.Design.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Design.dll" />
+            </Component>
+            <Component Id="System.Diagnostics.Contracts.dll" Guid="*">
+                <File Id="System.Diagnostics.Contracts.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Diagnostics.Contracts.dll" />
+            </Component>
+            <Component Id="System.Diagnostics.Debug.dll" Guid="*">
+                <File Id="System.Diagnostics.Debug.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Diagnostics.Debug.dll" />
+            </Component>
+            <Component Id="System.Diagnostics.DiagnosticSource.dll" Guid="*">
+                <File Id="System.Diagnostics.DiagnosticSource.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Diagnostics.DiagnosticSource.dll" />
+            </Component>
+            <Component Id="System.Diagnostics.EventLog.dll" Guid="*">
+                <File Id="System.Diagnostics.EventLog.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Diagnostics.EventLog.dll" />
+            </Component>
+            <Component Id="System.Diagnostics.EventLog.Messages.dll" Guid="*">
+                <File Id="System.Diagnostics.EventLog.Messages.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Diagnostics.EventLog.Messages.dll" />
+            </Component>
+            <Component Id="System.Diagnostics.FileVersionInfo.dll" Guid="*">
+                <File Id="System.Diagnostics.FileVersionInfo.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Diagnostics.FileVersionInfo.dll" />
+            </Component>
+            <Component Id="System.Diagnostics.PerformanceCounter.dll" Guid="*">
+                <File Id="System.Diagnostics.PerformanceCounter.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Diagnostics.PerformanceCounter.dll" />
+            </Component>
+            <Component Id="System.Diagnostics.Process.dll" Guid="*">
+                <File Id="System.Diagnostics.Process.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Diagnostics.Process.dll" />
+            </Component>
+            <Component Id="System.Diagnostics.StackTrace.dll" Guid="*">
+                <File Id="System.Diagnostics.StackTrace.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Diagnostics.StackTrace.dll" />
+            </Component>
+            <Component Id="System.Diagnostics.TextWriterTraceListener.dll" Guid="*">
+                <File Id="System.Diagnostics.TextWriterTraceListener.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Diagnostics.TextWriterTraceListener.dll" />
+            </Component>
+            <Component Id="System.Diagnostics.Tools.dll" Guid="*">
+                <File Id="System.Diagnostics.Tools.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Diagnostics.Tools.dll" />
+            </Component>
+            <Component Id="System.Diagnostics.TraceSource.dll" Guid="*">
+                <File Id="System.Diagnostics.TraceSource.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Diagnostics.TraceSource.dll" />
+            </Component>
+            <Component Id="System.Diagnostics.Tracing.dll" Guid="*">
+                <File Id="System.Diagnostics.Tracing.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Diagnostics.Tracing.dll" />
+            </Component>
+            <Component Id="System.DirectoryServices.dll" Guid="*">
+                <File Id="System.DirectoryServices.dll" KeyPath="yes" Source="$(var.SourceDir)\System.DirectoryServices.dll" />
+            </Component>
+            <Component Id="System.dll" Guid="*">
+                <File Id="System.dll" KeyPath="yes" Source="$(var.SourceDir)\System.dll" />
+            </Component>
+            <Component Id="System.Drawing.Common.dll" Guid="*">
+                <File Id="System.Drawing.Common.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Drawing.Common.dll" />
+            </Component>
+            <Component Id="System.Drawing.Design.dll" Guid="*">
+                <File Id="System.Drawing.Design.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Drawing.Design.dll" />
+            </Component>
+            <Component Id="System.Drawing.dll" Guid="*">
+                <File Id="System.Drawing.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Drawing.dll" />
+            </Component>
+            <Component Id="System.Drawing.Primitives.dll" Guid="*">
+                <File Id="System.Drawing.Primitives.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Drawing.Primitives.dll" />
+            </Component>
+            <Component Id="System.Dynamic.Runtime.dll" Guid="*">
+                <File Id="System.Dynamic.Runtime.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Dynamic.Runtime.dll" />
+            </Component>
+            <Component Id="System.Formats.Asn1.dll" Guid="*">
+                <File Id="System.Formats.Asn1.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Formats.Asn1.dll" />
+            </Component>
+            <Component Id="System.Globalization.Calendars.dll" Guid="*">
+                <File Id="System.Globalization.Calendars.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Globalization.Calendars.dll" />
+            </Component>
+            <Component Id="System.Globalization.dll" Guid="*">
+                <File Id="System.Globalization.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Globalization.dll" />
+            </Component>
+            <Component Id="System.Globalization.Extensions.dll" Guid="*">
+                <File Id="System.Globalization.Extensions.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Globalization.Extensions.dll" />
+            </Component>
+            <Component Id="System.IO.Compression.Brotli.dll" Guid="*">
+                <File Id="System.IO.Compression.Brotli.dll" KeyPath="yes" Source="$(var.SourceDir)\System.IO.Compression.Brotli.dll" />
+            </Component>
+            <Component Id="System.IO.Compression.dll" Guid="*">
+                <File Id="System.IO.Compression.dll" KeyPath="yes" Source="$(var.SourceDir)\System.IO.Compression.dll" />
+            </Component>
+            <Component Id="System.IO.Compression.FileSystem.dll" Guid="*">
+                <File Id="System.IO.Compression.FileSystem.dll" KeyPath="yes" Source="$(var.SourceDir)\System.IO.Compression.FileSystem.dll" />
+            </Component>
+            <Component Id="System.IO.Compression.Native.dll" Guid="*">
+                <File Id="System.IO.Compression.Native.dll" KeyPath="yes" Source="$(var.SourceDir)\System.IO.Compression.Native.dll" />
+            </Component>
+            <Component Id="System.IO.Compression.ZipFile.dll" Guid="*">
+                <File Id="System.IO.Compression.ZipFile.dll" KeyPath="yes" Source="$(var.SourceDir)\System.IO.Compression.ZipFile.dll" />
+            </Component>
+            <Component Id="System.IO.dll" Guid="*">
+                <File Id="System.IO.dll" KeyPath="yes" Source="$(var.SourceDir)\System.IO.dll" />
+            </Component>
+            <Component Id="System.IO.FileSystem.AccessControl.dll" Guid="*">
+                <File Id="System.IO.FileSystem.AccessControl.dll" KeyPath="yes" Source="$(var.SourceDir)\System.IO.FileSystem.AccessControl.dll" />
+            </Component>
+            <Component Id="System.IO.FileSystem.dll" Guid="*">
+                <File Id="System.IO.FileSystem.dll" KeyPath="yes" Source="$(var.SourceDir)\System.IO.FileSystem.dll" />
+            </Component>
+            <Component Id="System.IO.FileSystem.DriveInfo.dll" Guid="*">
+                <File Id="System.IO.FileSystem.DriveInfo.dll" KeyPath="yes" Source="$(var.SourceDir)\System.IO.FileSystem.DriveInfo.dll" />
+            </Component>
+            <Component Id="System.IO.FileSystem.Primitives.dll" Guid="*">
+                <File Id="System.IO.FileSystem.Primitives.dll" KeyPath="yes" Source="$(var.SourceDir)\System.IO.FileSystem.Primitives.dll" />
+            </Component>
+            <Component Id="System.IO.FileSystem.Watcher.dll" Guid="*">
+                <File Id="System.IO.FileSystem.Watcher.dll" KeyPath="yes" Source="$(var.SourceDir)\System.IO.FileSystem.Watcher.dll" />
+            </Component>
+            <Component Id="System.IO.IsolatedStorage.dll" Guid="*">
+                <File Id="System.IO.IsolatedStorage.dll" KeyPath="yes" Source="$(var.SourceDir)\System.IO.IsolatedStorage.dll" />
+            </Component>
+            <Component Id="System.IO.MemoryMappedFiles.dll" Guid="*">
+                <File Id="System.IO.MemoryMappedFiles.dll" KeyPath="yes" Source="$(var.SourceDir)\System.IO.MemoryMappedFiles.dll" />
+            </Component>
+            <Component Id="System.IO.Packaging.dll" Guid="*">
+                <File Id="System.IO.Packaging.dll" KeyPath="yes" Source="$(var.SourceDir)\System.IO.Packaging.dll" />
+            </Component>
+            <Component Id="System.IO.Pipes.AccessControl.dll" Guid="*">
+                <File Id="System.IO.Pipes.AccessControl.dll" KeyPath="yes" Source="$(var.SourceDir)\System.IO.Pipes.AccessControl.dll" />
+            </Component>
+            <Component Id="System.IO.Pipes.dll" Guid="*">
+                <File Id="System.IO.Pipes.dll" KeyPath="yes" Source="$(var.SourceDir)\System.IO.Pipes.dll" />
+            </Component>
+            <Component Id="System.IO.UnmanagedMemoryStream.dll" Guid="*">
+                <File Id="System.IO.UnmanagedMemoryStream.dll" KeyPath="yes" Source="$(var.SourceDir)\System.IO.UnmanagedMemoryStream.dll" />
+            </Component>
+            <Component Id="System.Linq.dll" Guid="*">
+                <File Id="System.Linq.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Linq.dll" />
+            </Component>
+            <Component Id="System.Linq.Expressions.dll" Guid="*">
+                <File Id="System.Linq.Expressions.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Linq.Expressions.dll" />
+            </Component>
+            <Component Id="System.Linq.Parallel.dll" Guid="*">
+                <File Id="System.Linq.Parallel.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Linq.Parallel.dll" />
+            </Component>
+            <Component Id="System.Linq.Queryable.dll" Guid="*">
+                <File Id="System.Linq.Queryable.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Linq.Queryable.dll" />
+            </Component>
+            <Component Id="System.Memory.dll" Guid="*">
+                <File Id="System.Memory.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Memory.dll" />
+            </Component>
+            <Component Id="System.Net.dll" Guid="*">
+                <File Id="System.Net.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Net.dll" />
+            </Component>
+            <Component Id="System.Net.Http.dll" Guid="*">
+                <File Id="System.Net.Http.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Net.Http.dll" />
+            </Component>
+            <Component Id="System.Net.Http.Json.dll" Guid="*">
+                <File Id="System.Net.Http.Json.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Net.Http.Json.dll" />
+            </Component>
+            <Component Id="System.Net.HttpListener.dll" Guid="*">
+                <File Id="System.Net.HttpListener.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Net.HttpListener.dll" />
+            </Component>
+            <Component Id="System.Net.Mail.dll" Guid="*">
+                <File Id="System.Net.Mail.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Net.Mail.dll" />
+            </Component>
+            <Component Id="System.Net.NameResolution.dll" Guid="*">
+                <File Id="System.Net.NameResolution.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Net.NameResolution.dll" />
+            </Component>
+            <Component Id="System.Net.NetworkInformation.dll" Guid="*">
+                <File Id="System.Net.NetworkInformation.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Net.NetworkInformation.dll" />
+            </Component>
+            <Component Id="System.Net.Ping.dll" Guid="*">
+                <File Id="System.Net.Ping.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Net.Ping.dll" />
+            </Component>
+            <Component Id="System.Net.Primitives.dll" Guid="*">
+                <File Id="System.Net.Primitives.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Net.Primitives.dll" />
+            </Component>
+            <Component Id="System.Net.Quic.dll" Guid="*">
+                <File Id="System.Net.Quic.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Net.Quic.dll" />
+            </Component>
+            <Component Id="System.Net.Requests.dll" Guid="*">
+                <File Id="System.Net.Requests.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Net.Requests.dll" />
+            </Component>
+            <Component Id="System.Net.Security.dll" Guid="*">
+                <File Id="System.Net.Security.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Net.Security.dll" />
+            </Component>
+            <Component Id="System.Net.ServicePoint.dll" Guid="*">
+                <File Id="System.Net.ServicePoint.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Net.ServicePoint.dll" />
+            </Component>
+            <Component Id="System.Net.Sockets.dll" Guid="*">
+                <File Id="System.Net.Sockets.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Net.Sockets.dll" />
+            </Component>
+            <Component Id="System.Net.WebClient.dll" Guid="*">
+                <File Id="System.Net.WebClient.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Net.WebClient.dll" />
+            </Component>
+            <Component Id="System.Net.WebHeaderCollection.dll" Guid="*">
+                <File Id="System.Net.WebHeaderCollection.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Net.WebHeaderCollection.dll" />
+            </Component>
+            <Component Id="System.Net.WebProxy.dll" Guid="*">
+                <File Id="System.Net.WebProxy.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Net.WebProxy.dll" />
+            </Component>
+            <Component Id="System.Net.WebSockets.Client.dll" Guid="*">
+                <File Id="System.Net.WebSockets.Client.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Net.WebSockets.Client.dll" />
+            </Component>
+            <Component Id="System.Net.WebSockets.dll" Guid="*">
+                <File Id="System.Net.WebSockets.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Net.WebSockets.dll" />
+            </Component>
+            <Component Id="System.Numerics.dll" Guid="*">
+                <File Id="System.Numerics.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Numerics.dll" />
+            </Component>
+            <Component Id="System.Numerics.Vectors.dll" Guid="*">
+                <File Id="System.Numerics.Vectors.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Numerics.Vectors.dll" />
+            </Component>
+            <Component Id="System.ObjectModel.dll" Guid="*">
+                <File Id="System.ObjectModel.dll" KeyPath="yes" Source="$(var.SourceDir)\System.ObjectModel.dll" />
+            </Component>
+            <Component Id="System.Printing.dll" Guid="*">
+                <File Id="System.Printing.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Printing.dll" />
+            </Component>
+            <Component Id="System.Private.CoreLib.dll" Guid="*">
+                <File Id="System.Private.CoreLib.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Private.CoreLib.dll" />
+            </Component>
+            <Component Id="System.Private.DataContractSerialization.dll" Guid="*">
+                <File Id="System.Private.DataContractSerialization.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Private.DataContractSerialization.dll" />
+            </Component>
+            <Component Id="System.Private.Uri.dll" Guid="*">
+                <File Id="System.Private.Uri.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Private.Uri.dll" />
+            </Component>
+            <Component Id="System.Private.Xml.dll" Guid="*">
+                <File Id="System.Private.Xml.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Private.Xml.dll" />
+            </Component>
+            <Component Id="System.Private.Xml.Linq.dll" Guid="*">
+                <File Id="System.Private.Xml.Linq.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Private.Xml.Linq.dll" />
+            </Component>
+            <Component Id="System.Reflection.DispatchProxy.dll" Guid="*">
+                <File Id="System.Reflection.DispatchProxy.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Reflection.DispatchProxy.dll" />
+            </Component>
+            <Component Id="System.Reflection.dll" Guid="*">
+                <File Id="System.Reflection.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Reflection.dll" />
+            </Component>
+            <Component Id="System.Reflection.Emit.dll" Guid="*">
+                <File Id="System.Reflection.Emit.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Reflection.Emit.dll" />
+            </Component>
+            <Component Id="System.Reflection.Emit.ILGeneration.dll" Guid="*">
+                <File Id="System.Reflection.Emit.ILGeneration.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Reflection.Emit.ILGeneration.dll" />
+            </Component>
+            <Component Id="System.Reflection.Emit.Lightweight.dll" Guid="*">
+                <File Id="System.Reflection.Emit.Lightweight.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Reflection.Emit.Lightweight.dll" />
+            </Component>
+            <Component Id="System.Reflection.Extensions.dll" Guid="*">
+                <File Id="System.Reflection.Extensions.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Reflection.Extensions.dll" />
+            </Component>
+            <Component Id="System.Reflection.Metadata.dll" Guid="*">
+                <File Id="System.Reflection.Metadata.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Reflection.Metadata.dll" />
+            </Component>
+            <Component Id="System.Reflection.Primitives.dll" Guid="*">
+                <File Id="System.Reflection.Primitives.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Reflection.Primitives.dll" />
+            </Component>
+            <Component Id="System.Reflection.TypeExtensions.dll" Guid="*">
+                <File Id="System.Reflection.TypeExtensions.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Reflection.TypeExtensions.dll" />
+            </Component>
+            <Component Id="System.Resources.Extensions.dll" Guid="*">
+                <File Id="System.Resources.Extensions.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Resources.Extensions.dll" />
+            </Component>
+            <Component Id="System.Resources.Reader.dll" Guid="*">
+                <File Id="System.Resources.Reader.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Resources.Reader.dll" />
+            </Component>
+            <Component Id="System.Resources.ResourceManager.dll" Guid="*">
+                <File Id="System.Resources.ResourceManager.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Resources.ResourceManager.dll" />
+            </Component>
+            <Component Id="System.Resources.Writer.dll" Guid="*">
+                <File Id="System.Resources.Writer.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Resources.Writer.dll" />
+            </Component>
+            <Component Id="System.Runtime.CompilerServices.Unsafe.dll" Guid="*">
+                <File Id="System.Runtime.CompilerServices.Unsafe.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Runtime.CompilerServices.Unsafe.dll" />
+            </Component>
+            <Component Id="System.Runtime.CompilerServices.VisualC.dll" Guid="*">
+                <File Id="System.Runtime.CompilerServices.VisualC.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Runtime.CompilerServices.VisualC.dll" />
+            </Component>
+            <Component Id="System.Runtime.dll" Guid="*">
+                <File Id="System.Runtime.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Runtime.dll" />
+            </Component>
+            <Component Id="System.Runtime.Extensions.dll" Guid="*">
+                <File Id="System.Runtime.Extensions.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Runtime.Extensions.dll" />
+            </Component>
+            <Component Id="System.Runtime.Handles.dll" Guid="*">
+                <File Id="System.Runtime.Handles.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Runtime.Handles.dll" />
+            </Component>
+            <Component Id="System.Runtime.InteropServices.dll" Guid="*">
+                <File Id="System.Runtime.InteropServices.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Runtime.InteropServices.dll" />
+            </Component>
+            <Component Id="System.Runtime.InteropServices.RuntimeInformation.dll" Guid="*">
+                <File Id="System.Runtime.InteropServices.RuntimeInformation.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Runtime.InteropServices.RuntimeInformation.dll" />
+            </Component>
+            <Component Id="System.Runtime.Intrinsics.dll" Guid="*">
+                <File Id="System.Runtime.Intrinsics.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Runtime.Intrinsics.dll" />
+            </Component>
+            <Component Id="System.Runtime.Loader.dll" Guid="*">
+                <File Id="System.Runtime.Loader.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Runtime.Loader.dll" />
+            </Component>
+            <Component Id="System.Runtime.Numerics.dll" Guid="*">
+                <File Id="System.Runtime.Numerics.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Runtime.Numerics.dll" />
+            </Component>
+            <Component Id="System.Runtime.Serialization.dll" Guid="*">
+                <File Id="System.Runtime.Serialization.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Runtime.Serialization.dll" />
+            </Component>
+            <Component Id="System.Runtime.Serialization.Formatters.dll" Guid="*">
+                <File Id="System.Runtime.Serialization.Formatters.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Runtime.Serialization.Formatters.dll" />
+            </Component>
+            <Component Id="System.Runtime.Serialization.Json.dll" Guid="*">
+                <File Id="System.Runtime.Serialization.Json.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Runtime.Serialization.Json.dll" />
+            </Component>
+            <Component Id="System.Runtime.Serialization.Primitives.dll" Guid="*">
+                <File Id="System.Runtime.Serialization.Primitives.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Runtime.Serialization.Primitives.dll" />
+            </Component>
+            <Component Id="System.Runtime.Serialization.Xml.dll" Guid="*">
+                <File Id="System.Runtime.Serialization.Xml.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Runtime.Serialization.Xml.dll" />
+            </Component>
+            <Component Id="System.Security.AccessControl.dll" Guid="*">
+                <File Id="System.Security.AccessControl.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Security.AccessControl.dll" />
+            </Component>
+            <Component Id="System.Security.Claims.dll" Guid="*">
+                <File Id="System.Security.Claims.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Security.Claims.dll" />
+            </Component>
+            <Component Id="System.Security.Cryptography.Algorithms.dll" Guid="*">
+                <File Id="System.Security.Cryptography.Algorithms.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Security.Cryptography.Algorithms.dll" />
+            </Component>
+            <Component Id="System.Security.Cryptography.Cng.dll" Guid="*">
+                <File Id="System.Security.Cryptography.Cng.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Security.Cryptography.Cng.dll" />
+            </Component>
+            <Component Id="System.Security.Cryptography.Csp.dll" Guid="*">
+                <File Id="System.Security.Cryptography.Csp.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Security.Cryptography.Csp.dll" />
+            </Component>
+            <Component Id="System.Security.Cryptography.Encoding.dll" Guid="*">
+                <File Id="System.Security.Cryptography.Encoding.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Security.Cryptography.Encoding.dll" />
+            </Component>
+            <Component Id="System.Security.Cryptography.OpenSsl.dll" Guid="*">
+                <File Id="System.Security.Cryptography.OpenSsl.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Security.Cryptography.OpenSsl.dll" />
+            </Component>
+            <Component Id="System.Security.Cryptography.Pkcs.dll" Guid="*">
+                <File Id="System.Security.Cryptography.Pkcs.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Security.Cryptography.Pkcs.dll" />
+            </Component>
+            <Component Id="System.Security.Cryptography.Primitives.dll" Guid="*">
+                <File Id="System.Security.Cryptography.Primitives.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Security.Cryptography.Primitives.dll" />
+            </Component>
+            <Component Id="System.Security.Cryptography.ProtectedData.dll" Guid="*">
+                <File Id="System.Security.Cryptography.ProtectedData.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Security.Cryptography.ProtectedData.dll" />
+            </Component>
+            <Component Id="System.Security.Cryptography.X509Certificates.dll" Guid="*">
+                <File Id="System.Security.Cryptography.X509Certificates.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Security.Cryptography.X509Certificates.dll" />
+            </Component>
+            <Component Id="System.Security.Cryptography.Xml.dll" Guid="*">
+                <File Id="System.Security.Cryptography.Xml.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Security.Cryptography.Xml.dll" />
+            </Component>
+            <Component Id="System.Security.dll" Guid="*">
+                <File Id="System.Security.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Security.dll" />
+            </Component>
+            <Component Id="System.Security.Permissions.dll" Guid="*">
+                <File Id="System.Security.Permissions.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Security.Permissions.dll" />
+            </Component>
+            <Component Id="System.Security.Principal.dll" Guid="*">
+                <File Id="System.Security.Principal.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Security.Principal.dll" />
+            </Component>
+            <Component Id="System.Security.Principal.Windows.dll" Guid="*">
+                <File Id="System.Security.Principal.Windows.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Security.Principal.Windows.dll" />
+            </Component>
+            <Component Id="System.Security.SecureString.dll" Guid="*">
+                <File Id="System.Security.SecureString.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Security.SecureString.dll" />
+            </Component>
+            <Component Id="System.ServiceModel.Web.dll" Guid="*">
+                <File Id="System.ServiceModel.Web.dll" KeyPath="yes" Source="$(var.SourceDir)\System.ServiceModel.Web.dll" />
+            </Component>
+            <Component Id="System.ServiceProcess.dll" Guid="*">
+                <File Id="System.ServiceProcess.dll" KeyPath="yes" Source="$(var.SourceDir)\System.ServiceProcess.dll" />
+            </Component>
+            <Component Id="System.Text.Encoding.CodePages.dll" Guid="*">
+                <File Id="System.Text.Encoding.CodePages.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Text.Encoding.CodePages.dll" />
+            </Component>
+            <Component Id="System.Text.Encoding.dll" Guid="*">
+                <File Id="System.Text.Encoding.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Text.Encoding.dll" />
+            </Component>
+            <Component Id="System.Text.Encoding.Extensions.dll" Guid="*">
+                <File Id="System.Text.Encoding.Extensions.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Text.Encoding.Extensions.dll" />
+            </Component>
+            <Component Id="System.Text.Encodings.Web.dll" Guid="*">
+                <File Id="System.Text.Encodings.Web.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Text.Encodings.Web.dll" />
+            </Component>
+            <Component Id="System.Text.Json.dll" Guid="*">
+                <File Id="System.Text.Json.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Text.Json.dll" />
+            </Component>
+            <Component Id="System.Text.RegularExpressions.dll" Guid="*">
+                <File Id="System.Text.RegularExpressions.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Text.RegularExpressions.dll" />
+            </Component>
+            <Component Id="System.Threading.AccessControl.dll" Guid="*">
+                <File Id="System.Threading.AccessControl.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Threading.AccessControl.dll" />
+            </Component>
+            <Component Id="System.Threading.Channels.dll" Guid="*">
+                <File Id="System.Threading.Channels.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Threading.Channels.dll" />
+            </Component>
+            <Component Id="System.Threading.dll" Guid="*">
+                <File Id="System.Threading.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Threading.dll" />
+            </Component>
+            <Component Id="System.Threading.Overlapped.dll" Guid="*">
+                <File Id="System.Threading.Overlapped.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Threading.Overlapped.dll" />
+            </Component>
+            <Component Id="System.Threading.Tasks.Dataflow.dll" Guid="*">
+                <File Id="System.Threading.Tasks.Dataflow.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Threading.Tasks.Dataflow.dll" />
+            </Component>
+            <Component Id="System.Threading.Tasks.dll" Guid="*">
+                <File Id="System.Threading.Tasks.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Threading.Tasks.dll" />
+            </Component>
+            <Component Id="System.Threading.Tasks.Extensions.dll" Guid="*">
+                <File Id="System.Threading.Tasks.Extensions.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Threading.Tasks.Extensions.dll" />
+            </Component>
+            <Component Id="System.Threading.Tasks.Parallel.dll" Guid="*">
+                <File Id="System.Threading.Tasks.Parallel.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Threading.Tasks.Parallel.dll" />
+            </Component>
+            <Component Id="System.Threading.Thread.dll" Guid="*">
+                <File Id="System.Threading.Thread.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Threading.Thread.dll" />
+            </Component>
+            <Component Id="System.Threading.ThreadPool.dll" Guid="*">
+                <File Id="System.Threading.ThreadPool.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Threading.ThreadPool.dll" />
+            </Component>
+            <Component Id="System.Threading.Timer.dll" Guid="*">
+                <File Id="System.Threading.Timer.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Threading.Timer.dll" />
+            </Component>
+            <Component Id="System.Transactions.dll" Guid="*">
+                <File Id="System.Transactions.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Transactions.dll" />
+            </Component>
+            <Component Id="System.Transactions.Local.dll" Guid="*">
+                <File Id="System.Transactions.Local.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Transactions.Local.dll" />
+            </Component>
+            <Component Id="System.ValueTuple.dll" Guid="*">
+                <File Id="System.ValueTuple.dll" KeyPath="yes" Source="$(var.SourceDir)\System.ValueTuple.dll" />
+            </Component>
+            <Component Id="System.Web.dll" Guid="*">
+                <File Id="System.Web.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Web.dll" />
+            </Component>
+            <Component Id="System.Web.HttpUtility.dll" Guid="*">
+                <File Id="System.Web.HttpUtility.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Web.HttpUtility.dll" />
+            </Component>
+            <Component Id="System.Windows.Controls.Ribbon.dll" Guid="*">
+                <File Id="System.Windows.Controls.Ribbon.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Windows.Controls.Ribbon.dll" />
+            </Component>
+            <Component Id="System.Windows.dll" Guid="*">
+                <File Id="System.Windows.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Windows.dll" />
+            </Component>
+            <Component Id="System.Windows.Extensions.dll" Guid="*">
+                <File Id="System.Windows.Extensions.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Windows.Extensions.dll" />
+            </Component>
+            <Component Id="System.Windows.Forms.Design.dll" Guid="*">
+                <File Id="System.Windows.Forms.Design.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Windows.Forms.Design.dll" />
+            </Component>
+            <Component Id="System.Windows.Forms.Design.Editors.dll" Guid="*">
+                <File Id="System.Windows.Forms.Design.Editors.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Windows.Forms.Design.Editors.dll" />
+            </Component>
+            <Component Id="System.Windows.Forms.dll" Guid="*">
+                <File Id="System.Windows.Forms.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Windows.Forms.dll" />
+            </Component>
+            <Component Id="System.Windows.Forms.Primitives.dll" Guid="*">
+                <File Id="System.Windows.Forms.Primitives.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Windows.Forms.Primitives.dll" />
+            </Component>
+            <Component Id="System.Windows.Input.Manipulations.dll" Guid="*">
+                <File Id="System.Windows.Input.Manipulations.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Windows.Input.Manipulations.dll" />
+            </Component>
+            <Component Id="System.Windows.Presentation.dll" Guid="*">
+                <File Id="System.Windows.Presentation.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Windows.Presentation.dll" />
+            </Component>
+            <Component Id="System.Xaml.dll" Guid="*">
+                <File Id="System.Xaml.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Xaml.dll" />
+            </Component>
+            <Component Id="System.Xml.dll" Guid="*">
+                <File Id="System.Xml.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Xml.dll" />
+            </Component>
+            <Component Id="System.Xml.Linq.dll" Guid="*">
+                <File Id="System.Xml.Linq.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Xml.Linq.dll" />
+            </Component>
+            <Component Id="System.Xml.ReaderWriter.dll" Guid="*">
+                <File Id="System.Xml.ReaderWriter.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Xml.ReaderWriter.dll" />
+            </Component>
+            <Component Id="System.Xml.Serialization.dll" Guid="*">
+                <File Id="System.Xml.Serialization.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Xml.Serialization.dll" />
+            </Component>
+            <Component Id="System.Xml.XDocument.dll" Guid="*">
+                <File Id="System.Xml.XDocument.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Xml.XDocument.dll" />
+            </Component>
+            <Component Id="System.Xml.XmlDocument.dll" Guid="*">
+                <File Id="System.Xml.XmlDocument.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Xml.XmlDocument.dll" />
+            </Component>
+            <Component Id="System.Xml.XmlSerializer.dll" Guid="*">
+                <File Id="System.Xml.XmlSerializer.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Xml.XmlSerializer.dll" />
+            </Component>
+            <Component Id="System.Xml.XPath.dll" Guid="*">
+                <File Id="System.Xml.XPath.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Xml.XPath.dll" />
+            </Component>
+            <Component Id="System.Xml.XPath.XDocument.dll" Guid="*">
+                <File Id="System.Xml.XPath.XDocument.dll" KeyPath="yes" Source="$(var.SourceDir)\System.Xml.XPath.XDocument.dll" />
+            </Component>
+            <Component Id="ucrtbase.dll" Guid="*">
+                <File Id="ucrtbase.dll" KeyPath="yes" Source="$(var.SourceDir)\ucrtbase.dll" />
+            </Component>
+            <Component Id="UIAutomationClient.dll" Guid="*">
+                <File Id="UIAutomationClient.dll" KeyPath="yes" Source="$(var.SourceDir)\UIAutomationClient.dll" />
+            </Component>
+            <Component Id="UIAutomationClientSideProviders.dll" Guid="*">
+                <File Id="UIAutomationClientSideProviders.dll" KeyPath="yes" Source="$(var.SourceDir)\UIAutomationClientSideProviders.dll" />
+            </Component>
+            <Component Id="UIAutomationProvider.dll" Guid="*">
+                <File Id="UIAutomationProvider.dll" KeyPath="yes" Source="$(var.SourceDir)\UIAutomationProvider.dll" />
+            </Component>
+            <Component Id="UIAutomationTypes.dll" Guid="*">
+                <File Id="UIAutomationTypes.dll" KeyPath="yes" Source="$(var.SourceDir)\UIAutomationTypes.dll" />
+            </Component>
+            <Component Id="vcruntime140_cor3.dll" Guid="*">
+                <File Id="vcruntime140_cor3.dll" KeyPath="yes" Source="$(var.SourceDir)\vcruntime140_cor3.dll" />
+            </Component>
+            <Component Id="WindowsBase.dll" Guid="*">
+                <File Id="WindowsBase.dll" KeyPath="yes" Source="$(var.SourceDir)\WindowsBase.dll" />
+            </Component>
+            <Component Id="WindowsFormsIntegration.dll" Guid="*">
+                <File Id="WindowsFormsIntegration.dll" KeyPath="yes" Source="$(var.SourceDir)\WindowsFormsIntegration.dll" />
+            </Component>
+            <Component Id="wpfgfx_cor3.dll" Guid="*">
+                <File Id="wpfgfx_cor3.dll" KeyPath="yes" Source="$(var.SourceDir)\wpfgfx_cor3.dll" />
+            </Component>
+            <Directory Id="cs" Name="cs">
+                <Component Id="Microsoft.VisualBasic.Forms.resources.dll" Guid="*">
+                    <File Id="Microsoft.VisualBasic.Forms.resources.dll" KeyPath="yes" Source="$(var.SourceDir)\cs\Microsoft.VisualBasic.Forms.resources.dll" />
+                </Component>
+                <Component Id="PresentationCore.resources.dll" Guid="*">
+                    <File Id="PresentationCore.resources.dll" KeyPath="yes" Source="$(var.SourceDir)\cs\PresentationCore.resources.dll" />
+                </Component>
+                <Component Id="PresentationFramework.resources.dll" Guid="*">
+                    <File Id="PresentationFramework.resources.dll" KeyPath="yes" Source="$(var.SourceDir)\cs\PresentationFramework.resources.dll" />
+                </Component>
+                <Component Id="PresentationUI.resources.dll" Guid="*">
+                    <File Id="PresentationUI.resources.dll" KeyPath="yes" Source="$(var.SourceDir)\cs\PresentationUI.resources.dll" />
+                </Component>
+                <Component Id="ReachFramework.resources.dll" Guid="*">
+                    <File Id="ReachFramework.resources.dll" KeyPath="yes" Source="$(var.SourceDir)\cs\ReachFramework.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Controls.Ribbon.resources.dll" Guid="*">
+                    <File Id="System.Windows.Controls.Ribbon.resources.dll" KeyPath="yes" Source="$(var.SourceDir)\cs\System.Windows.Controls.Ribbon.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.Design.resources.dll" Guid="*">
+                    <File Id="System.Windows.Forms.Design.resources.dll" KeyPath="yes" Source="$(var.SourceDir)\cs\System.Windows.Forms.Design.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.Primitives.resources.dll" Guid="*">
+                    <File Id="System.Windows.Forms.Primitives.resources.dll" KeyPath="yes" Source="$(var.SourceDir)\cs\System.Windows.Forms.Primitives.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.resources.dll" Guid="*">
+                    <File Id="System.Windows.Forms.resources.dll" KeyPath="yes" Source="$(var.SourceDir)\cs\System.Windows.Forms.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Input.Manipulations.resources.dll" Guid="*">
+                    <File Id="System.Windows.Input.Manipulations.resources.dll" KeyPath="yes" Source="$(var.SourceDir)\cs\System.Windows.Input.Manipulations.resources.dll" />
+                </Component>
+                <Component Id="System.Xaml.resources.dll" Guid="*">
+                    <File Id="System.Xaml.resources.dll" KeyPath="yes" Source="$(var.SourceDir)\cs\System.Xaml.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationClient.resources.dll" Guid="*">
+                    <File Id="UIAutomationClient.resources.dll" KeyPath="yes" Source="$(var.SourceDir)\cs\UIAutomationClient.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationClientSideProviders.resources.dll" Guid="*">
+                    <File Id="UIAutomationClientSideProviders.resources.dll" KeyPath="yes" Source="$(var.SourceDir)\cs\UIAutomationClientSideProviders.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationProvider.resources.dll" Guid="*">
+                    <File Id="UIAutomationProvider.resources.dll" KeyPath="yes" Source="$(var.SourceDir)\cs\UIAutomationProvider.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationTypes.resources.dll" Guid="*">
+                    <File Id="UIAutomationTypes.resources.dll" KeyPath="yes" Source="$(var.SourceDir)\cs\UIAutomationTypes.resources.dll" />
+                </Component>
+                <Component Id="WindowsBase.resources.dll" Guid="*">
+                    <File Id="WindowsBase.resources.dll" KeyPath="yes" Source="$(var.SourceDir)\cs\WindowsBase.resources.dll" />
+                </Component>
+                <Component Id="WindowsFormsIntegration.resources.dll" Guid="*">
+                    <File Id="WindowsFormsIntegration.resources.dll" KeyPath="yes" Source="$(var.SourceDir)\cs\WindowsFormsIntegration.resources.dll" />
+                </Component>
+            </Directory>
+            <Directory Id="de" Name="de">
+                <Component Id="Microsoft.VisualBasic.Forms.resources.dll_1" Guid="*">
+                    <File Id="Microsoft.VisualBasic.Forms.resources.dll_1" KeyPath="yes" Source="$(var.SourceDir)\de\Microsoft.VisualBasic.Forms.resources.dll" />
+                </Component>
+                <Component Id="PresentationCore.resources.dll_1" Guid="*">
+                    <File Id="PresentationCore.resources.dll_1" KeyPath="yes" Source="$(var.SourceDir)\de\PresentationCore.resources.dll" />
+                </Component>
+                <Component Id="PresentationFramework.resources.dll_1" Guid="*">
+                    <File Id="PresentationFramework.resources.dll_1" KeyPath="yes" Source="$(var.SourceDir)\de\PresentationFramework.resources.dll" />
+                </Component>
+                <Component Id="PresentationUI.resources.dll_1" Guid="*">
+                    <File Id="PresentationUI.resources.dll_1" KeyPath="yes" Source="$(var.SourceDir)\de\PresentationUI.resources.dll" />
+                </Component>
+                <Component Id="ReachFramework.resources.dll_1" Guid="*">
+                    <File Id="ReachFramework.resources.dll_1" KeyPath="yes" Source="$(var.SourceDir)\de\ReachFramework.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Controls.Ribbon.resources.dll_1" Guid="*">
+                    <File Id="System.Windows.Controls.Ribbon.resources.dll_1" KeyPath="yes" Source="$(var.SourceDir)\de\System.Windows.Controls.Ribbon.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.Design.resources.dll_1" Guid="*">
+                    <File Id="System.Windows.Forms.Design.resources.dll_1" KeyPath="yes" Source="$(var.SourceDir)\de\System.Windows.Forms.Design.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.Primitives.resources.dll_1" Guid="*">
+                    <File Id="System.Windows.Forms.Primitives.resources.dll_1" KeyPath="yes" Source="$(var.SourceDir)\de\System.Windows.Forms.Primitives.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.resources.dll_1" Guid="*">
+                    <File Id="System.Windows.Forms.resources.dll_1" KeyPath="yes" Source="$(var.SourceDir)\de\System.Windows.Forms.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Input.Manipulations.resources.dll_1" Guid="*">
+                    <File Id="System.Windows.Input.Manipulations.resources.dll_1" KeyPath="yes" Source="$(var.SourceDir)\de\System.Windows.Input.Manipulations.resources.dll" />
+                </Component>
+                <Component Id="System.Xaml.resources.dll_1" Guid="*">
+                    <File Id="System.Xaml.resources.dll_1" KeyPath="yes" Source="$(var.SourceDir)\de\System.Xaml.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationClient.resources.dll_1" Guid="*">
+                    <File Id="UIAutomationClient.resources.dll_1" KeyPath="yes" Source="$(var.SourceDir)\de\UIAutomationClient.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationClientSideProviders.resources.dll_1" Guid="*">
+                    <File Id="UIAutomationClientSideProviders.resources.dll_1" KeyPath="yes" Source="$(var.SourceDir)\de\UIAutomationClientSideProviders.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationProvider.resources.dll_1" Guid="*">
+                    <File Id="UIAutomationProvider.resources.dll_1" KeyPath="yes" Source="$(var.SourceDir)\de\UIAutomationProvider.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationTypes.resources.dll_1" Guid="*">
+                    <File Id="UIAutomationTypes.resources.dll_1" KeyPath="yes" Source="$(var.SourceDir)\de\UIAutomationTypes.resources.dll" />
+                </Component>
+                <Component Id="WindowsBase.resources.dll_1" Guid="*">
+                    <File Id="WindowsBase.resources.dll_1" KeyPath="yes" Source="$(var.SourceDir)\de\WindowsBase.resources.dll" />
+                </Component>
+                <Component Id="WindowsFormsIntegration.resources.dll_1" Guid="*">
+                    <File Id="WindowsFormsIntegration.resources.dll_1" KeyPath="yes" Source="$(var.SourceDir)\de\WindowsFormsIntegration.resources.dll" />
+                </Component>
+            </Directory>
+            <Directory Id="es" Name="es">
+                <Component Id="Microsoft.VisualBasic.Forms.resources.dll_2" Guid="*">
+                    <File Id="Microsoft.VisualBasic.Forms.resources.dll_2" KeyPath="yes" Source="$(var.SourceDir)\es\Microsoft.VisualBasic.Forms.resources.dll" />
+                </Component>
+                <Component Id="PresentationCore.resources.dll_2" Guid="*">
+                    <File Id="PresentationCore.resources.dll_2" KeyPath="yes" Source="$(var.SourceDir)\es\PresentationCore.resources.dll" />
+                </Component>
+                <Component Id="PresentationFramework.resources.dll_2" Guid="*">
+                    <File Id="PresentationFramework.resources.dll_2" KeyPath="yes" Source="$(var.SourceDir)\es\PresentationFramework.resources.dll" />
+                </Component>
+                <Component Id="PresentationUI.resources.dll_2" Guid="*">
+                    <File Id="PresentationUI.resources.dll_2" KeyPath="yes" Source="$(var.SourceDir)\es\PresentationUI.resources.dll" />
+                </Component>
+                <Component Id="ReachFramework.resources.dll_2" Guid="*">
+                    <File Id="ReachFramework.resources.dll_2" KeyPath="yes" Source="$(var.SourceDir)\es\ReachFramework.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Controls.Ribbon.resources.dll_2" Guid="*">
+                    <File Id="System.Windows.Controls.Ribbon.resources.dll_2" KeyPath="yes" Source="$(var.SourceDir)\es\System.Windows.Controls.Ribbon.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.Design.resources.dll_2" Guid="*">
+                    <File Id="System.Windows.Forms.Design.resources.dll_2" KeyPath="yes" Source="$(var.SourceDir)\es\System.Windows.Forms.Design.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.Primitives.resources.dll_2" Guid="*">
+                    <File Id="System.Windows.Forms.Primitives.resources.dll_2" KeyPath="yes" Source="$(var.SourceDir)\es\System.Windows.Forms.Primitives.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.resources.dll_2" Guid="*">
+                    <File Id="System.Windows.Forms.resources.dll_2" KeyPath="yes" Source="$(var.SourceDir)\es\System.Windows.Forms.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Input.Manipulations.resources.dll_2" Guid="*">
+                    <File Id="System.Windows.Input.Manipulations.resources.dll_2" KeyPath="yes" Source="$(var.SourceDir)\es\System.Windows.Input.Manipulations.resources.dll" />
+                </Component>
+                <Component Id="System.Xaml.resources.dll_2" Guid="*">
+                    <File Id="System.Xaml.resources.dll_2" KeyPath="yes" Source="$(var.SourceDir)\es\System.Xaml.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationClient.resources.dll_2" Guid="*">
+                    <File Id="UIAutomationClient.resources.dll_2" KeyPath="yes" Source="$(var.SourceDir)\es\UIAutomationClient.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationClientSideProviders.resources.dll_2" Guid="*">
+                    <File Id="UIAutomationClientSideProviders.resources.dll_2" KeyPath="yes" Source="$(var.SourceDir)\es\UIAutomationClientSideProviders.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationProvider.resources.dll_2" Guid="*">
+                    <File Id="UIAutomationProvider.resources.dll_2" KeyPath="yes" Source="$(var.SourceDir)\es\UIAutomationProvider.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationTypes.resources.dll_2" Guid="*">
+                    <File Id="UIAutomationTypes.resources.dll_2" KeyPath="yes" Source="$(var.SourceDir)\es\UIAutomationTypes.resources.dll" />
+                </Component>
+                <Component Id="WindowsBase.resources.dll_2" Guid="*">
+                    <File Id="WindowsBase.resources.dll_2" KeyPath="yes" Source="$(var.SourceDir)\es\WindowsBase.resources.dll" />
+                </Component>
+                <Component Id="WindowsFormsIntegration.resources.dll_2" Guid="*">
+                    <File Id="WindowsFormsIntegration.resources.dll_2" KeyPath="yes" Source="$(var.SourceDir)\es\WindowsFormsIntegration.resources.dll" />
+                </Component>
+            </Directory>
+            <Directory Id="fr" Name="fr">
+                <Component Id="Microsoft.VisualBasic.Forms.resources.dll_3" Guid="*">
+                    <File Id="Microsoft.VisualBasic.Forms.resources.dll_3" KeyPath="yes" Source="$(var.SourceDir)\fr\Microsoft.VisualBasic.Forms.resources.dll" />
+                </Component>
+                <Component Id="PresentationCore.resources.dll_3" Guid="*">
+                    <File Id="PresentationCore.resources.dll_3" KeyPath="yes" Source="$(var.SourceDir)\fr\PresentationCore.resources.dll" />
+                </Component>
+                <Component Id="PresentationFramework.resources.dll_3" Guid="*">
+                    <File Id="PresentationFramework.resources.dll_3" KeyPath="yes" Source="$(var.SourceDir)\fr\PresentationFramework.resources.dll" />
+                </Component>
+                <Component Id="PresentationUI.resources.dll_3" Guid="*">
+                    <File Id="PresentationUI.resources.dll_3" KeyPath="yes" Source="$(var.SourceDir)\fr\PresentationUI.resources.dll" />
+                </Component>
+                <Component Id="ReachFramework.resources.dll_3" Guid="*">
+                    <File Id="ReachFramework.resources.dll_3" KeyPath="yes" Source="$(var.SourceDir)\fr\ReachFramework.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Controls.Ribbon.resources.dll_3" Guid="*">
+                    <File Id="System.Windows.Controls.Ribbon.resources.dll_3" KeyPath="yes" Source="$(var.SourceDir)\fr\System.Windows.Controls.Ribbon.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.Design.resources.dll_3" Guid="*">
+                    <File Id="System.Windows.Forms.Design.resources.dll_3" KeyPath="yes" Source="$(var.SourceDir)\fr\System.Windows.Forms.Design.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.Primitives.resources.dll_3" Guid="*">
+                    <File Id="System.Windows.Forms.Primitives.resources.dll_3" KeyPath="yes" Source="$(var.SourceDir)\fr\System.Windows.Forms.Primitives.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.resources.dll_3" Guid="*">
+                    <File Id="System.Windows.Forms.resources.dll_3" KeyPath="yes" Source="$(var.SourceDir)\fr\System.Windows.Forms.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Input.Manipulations.resources.dll_3" Guid="*">
+                    <File Id="System.Windows.Input.Manipulations.resources.dll_3" KeyPath="yes" Source="$(var.SourceDir)\fr\System.Windows.Input.Manipulations.resources.dll" />
+                </Component>
+                <Component Id="System.Xaml.resources.dll_3" Guid="*">
+                    <File Id="System.Xaml.resources.dll_3" KeyPath="yes" Source="$(var.SourceDir)\fr\System.Xaml.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationClient.resources.dll_3" Guid="*">
+                    <File Id="UIAutomationClient.resources.dll_3" KeyPath="yes" Source="$(var.SourceDir)\fr\UIAutomationClient.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationClientSideProviders.resources.dll_3" Guid="*">
+                    <File Id="UIAutomationClientSideProviders.resources.dll_3" KeyPath="yes" Source="$(var.SourceDir)\fr\UIAutomationClientSideProviders.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationProvider.resources.dll_3" Guid="*">
+                    <File Id="UIAutomationProvider.resources.dll_3" KeyPath="yes" Source="$(var.SourceDir)\fr\UIAutomationProvider.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationTypes.resources.dll_3" Guid="*">
+                    <File Id="UIAutomationTypes.resources.dll_3" KeyPath="yes" Source="$(var.SourceDir)\fr\UIAutomationTypes.resources.dll" />
+                </Component>
+                <Component Id="WindowsBase.resources.dll_3" Guid="*">
+                    <File Id="WindowsBase.resources.dll_3" KeyPath="yes" Source="$(var.SourceDir)\fr\WindowsBase.resources.dll" />
+                </Component>
+                <Component Id="WindowsFormsIntegration.resources.dll_3" Guid="*">
+                    <File Id="WindowsFormsIntegration.resources.dll_3" KeyPath="yes" Source="$(var.SourceDir)\fr\WindowsFormsIntegration.resources.dll" />
+                </Component>
+            </Directory>
+            <Directory Id="it" Name="it">
+                <Component Id="Microsoft.VisualBasic.Forms.resources.dll_4" Guid="*">
+                    <File Id="Microsoft.VisualBasic.Forms.resources.dll_4" KeyPath="yes" Source="$(var.SourceDir)\it\Microsoft.VisualBasic.Forms.resources.dll" />
+                </Component>
+                <Component Id="PresentationCore.resources.dll_4" Guid="*">
+                    <File Id="PresentationCore.resources.dll_4" KeyPath="yes" Source="$(var.SourceDir)\it\PresentationCore.resources.dll" />
+                </Component>
+                <Component Id="PresentationFramework.resources.dll_4" Guid="*">
+                    <File Id="PresentationFramework.resources.dll_4" KeyPath="yes" Source="$(var.SourceDir)\it\PresentationFramework.resources.dll" />
+                </Component>
+                <Component Id="PresentationUI.resources.dll_4" Guid="*">
+                    <File Id="PresentationUI.resources.dll_4" KeyPath="yes" Source="$(var.SourceDir)\it\PresentationUI.resources.dll" />
+                </Component>
+                <Component Id="ReachFramework.resources.dll_4" Guid="*">
+                    <File Id="ReachFramework.resources.dll_4" KeyPath="yes" Source="$(var.SourceDir)\it\ReachFramework.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Controls.Ribbon.resources.dll_4" Guid="*">
+                    <File Id="System.Windows.Controls.Ribbon.resources.dll_4" KeyPath="yes" Source="$(var.SourceDir)\it\System.Windows.Controls.Ribbon.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.Design.resources.dll_4" Guid="*">
+                    <File Id="System.Windows.Forms.Design.resources.dll_4" KeyPath="yes" Source="$(var.SourceDir)\it\System.Windows.Forms.Design.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.Primitives.resources.dll_4" Guid="*">
+                    <File Id="System.Windows.Forms.Primitives.resources.dll_4" KeyPath="yes" Source="$(var.SourceDir)\it\System.Windows.Forms.Primitives.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.resources.dll_4" Guid="*">
+                    <File Id="System.Windows.Forms.resources.dll_4" KeyPath="yes" Source="$(var.SourceDir)\it\System.Windows.Forms.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Input.Manipulations.resources.dll_4" Guid="*">
+                    <File Id="System.Windows.Input.Manipulations.resources.dll_4" KeyPath="yes" Source="$(var.SourceDir)\it\System.Windows.Input.Manipulations.resources.dll" />
+                </Component>
+                <Component Id="System.Xaml.resources.dll_4" Guid="*">
+                    <File Id="System.Xaml.resources.dll_4" KeyPath="yes" Source="$(var.SourceDir)\it\System.Xaml.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationClient.resources.dll_4" Guid="*">
+                    <File Id="UIAutomationClient.resources.dll_4" KeyPath="yes" Source="$(var.SourceDir)\it\UIAutomationClient.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationClientSideProviders.resources.dll_4" Guid="*">
+                    <File Id="UIAutomationClientSideProviders.resources.dll_4" KeyPath="yes" Source="$(var.SourceDir)\it\UIAutomationClientSideProviders.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationProvider.resources.dll_4" Guid="*">
+                    <File Id="UIAutomationProvider.resources.dll_4" KeyPath="yes" Source="$(var.SourceDir)\it\UIAutomationProvider.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationTypes.resources.dll_4" Guid="*">
+                    <File Id="UIAutomationTypes.resources.dll_4" KeyPath="yes" Source="$(var.SourceDir)\it\UIAutomationTypes.resources.dll" />
+                </Component>
+                <Component Id="WindowsBase.resources.dll_4" Guid="*">
+                    <File Id="WindowsBase.resources.dll_4" KeyPath="yes" Source="$(var.SourceDir)\it\WindowsBase.resources.dll" />
+                </Component>
+                <Component Id="WindowsFormsIntegration.resources.dll_4" Guid="*">
+                    <File Id="WindowsFormsIntegration.resources.dll_4" KeyPath="yes" Source="$(var.SourceDir)\it\WindowsFormsIntegration.resources.dll" />
+                </Component>
+            </Directory>
+            <Directory Id="ja" Name="ja">
+                <Component Id="Microsoft.VisualBasic.Forms.resources.dll_5" Guid="*">
+                    <File Id="Microsoft.VisualBasic.Forms.resources.dll_5" KeyPath="yes" Source="$(var.SourceDir)\ja\Microsoft.VisualBasic.Forms.resources.dll" />
+                </Component>
+                <Component Id="PresentationCore.resources.dll_5" Guid="*">
+                    <File Id="PresentationCore.resources.dll_5" KeyPath="yes" Source="$(var.SourceDir)\ja\PresentationCore.resources.dll" />
+                </Component>
+                <Component Id="PresentationFramework.resources.dll_5" Guid="*">
+                    <File Id="PresentationFramework.resources.dll_5" KeyPath="yes" Source="$(var.SourceDir)\ja\PresentationFramework.resources.dll" />
+                </Component>
+                <Component Id="PresentationUI.resources.dll_5" Guid="*">
+                    <File Id="PresentationUI.resources.dll_5" KeyPath="yes" Source="$(var.SourceDir)\ja\PresentationUI.resources.dll" />
+                </Component>
+                <Component Id="ReachFramework.resources.dll_5" Guid="*">
+                    <File Id="ReachFramework.resources.dll_5" KeyPath="yes" Source="$(var.SourceDir)\ja\ReachFramework.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Controls.Ribbon.resources.dll_5" Guid="*">
+                    <File Id="System.Windows.Controls.Ribbon.resources.dll_5" KeyPath="yes" Source="$(var.SourceDir)\ja\System.Windows.Controls.Ribbon.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.Design.resources.dll_5" Guid="*">
+                    <File Id="System.Windows.Forms.Design.resources.dll_5" KeyPath="yes" Source="$(var.SourceDir)\ja\System.Windows.Forms.Design.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.Primitives.resources.dll_5" Guid="*">
+                    <File Id="System.Windows.Forms.Primitives.resources.dll_5" KeyPath="yes" Source="$(var.SourceDir)\ja\System.Windows.Forms.Primitives.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.resources.dll_5" Guid="*">
+                    <File Id="System.Windows.Forms.resources.dll_5" KeyPath="yes" Source="$(var.SourceDir)\ja\System.Windows.Forms.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Input.Manipulations.resources.dll_5" Guid="*">
+                    <File Id="System.Windows.Input.Manipulations.resources.dll_5" KeyPath="yes" Source="$(var.SourceDir)\ja\System.Windows.Input.Manipulations.resources.dll" />
+                </Component>
+                <Component Id="System.Xaml.resources.dll_5" Guid="*">
+                    <File Id="System.Xaml.resources.dll_5" KeyPath="yes" Source="$(var.SourceDir)\ja\System.Xaml.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationClient.resources.dll_5" Guid="*">
+                    <File Id="UIAutomationClient.resources.dll_5" KeyPath="yes" Source="$(var.SourceDir)\ja\UIAutomationClient.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationClientSideProviders.resources.dll_5" Guid="*">
+                    <File Id="UIAutomationClientSideProviders.resources.dll_5" KeyPath="yes" Source="$(var.SourceDir)\ja\UIAutomationClientSideProviders.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationProvider.resources.dll_5" Guid="*">
+                    <File Id="UIAutomationProvider.resources.dll_5" KeyPath="yes" Source="$(var.SourceDir)\ja\UIAutomationProvider.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationTypes.resources.dll_5" Guid="*">
+                    <File Id="UIAutomationTypes.resources.dll_5" KeyPath="yes" Source="$(var.SourceDir)\ja\UIAutomationTypes.resources.dll" />
+                </Component>
+                <Component Id="WindowsBase.resources.dll_5" Guid="*">
+                    <File Id="WindowsBase.resources.dll_5" KeyPath="yes" Source="$(var.SourceDir)\ja\WindowsBase.resources.dll" />
+                </Component>
+                <Component Id="WindowsFormsIntegration.resources.dll_5" Guid="*">
+                    <File Id="WindowsFormsIntegration.resources.dll_5" KeyPath="yes" Source="$(var.SourceDir)\ja\WindowsFormsIntegration.resources.dll" />
+                </Component>
+            </Directory>
+            <Directory Id="ko" Name="ko">
+                <Component Id="Microsoft.VisualBasic.Forms.resources.dll_6" Guid="*">
+                    <File Id="Microsoft.VisualBasic.Forms.resources.dll_6" KeyPath="yes" Source="$(var.SourceDir)\ko\Microsoft.VisualBasic.Forms.resources.dll" />
+                </Component>
+                <Component Id="PresentationCore.resources.dll_6" Guid="*">
+                    <File Id="PresentationCore.resources.dll_6" KeyPath="yes" Source="$(var.SourceDir)\ko\PresentationCore.resources.dll" />
+                </Component>
+                <Component Id="PresentationFramework.resources.dll_6" Guid="*">
+                    <File Id="PresentationFramework.resources.dll_6" KeyPath="yes" Source="$(var.SourceDir)\ko\PresentationFramework.resources.dll" />
+                </Component>
+                <Component Id="PresentationUI.resources.dll_6" Guid="*">
+                    <File Id="PresentationUI.resources.dll_6" KeyPath="yes" Source="$(var.SourceDir)\ko\PresentationUI.resources.dll" />
+                </Component>
+                <Component Id="ReachFramework.resources.dll_6" Guid="*">
+                    <File Id="ReachFramework.resources.dll_6" KeyPath="yes" Source="$(var.SourceDir)\ko\ReachFramework.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Controls.Ribbon.resources.dll_6" Guid="*">
+                    <File Id="System.Windows.Controls.Ribbon.resources.dll_6" KeyPath="yes" Source="$(var.SourceDir)\ko\System.Windows.Controls.Ribbon.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.Design.resources.dll_6" Guid="*">
+                    <File Id="System.Windows.Forms.Design.resources.dll_6" KeyPath="yes" Source="$(var.SourceDir)\ko\System.Windows.Forms.Design.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.Primitives.resources.dll_6" Guid="*">
+                    <File Id="System.Windows.Forms.Primitives.resources.dll_6" KeyPath="yes" Source="$(var.SourceDir)\ko\System.Windows.Forms.Primitives.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.resources.dll_6" Guid="*">
+                    <File Id="System.Windows.Forms.resources.dll_6" KeyPath="yes" Source="$(var.SourceDir)\ko\System.Windows.Forms.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Input.Manipulations.resources.dll_6" Guid="*">
+                    <File Id="System.Windows.Input.Manipulations.resources.dll_6" KeyPath="yes" Source="$(var.SourceDir)\ko\System.Windows.Input.Manipulations.resources.dll" />
+                </Component>
+                <Component Id="System.Xaml.resources.dll_6" Guid="*">
+                    <File Id="System.Xaml.resources.dll_6" KeyPath="yes" Source="$(var.SourceDir)\ko\System.Xaml.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationClient.resources.dll_6" Guid="*">
+                    <File Id="UIAutomationClient.resources.dll_6" KeyPath="yes" Source="$(var.SourceDir)\ko\UIAutomationClient.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationClientSideProviders.resources.dll_6" Guid="*">
+                    <File Id="UIAutomationClientSideProviders.resources.dll_6" KeyPath="yes" Source="$(var.SourceDir)\ko\UIAutomationClientSideProviders.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationProvider.resources.dll_6" Guid="*">
+                    <File Id="UIAutomationProvider.resources.dll_6" KeyPath="yes" Source="$(var.SourceDir)\ko\UIAutomationProvider.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationTypes.resources.dll_6" Guid="*">
+                    <File Id="UIAutomationTypes.resources.dll_6" KeyPath="yes" Source="$(var.SourceDir)\ko\UIAutomationTypes.resources.dll" />
+                </Component>
+                <Component Id="WindowsBase.resources.dll_6" Guid="*">
+                    <File Id="WindowsBase.resources.dll_6" KeyPath="yes" Source="$(var.SourceDir)\ko\WindowsBase.resources.dll" />
+                </Component>
+                <Component Id="WindowsFormsIntegration.resources.dll_6" Guid="*">
+                    <File Id="WindowsFormsIntegration.resources.dll_6" KeyPath="yes" Source="$(var.SourceDir)\ko\WindowsFormsIntegration.resources.dll" />
+                </Component>
+            </Directory>
+            <Directory Id="pl" Name="pl">
+                <Component Id="Microsoft.VisualBasic.Forms.resources.dll_7" Guid="*">
+                    <File Id="Microsoft.VisualBasic.Forms.resources.dll_7" KeyPath="yes" Source="$(var.SourceDir)\pl\Microsoft.VisualBasic.Forms.resources.dll" />
+                </Component>
+                <Component Id="PresentationCore.resources.dll_7" Guid="*">
+                    <File Id="PresentationCore.resources.dll_7" KeyPath="yes" Source="$(var.SourceDir)\pl\PresentationCore.resources.dll" />
+                </Component>
+                <Component Id="PresentationFramework.resources.dll_7" Guid="*">
+                    <File Id="PresentationFramework.resources.dll_7" KeyPath="yes" Source="$(var.SourceDir)\pl\PresentationFramework.resources.dll" />
+                </Component>
+                <Component Id="PresentationUI.resources.dll_7" Guid="*">
+                    <File Id="PresentationUI.resources.dll_7" KeyPath="yes" Source="$(var.SourceDir)\pl\PresentationUI.resources.dll" />
+                </Component>
+                <Component Id="ReachFramework.resources.dll_7" Guid="*">
+                    <File Id="ReachFramework.resources.dll_7" KeyPath="yes" Source="$(var.SourceDir)\pl\ReachFramework.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Controls.Ribbon.resources.dll_7" Guid="*">
+                    <File Id="System.Windows.Controls.Ribbon.resources.dll_7" KeyPath="yes" Source="$(var.SourceDir)\pl\System.Windows.Controls.Ribbon.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.Design.resources.dll_7" Guid="*">
+                    <File Id="System.Windows.Forms.Design.resources.dll_7" KeyPath="yes" Source="$(var.SourceDir)\pl\System.Windows.Forms.Design.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.Primitives.resources.dll_7" Guid="*">
+                    <File Id="System.Windows.Forms.Primitives.resources.dll_7" KeyPath="yes" Source="$(var.SourceDir)\pl\System.Windows.Forms.Primitives.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.resources.dll_7" Guid="*">
+                    <File Id="System.Windows.Forms.resources.dll_7" KeyPath="yes" Source="$(var.SourceDir)\pl\System.Windows.Forms.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Input.Manipulations.resources.dll_7" Guid="*">
+                    <File Id="System.Windows.Input.Manipulations.resources.dll_7" KeyPath="yes" Source="$(var.SourceDir)\pl\System.Windows.Input.Manipulations.resources.dll" />
+                </Component>
+                <Component Id="System.Xaml.resources.dll_7" Guid="*">
+                    <File Id="System.Xaml.resources.dll_7" KeyPath="yes" Source="$(var.SourceDir)\pl\System.Xaml.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationClient.resources.dll_7" Guid="*">
+                    <File Id="UIAutomationClient.resources.dll_7" KeyPath="yes" Source="$(var.SourceDir)\pl\UIAutomationClient.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationClientSideProviders.resources.dll_7" Guid="*">
+                    <File Id="UIAutomationClientSideProviders.resources.dll_7" KeyPath="yes" Source="$(var.SourceDir)\pl\UIAutomationClientSideProviders.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationProvider.resources.dll_7" Guid="*">
+                    <File Id="UIAutomationProvider.resources.dll_7" KeyPath="yes" Source="$(var.SourceDir)\pl\UIAutomationProvider.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationTypes.resources.dll_7" Guid="*">
+                    <File Id="UIAutomationTypes.resources.dll_7" KeyPath="yes" Source="$(var.SourceDir)\pl\UIAutomationTypes.resources.dll" />
+                </Component>
+                <Component Id="WindowsBase.resources.dll_7" Guid="*">
+                    <File Id="WindowsBase.resources.dll_7" KeyPath="yes" Source="$(var.SourceDir)\pl\WindowsBase.resources.dll" />
+                </Component>
+                <Component Id="WindowsFormsIntegration.resources.dll_7" Guid="*">
+                    <File Id="WindowsFormsIntegration.resources.dll_7" KeyPath="yes" Source="$(var.SourceDir)\pl\WindowsFormsIntegration.resources.dll" />
+                </Component>
+            </Directory>
+            <Directory Id="pt_BR" Name="pt-BR">
+                <Component Id="Microsoft.VisualBasic.Forms.resources.dll_8" Guid="*">
+                    <File Id="Microsoft.VisualBasic.Forms.resources.dll_8" KeyPath="yes" Source="$(var.SourceDir)\pt-BR\Microsoft.VisualBasic.Forms.resources.dll" />
+                </Component>
+                <Component Id="PresentationCore.resources.dll_8" Guid="*">
+                    <File Id="PresentationCore.resources.dll_8" KeyPath="yes" Source="$(var.SourceDir)\pt-BR\PresentationCore.resources.dll" />
+                </Component>
+                <Component Id="PresentationFramework.resources.dll_8" Guid="*">
+                    <File Id="PresentationFramework.resources.dll_8" KeyPath="yes" Source="$(var.SourceDir)\pt-BR\PresentationFramework.resources.dll" />
+                </Component>
+                <Component Id="PresentationUI.resources.dll_8" Guid="*">
+                    <File Id="PresentationUI.resources.dll_8" KeyPath="yes" Source="$(var.SourceDir)\pt-BR\PresentationUI.resources.dll" />
+                </Component>
+                <Component Id="ReachFramework.resources.dll_8" Guid="*">
+                    <File Id="ReachFramework.resources.dll_8" KeyPath="yes" Source="$(var.SourceDir)\pt-BR\ReachFramework.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Controls.Ribbon.resources.dll_8" Guid="*">
+                    <File Id="System.Windows.Controls.Ribbon.resources.dll_8" KeyPath="yes" Source="$(var.SourceDir)\pt-BR\System.Windows.Controls.Ribbon.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.Design.resources.dll_8" Guid="*">
+                    <File Id="System.Windows.Forms.Design.resources.dll_8" KeyPath="yes" Source="$(var.SourceDir)\pt-BR\System.Windows.Forms.Design.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.Primitives.resources.dll_8" Guid="*">
+                    <File Id="System.Windows.Forms.Primitives.resources.dll_8" KeyPath="yes" Source="$(var.SourceDir)\pt-BR\System.Windows.Forms.Primitives.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.resources.dll_8" Guid="*">
+                    <File Id="System.Windows.Forms.resources.dll_8" KeyPath="yes" Source="$(var.SourceDir)\pt-BR\System.Windows.Forms.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Input.Manipulations.resources.dll_8" Guid="*">
+                    <File Id="System.Windows.Input.Manipulations.resources.dll_8" KeyPath="yes" Source="$(var.SourceDir)\pt-BR\System.Windows.Input.Manipulations.resources.dll" />
+                </Component>
+                <Component Id="System.Xaml.resources.dll_8" Guid="*">
+                    <File Id="System.Xaml.resources.dll_8" KeyPath="yes" Source="$(var.SourceDir)\pt-BR\System.Xaml.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationClient.resources.dll_8" Guid="*">
+                    <File Id="UIAutomationClient.resources.dll_8" KeyPath="yes" Source="$(var.SourceDir)\pt-BR\UIAutomationClient.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationClientSideProviders.resources.dll_8" Guid="*">
+                    <File Id="UIAutomationClientSideProviders.resources.dll_8" KeyPath="yes" Source="$(var.SourceDir)\pt-BR\UIAutomationClientSideProviders.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationProvider.resources.dll_8" Guid="*">
+                    <File Id="UIAutomationProvider.resources.dll_8" KeyPath="yes" Source="$(var.SourceDir)\pt-BR\UIAutomationProvider.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationTypes.resources.dll_8" Guid="*">
+                    <File Id="UIAutomationTypes.resources.dll_8" KeyPath="yes" Source="$(var.SourceDir)\pt-BR\UIAutomationTypes.resources.dll" />
+                </Component>
+                <Component Id="WindowsBase.resources.dll_8" Guid="*">
+                    <File Id="WindowsBase.resources.dll_8" KeyPath="yes" Source="$(var.SourceDir)\pt-BR\WindowsBase.resources.dll" />
+                </Component>
+                <Component Id="WindowsFormsIntegration.resources.dll_8" Guid="*">
+                    <File Id="WindowsFormsIntegration.resources.dll_8" KeyPath="yes" Source="$(var.SourceDir)\pt-BR\WindowsFormsIntegration.resources.dll" />
+                </Component>
+            </Directory>
+            <Directory Id="ru" Name="ru">
+                <Component Id="Microsoft.VisualBasic.Forms.resources.dll_9" Guid="*">
+                    <File Id="Microsoft.VisualBasic.Forms.resources.dll_9" KeyPath="yes" Source="$(var.SourceDir)\ru\Microsoft.VisualBasic.Forms.resources.dll" />
+                </Component>
+                <Component Id="PresentationCore.resources.dll_9" Guid="*">
+                    <File Id="PresentationCore.resources.dll_9" KeyPath="yes" Source="$(var.SourceDir)\ru\PresentationCore.resources.dll" />
+                </Component>
+                <Component Id="PresentationFramework.resources.dll_9" Guid="*">
+                    <File Id="PresentationFramework.resources.dll_9" KeyPath="yes" Source="$(var.SourceDir)\ru\PresentationFramework.resources.dll" />
+                </Component>
+                <Component Id="PresentationUI.resources.dll_9" Guid="*">
+                    <File Id="PresentationUI.resources.dll_9" KeyPath="yes" Source="$(var.SourceDir)\ru\PresentationUI.resources.dll" />
+                </Component>
+                <Component Id="ReachFramework.resources.dll_9" Guid="*">
+                    <File Id="ReachFramework.resources.dll_9" KeyPath="yes" Source="$(var.SourceDir)\ru\ReachFramework.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Controls.Ribbon.resources.dll_9" Guid="*">
+                    <File Id="System.Windows.Controls.Ribbon.resources.dll_9" KeyPath="yes" Source="$(var.SourceDir)\ru\System.Windows.Controls.Ribbon.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.Design.resources.dll_9" Guid="*">
+                    <File Id="System.Windows.Forms.Design.resources.dll_9" KeyPath="yes" Source="$(var.SourceDir)\ru\System.Windows.Forms.Design.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.Primitives.resources.dll_9" Guid="*">
+                    <File Id="System.Windows.Forms.Primitives.resources.dll_9" KeyPath="yes" Source="$(var.SourceDir)\ru\System.Windows.Forms.Primitives.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.resources.dll_9" Guid="*">
+                    <File Id="System.Windows.Forms.resources.dll_9" KeyPath="yes" Source="$(var.SourceDir)\ru\System.Windows.Forms.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Input.Manipulations.resources.dll_9" Guid="*">
+                    <File Id="System.Windows.Input.Manipulations.resources.dll_9" KeyPath="yes" Source="$(var.SourceDir)\ru\System.Windows.Input.Manipulations.resources.dll" />
+                </Component>
+                <Component Id="System.Xaml.resources.dll_9" Guid="*">
+                    <File Id="System.Xaml.resources.dll_9" KeyPath="yes" Source="$(var.SourceDir)\ru\System.Xaml.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationClient.resources.dll_9" Guid="*">
+                    <File Id="UIAutomationClient.resources.dll_9" KeyPath="yes" Source="$(var.SourceDir)\ru\UIAutomationClient.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationClientSideProviders.resources.dll_9" Guid="*">
+                    <File Id="UIAutomationClientSideProviders.resources.dll_9" KeyPath="yes" Source="$(var.SourceDir)\ru\UIAutomationClientSideProviders.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationProvider.resources.dll_9" Guid="*">
+                    <File Id="UIAutomationProvider.resources.dll_9" KeyPath="yes" Source="$(var.SourceDir)\ru\UIAutomationProvider.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationTypes.resources.dll_9" Guid="*">
+                    <File Id="UIAutomationTypes.resources.dll_9" KeyPath="yes" Source="$(var.SourceDir)\ru\UIAutomationTypes.resources.dll" />
+                </Component>
+                <Component Id="WindowsBase.resources.dll_9" Guid="*">
+                    <File Id="WindowsBase.resources.dll_9" KeyPath="yes" Source="$(var.SourceDir)\ru\WindowsBase.resources.dll" />
+                </Component>
+                <Component Id="WindowsFormsIntegration.resources.dll_9" Guid="*">
+                    <File Id="WindowsFormsIntegration.resources.dll_9" KeyPath="yes" Source="$(var.SourceDir)\ru\WindowsFormsIntegration.resources.dll" />
+                </Component>
+            </Directory>
+            <Directory Id="tr" Name="tr">
+                <Component Id="Microsoft.VisualBasic.Forms.resources.dll_10" Guid="*">
+                    <File Id="Microsoft.VisualBasic.Forms.resources.dll_10" KeyPath="yes" Source="$(var.SourceDir)\tr\Microsoft.VisualBasic.Forms.resources.dll" />
+                </Component>
+                <Component Id="PresentationCore.resources.dll_10" Guid="*">
+                    <File Id="PresentationCore.resources.dll_10" KeyPath="yes" Source="$(var.SourceDir)\tr\PresentationCore.resources.dll" />
+                </Component>
+                <Component Id="PresentationFramework.resources.dll_10" Guid="*">
+                    <File Id="PresentationFramework.resources.dll_10" KeyPath="yes" Source="$(var.SourceDir)\tr\PresentationFramework.resources.dll" />
+                </Component>
+                <Component Id="PresentationUI.resources.dll_10" Guid="*">
+                    <File Id="PresentationUI.resources.dll_10" KeyPath="yes" Source="$(var.SourceDir)\tr\PresentationUI.resources.dll" />
+                </Component>
+                <Component Id="ReachFramework.resources.dll_10" Guid="*">
+                    <File Id="ReachFramework.resources.dll_10" KeyPath="yes" Source="$(var.SourceDir)\tr\ReachFramework.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Controls.Ribbon.resources.dll_10" Guid="*">
+                    <File Id="System.Windows.Controls.Ribbon.resources.dll_10" KeyPath="yes" Source="$(var.SourceDir)\tr\System.Windows.Controls.Ribbon.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.Design.resources.dll_10" Guid="*">
+                    <File Id="System.Windows.Forms.Design.resources.dll_10" KeyPath="yes" Source="$(var.SourceDir)\tr\System.Windows.Forms.Design.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.Primitives.resources.dll_10" Guid="*">
+                    <File Id="System.Windows.Forms.Primitives.resources.dll_10" KeyPath="yes" Source="$(var.SourceDir)\tr\System.Windows.Forms.Primitives.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.resources.dll_10" Guid="*">
+                    <File Id="System.Windows.Forms.resources.dll_10" KeyPath="yes" Source="$(var.SourceDir)\tr\System.Windows.Forms.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Input.Manipulations.resources.dll_10" Guid="*">
+                    <File Id="System.Windows.Input.Manipulations.resources.dll_10" KeyPath="yes" Source="$(var.SourceDir)\tr\System.Windows.Input.Manipulations.resources.dll" />
+                </Component>
+                <Component Id="System.Xaml.resources.dll_10" Guid="*">
+                    <File Id="System.Xaml.resources.dll_10" KeyPath="yes" Source="$(var.SourceDir)\tr\System.Xaml.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationClient.resources.dll_10" Guid="*">
+                    <File Id="UIAutomationClient.resources.dll_10" KeyPath="yes" Source="$(var.SourceDir)\tr\UIAutomationClient.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationClientSideProviders.resources.dll_10" Guid="*">
+                    <File Id="UIAutomationClientSideProviders.resources.dll_10" KeyPath="yes" Source="$(var.SourceDir)\tr\UIAutomationClientSideProviders.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationProvider.resources.dll_10" Guid="*">
+                    <File Id="UIAutomationProvider.resources.dll_10" KeyPath="yes" Source="$(var.SourceDir)\tr\UIAutomationProvider.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationTypes.resources.dll_10" Guid="*">
+                    <File Id="UIAutomationTypes.resources.dll_10" KeyPath="yes" Source="$(var.SourceDir)\tr\UIAutomationTypes.resources.dll" />
+                </Component>
+                <Component Id="WindowsBase.resources.dll_10" Guid="*">
+                    <File Id="WindowsBase.resources.dll_10" KeyPath="yes" Source="$(var.SourceDir)\tr\WindowsBase.resources.dll" />
+                </Component>
+                <Component Id="WindowsFormsIntegration.resources.dll_10" Guid="*">
+                    <File Id="WindowsFormsIntegration.resources.dll_10" KeyPath="yes" Source="$(var.SourceDir)\tr\WindowsFormsIntegration.resources.dll" />
+                </Component>
+            </Directory>
+            <Directory Id="zh_Hans" Name="zh-Hans">
+                <Component Id="Microsoft.VisualBasic.Forms.resources.dll_11" Guid="*">
+                    <File Id="Microsoft.VisualBasic.Forms.resources.dll_11" KeyPath="yes" Source="$(var.SourceDir)\zh-Hans\Microsoft.VisualBasic.Forms.resources.dll" />
+                </Component>
+                <Component Id="PresentationCore.resources.dll_11" Guid="*">
+                    <File Id="PresentationCore.resources.dll_11" KeyPath="yes" Source="$(var.SourceDir)\zh-Hans\PresentationCore.resources.dll" />
+                </Component>
+                <Component Id="PresentationFramework.resources.dll_11" Guid="*">
+                    <File Id="PresentationFramework.resources.dll_11" KeyPath="yes" Source="$(var.SourceDir)\zh-Hans\PresentationFramework.resources.dll" />
+                </Component>
+                <Component Id="PresentationUI.resources.dll_11" Guid="*">
+                    <File Id="PresentationUI.resources.dll_11" KeyPath="yes" Source="$(var.SourceDir)\zh-Hans\PresentationUI.resources.dll" />
+                </Component>
+                <Component Id="ReachFramework.resources.dll_11" Guid="*">
+                    <File Id="ReachFramework.resources.dll_11" KeyPath="yes" Source="$(var.SourceDir)\zh-Hans\ReachFramework.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Controls.Ribbon.resources.dll_11" Guid="*">
+                    <File Id="System.Windows.Controls.Ribbon.resources.dll_11" KeyPath="yes" Source="$(var.SourceDir)\zh-Hans\System.Windows.Controls.Ribbon.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.Design.resources.dll_11" Guid="*">
+                    <File Id="System.Windows.Forms.Design.resources.dll_11" KeyPath="yes" Source="$(var.SourceDir)\zh-Hans\System.Windows.Forms.Design.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.Primitives.resources.dll_11" Guid="*">
+                    <File Id="System.Windows.Forms.Primitives.resources.dll_11" KeyPath="yes" Source="$(var.SourceDir)\zh-Hans\System.Windows.Forms.Primitives.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.resources.dll_11" Guid="*">
+                    <File Id="System.Windows.Forms.resources.dll_11" KeyPath="yes" Source="$(var.SourceDir)\zh-Hans\System.Windows.Forms.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Input.Manipulations.resources.dll_11" Guid="*">
+                    <File Id="System.Windows.Input.Manipulations.resources.dll_11" KeyPath="yes" Source="$(var.SourceDir)\zh-Hans\System.Windows.Input.Manipulations.resources.dll" />
+                </Component>
+                <Component Id="System.Xaml.resources.dll_11" Guid="*">
+                    <File Id="System.Xaml.resources.dll_11" KeyPath="yes" Source="$(var.SourceDir)\zh-Hans\System.Xaml.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationClient.resources.dll_11" Guid="*">
+                    <File Id="UIAutomationClient.resources.dll_11" KeyPath="yes" Source="$(var.SourceDir)\zh-Hans\UIAutomationClient.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationClientSideProviders.resources.dll_11" Guid="*">
+                    <File Id="UIAutomationClientSideProviders.resources.dll_11" KeyPath="yes" Source="$(var.SourceDir)\zh-Hans\UIAutomationClientSideProviders.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationProvider.resources.dll_11" Guid="*">
+                    <File Id="UIAutomationProvider.resources.dll_11" KeyPath="yes" Source="$(var.SourceDir)\zh-Hans\UIAutomationProvider.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationTypes.resources.dll_11" Guid="*">
+                    <File Id="UIAutomationTypes.resources.dll_11" KeyPath="yes" Source="$(var.SourceDir)\zh-Hans\UIAutomationTypes.resources.dll" />
+                </Component>
+                <Component Id="WindowsBase.resources.dll_11" Guid="*">
+                    <File Id="WindowsBase.resources.dll_11" KeyPath="yes" Source="$(var.SourceDir)\zh-Hans\WindowsBase.resources.dll" />
+                </Component>
+                <Component Id="WindowsFormsIntegration.resources.dll_11" Guid="*">
+                    <File Id="WindowsFormsIntegration.resources.dll_11" KeyPath="yes" Source="$(var.SourceDir)\zh-Hans\WindowsFormsIntegration.resources.dll" />
+                </Component>
+            </Directory>
+            <Directory Id="zh_Hant" Name="zh-Hant">
+                <Component Id="Microsoft.VisualBasic.Forms.resources.dll_12" Guid="*">
+                    <File Id="Microsoft.VisualBasic.Forms.resources.dll_12" KeyPath="yes" Source="$(var.SourceDir)\zh-Hant\Microsoft.VisualBasic.Forms.resources.dll" />
+                </Component>
+                <Component Id="PresentationCore.resources.dll_12" Guid="*">
+                    <File Id="PresentationCore.resources.dll_12" KeyPath="yes" Source="$(var.SourceDir)\zh-Hant\PresentationCore.resources.dll" />
+                </Component>
+                <Component Id="PresentationFramework.resources.dll_12" Guid="*">
+                    <File Id="PresentationFramework.resources.dll_12" KeyPath="yes" Source="$(var.SourceDir)\zh-Hant\PresentationFramework.resources.dll" />
+                </Component>
+                <Component Id="PresentationUI.resources.dll_12" Guid="*">
+                    <File Id="PresentationUI.resources.dll_12" KeyPath="yes" Source="$(var.SourceDir)\zh-Hant\PresentationUI.resources.dll" />
+                </Component>
+                <Component Id="ReachFramework.resources.dll_12" Guid="*">
+                    <File Id="ReachFramework.resources.dll_12" KeyPath="yes" Source="$(var.SourceDir)\zh-Hant\ReachFramework.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Controls.Ribbon.resources.dll_12" Guid="*">
+                    <File Id="System.Windows.Controls.Ribbon.resources.dll_12" KeyPath="yes" Source="$(var.SourceDir)\zh-Hant\System.Windows.Controls.Ribbon.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.Design.resources.dll_12" Guid="*">
+                    <File Id="System.Windows.Forms.Design.resources.dll_12" KeyPath="yes" Source="$(var.SourceDir)\zh-Hant\System.Windows.Forms.Design.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.Primitives.resources.dll_12" Guid="*">
+                    <File Id="System.Windows.Forms.Primitives.resources.dll_12" KeyPath="yes" Source="$(var.SourceDir)\zh-Hant\System.Windows.Forms.Primitives.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Forms.resources.dll_12" Guid="*">
+                    <File Id="System.Windows.Forms.resources.dll_12" KeyPath="yes" Source="$(var.SourceDir)\zh-Hant\System.Windows.Forms.resources.dll" />
+                </Component>
+                <Component Id="System.Windows.Input.Manipulations.resources.dll_12" Guid="*">
+                    <File Id="System.Windows.Input.Manipulations.resources.dll_12" KeyPath="yes" Source="$(var.SourceDir)\zh-Hant\System.Windows.Input.Manipulations.resources.dll" />
+                </Component>
+                <Component Id="System.Xaml.resources.dll_12" Guid="*">
+                    <File Id="System.Xaml.resources.dll_12" KeyPath="yes" Source="$(var.SourceDir)\zh-Hant\System.Xaml.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationClient.resources.dll_12" Guid="*">
+                    <File Id="UIAutomationClient.resources.dll_12" KeyPath="yes" Source="$(var.SourceDir)\zh-Hant\UIAutomationClient.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationClientSideProviders.resources.dll_12" Guid="*">
+                    <File Id="UIAutomationClientSideProviders.resources.dll_12" KeyPath="yes" Source="$(var.SourceDir)\zh-Hant\UIAutomationClientSideProviders.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationProvider.resources.dll_12" Guid="*">
+                    <File Id="UIAutomationProvider.resources.dll_12" KeyPath="yes" Source="$(var.SourceDir)\zh-Hant\UIAutomationProvider.resources.dll" />
+                </Component>
+                <Component Id="UIAutomationTypes.resources.dll_12" Guid="*">
+                    <File Id="UIAutomationTypes.resources.dll_12" KeyPath="yes" Source="$(var.SourceDir)\zh-Hant\UIAutomationTypes.resources.dll" />
+                </Component>
+                <Component Id="WindowsBase.resources.dll_12" Guid="*">
+                    <File Id="WindowsBase.resources.dll_12" KeyPath="yes" Source="$(var.SourceDir)\zh-Hant\WindowsBase.resources.dll" />
+                </Component>
+                <Component Id="WindowsFormsIntegration.resources.dll_12" Guid="*">
+                    <File Id="WindowsFormsIntegration.resources.dll_12" KeyPath="yes" Source="$(var.SourceDir)\zh-Hant\WindowsFormsIntegration.resources.dll" />
+                </Component>
+            </Directory>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="RemoteAppsPub_CommonAssemblies">
+            <ComponentRef Id="Accessibility.dll" />
+            <ComponentRef Id="api_ms_win_core_console_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_core_console_l1_2_0.dll" />
+            <ComponentRef Id="api_ms_win_core_datetime_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_core_debug_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_core_errorhandling_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_core_fibers_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_core_file_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_core_file_l1_2_0.dll" />
+            <ComponentRef Id="api_ms_win_core_file_l2_1_0.dll" />
+            <ComponentRef Id="api_ms_win_core_handle_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_core_heap_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_core_interlocked_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_core_libraryloader_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_core_localization_l1_2_0.dll" />
+            <ComponentRef Id="api_ms_win_core_memory_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_core_namedpipe_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_core_processenvironment_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_core_processthreads_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_core_processthreads_l1_1_1.dll" />
+            <ComponentRef Id="api_ms_win_core_profile_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_core_rtlsupport_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_core_string_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_core_synch_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_core_synch_l1_2_0.dll" />
+            <ComponentRef Id="api_ms_win_core_sysinfo_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_core_timezone_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_core_util_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_crt_conio_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_crt_convert_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_crt_environment_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_crt_filesystem_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_crt_heap_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_crt_locale_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_crt_math_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_crt_multibyte_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_crt_private_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_crt_process_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_crt_runtime_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_crt_stdio_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_crt_string_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_crt_time_l1_1_0.dll" />
+            <ComponentRef Id="api_ms_win_crt_utility_l1_1_0.dll" />
+            <ComponentRef Id="clretwrc.dll" />
+            <ComponentRef Id="clrjit.dll" />
+            <ComponentRef Id="coreclr.dll" />
+            <ComponentRef Id="createdump.exe" />
+            <ComponentRef Id="D3DCompiler_47_cor3.dll" />
+            <ComponentRef Id="dbgshim.dll" />
+            <ComponentRef Id="DirectWriteForwarder.dll" />
+            <ComponentRef Id="hostfxr.dll" />
+            <ComponentRef Id="hostpolicy.dll" />
+            <ComponentRef Id="Microsoft.CSharp.dll" />
+            <ComponentRef Id="Microsoft.DiaSymReader.Native.amd64.dll" />
+            <ComponentRef Id="Microsoft.VisualBasic.Core.dll" />
+            <ComponentRef Id="Microsoft.VisualBasic.dll" />
+            <ComponentRef Id="Microsoft.VisualBasic.Forms.dll" />
+            <ComponentRef Id="Microsoft.Win32.Primitives.dll" />
+            <ComponentRef Id="Microsoft.Win32.Registry.AccessControl.dll" />
+            <ComponentRef Id="Microsoft.Win32.Registry.dll" />
+            <ComponentRef Id="Microsoft.Win32.SystemEvents.dll" />
+            <ComponentRef Id="mscordaccore.dll" />
+            <ComponentRef Id="mscordaccore_amd64_amd64_6.0.922.41905.dll" />
+            <ComponentRef Id="mscordbi.dll" />
+            <ComponentRef Id="mscorlib.dll" />
+            <ComponentRef Id="mscorrc.dll" />
+            <ComponentRef Id="msquic.dll" />
+            <ComponentRef Id="netstandard.dll" />
+            <ComponentRef Id="PenImc_cor3.dll" />
+            <ComponentRef Id="PresentationCore.dll" />
+            <ComponentRef Id="PresentationFramework_SystemCore.dll" />
+            <ComponentRef Id="PresentationFramework_SystemData.dll" />
+            <ComponentRef Id="PresentationFramework_SystemDrawing.dll" />
+            <ComponentRef Id="PresentationFramework_SystemXml.dll" />
+            <ComponentRef Id="PresentationFramework_SystemXmlLinq.dll" />
+            <ComponentRef Id="PresentationFramework.Aero.dll" />
+            <ComponentRef Id="PresentationFramework.Aero2.dll" />
+            <ComponentRef Id="PresentationFramework.AeroLite.dll" />
+            <ComponentRef Id="PresentationFramework.Classic.dll" />
+            <ComponentRef Id="PresentationFramework.dll" />
+            <ComponentRef Id="PresentationFramework.Luna.dll" />
+            <ComponentRef Id="PresentationFramework.Royale.dll" />
+            <ComponentRef Id="PresentationNative_cor3.dll" />
+            <ComponentRef Id="PresentationUI.dll" />
+            <ComponentRef Id="ReachFramework.dll" />
+            <ComponentRef Id="RemoteApplicationPublisher.deps.json" />
+            <ComponentRef Id="RemoteApplicationPublisher.dll" />
+            <ComponentRef Id="RemoteApplicationPublisher.exe" />
+            <ComponentRef Id="RemoteApplicationPublisher.pdb" />
+            <ComponentRef Id="RemoteApplicationPublisher.runtimeconfig.json" />
+            <ComponentRef Id="System.AppContext.dll" />
+            <ComponentRef Id="System.Buffers.dll" />
+            <ComponentRef Id="System.CodeDom.dll" />
+            <ComponentRef Id="System.Collections.Concurrent.dll" />
+            <ComponentRef Id="System.Collections.dll" />
+            <ComponentRef Id="System.Collections.Immutable.dll" />
+            <ComponentRef Id="System.Collections.NonGeneric.dll" />
+            <ComponentRef Id="System.Collections.Specialized.dll" />
+            <ComponentRef Id="System.ComponentModel.Annotations.dll" />
+            <ComponentRef Id="System.ComponentModel.DataAnnotations.dll" />
+            <ComponentRef Id="System.ComponentModel.dll" />
+            <ComponentRef Id="System.ComponentModel.EventBasedAsync.dll" />
+            <ComponentRef Id="System.ComponentModel.Primitives.dll" />
+            <ComponentRef Id="System.ComponentModel.TypeConverter.dll" />
+            <ComponentRef Id="System.Configuration.ConfigurationManager.dll" />
+            <ComponentRef Id="System.Configuration.dll" />
+            <ComponentRef Id="System.Console.dll" />
+            <ComponentRef Id="System.Core.dll" />
+            <ComponentRef Id="System.Data.Common.dll" />
+            <ComponentRef Id="System.Data.DataSetExtensions.dll" />
+            <ComponentRef Id="System.Data.dll" />
+            <ComponentRef Id="System.Design.dll" />
+            <ComponentRef Id="System.Diagnostics.Contracts.dll" />
+            <ComponentRef Id="System.Diagnostics.Debug.dll" />
+            <ComponentRef Id="System.Diagnostics.DiagnosticSource.dll" />
+            <ComponentRef Id="System.Diagnostics.EventLog.dll" />
+            <ComponentRef Id="System.Diagnostics.EventLog.Messages.dll" />
+            <ComponentRef Id="System.Diagnostics.FileVersionInfo.dll" />
+            <ComponentRef Id="System.Diagnostics.PerformanceCounter.dll" />
+            <ComponentRef Id="System.Diagnostics.Process.dll" />
+            <ComponentRef Id="System.Diagnostics.StackTrace.dll" />
+            <ComponentRef Id="System.Diagnostics.TextWriterTraceListener.dll" />
+            <ComponentRef Id="System.Diagnostics.Tools.dll" />
+            <ComponentRef Id="System.Diagnostics.TraceSource.dll" />
+            <ComponentRef Id="System.Diagnostics.Tracing.dll" />
+            <ComponentRef Id="System.DirectoryServices.dll" />
+            <ComponentRef Id="System.dll" />
+            <ComponentRef Id="System.Drawing.Common.dll" />
+            <ComponentRef Id="System.Drawing.Design.dll" />
+            <ComponentRef Id="System.Drawing.dll" />
+            <ComponentRef Id="System.Drawing.Primitives.dll" />
+            <ComponentRef Id="System.Dynamic.Runtime.dll" />
+            <ComponentRef Id="System.Formats.Asn1.dll" />
+            <ComponentRef Id="System.Globalization.Calendars.dll" />
+            <ComponentRef Id="System.Globalization.dll" />
+            <ComponentRef Id="System.Globalization.Extensions.dll" />
+            <ComponentRef Id="System.IO.Compression.Brotli.dll" />
+            <ComponentRef Id="System.IO.Compression.dll" />
+            <ComponentRef Id="System.IO.Compression.FileSystem.dll" />
+            <ComponentRef Id="System.IO.Compression.Native.dll" />
+            <ComponentRef Id="System.IO.Compression.ZipFile.dll" />
+            <ComponentRef Id="System.IO.dll" />
+            <ComponentRef Id="System.IO.FileSystem.AccessControl.dll" />
+            <ComponentRef Id="System.IO.FileSystem.dll" />
+            <ComponentRef Id="System.IO.FileSystem.DriveInfo.dll" />
+            <ComponentRef Id="System.IO.FileSystem.Primitives.dll" />
+            <ComponentRef Id="System.IO.FileSystem.Watcher.dll" />
+            <ComponentRef Id="System.IO.IsolatedStorage.dll" />
+            <ComponentRef Id="System.IO.MemoryMappedFiles.dll" />
+            <ComponentRef Id="System.IO.Packaging.dll" />
+            <ComponentRef Id="System.IO.Pipes.AccessControl.dll" />
+            <ComponentRef Id="System.IO.Pipes.dll" />
+            <ComponentRef Id="System.IO.UnmanagedMemoryStream.dll" />
+            <ComponentRef Id="System.Linq.dll" />
+            <ComponentRef Id="System.Linq.Expressions.dll" />
+            <ComponentRef Id="System.Linq.Parallel.dll" />
+            <ComponentRef Id="System.Linq.Queryable.dll" />
+            <ComponentRef Id="System.Memory.dll" />
+            <ComponentRef Id="System.Net.dll" />
+            <ComponentRef Id="System.Net.Http.dll" />
+            <ComponentRef Id="System.Net.Http.Json.dll" />
+            <ComponentRef Id="System.Net.HttpListener.dll" />
+            <ComponentRef Id="System.Net.Mail.dll" />
+            <ComponentRef Id="System.Net.NameResolution.dll" />
+            <ComponentRef Id="System.Net.NetworkInformation.dll" />
+            <ComponentRef Id="System.Net.Ping.dll" />
+            <ComponentRef Id="System.Net.Primitives.dll" />
+            <ComponentRef Id="System.Net.Quic.dll" />
+            <ComponentRef Id="System.Net.Requests.dll" />
+            <ComponentRef Id="System.Net.Security.dll" />
+            <ComponentRef Id="System.Net.ServicePoint.dll" />
+            <ComponentRef Id="System.Net.Sockets.dll" />
+            <ComponentRef Id="System.Net.WebClient.dll" />
+            <ComponentRef Id="System.Net.WebHeaderCollection.dll" />
+            <ComponentRef Id="System.Net.WebProxy.dll" />
+            <ComponentRef Id="System.Net.WebSockets.Client.dll" />
+            <ComponentRef Id="System.Net.WebSockets.dll" />
+            <ComponentRef Id="System.Numerics.dll" />
+            <ComponentRef Id="System.Numerics.Vectors.dll" />
+            <ComponentRef Id="System.ObjectModel.dll" />
+            <ComponentRef Id="System.Printing.dll" />
+            <ComponentRef Id="System.Private.CoreLib.dll" />
+            <ComponentRef Id="System.Private.DataContractSerialization.dll" />
+            <ComponentRef Id="System.Private.Uri.dll" />
+            <ComponentRef Id="System.Private.Xml.dll" />
+            <ComponentRef Id="System.Private.Xml.Linq.dll" />
+            <ComponentRef Id="System.Reflection.DispatchProxy.dll" />
+            <ComponentRef Id="System.Reflection.dll" />
+            <ComponentRef Id="System.Reflection.Emit.dll" />
+            <ComponentRef Id="System.Reflection.Emit.ILGeneration.dll" />
+            <ComponentRef Id="System.Reflection.Emit.Lightweight.dll" />
+            <ComponentRef Id="System.Reflection.Extensions.dll" />
+            <ComponentRef Id="System.Reflection.Metadata.dll" />
+            <ComponentRef Id="System.Reflection.Primitives.dll" />
+            <ComponentRef Id="System.Reflection.TypeExtensions.dll" />
+            <ComponentRef Id="System.Resources.Extensions.dll" />
+            <ComponentRef Id="System.Resources.Reader.dll" />
+            <ComponentRef Id="System.Resources.ResourceManager.dll" />
+            <ComponentRef Id="System.Resources.Writer.dll" />
+            <ComponentRef Id="System.Runtime.CompilerServices.Unsafe.dll" />
+            <ComponentRef Id="System.Runtime.CompilerServices.VisualC.dll" />
+            <ComponentRef Id="System.Runtime.dll" />
+            <ComponentRef Id="System.Runtime.Extensions.dll" />
+            <ComponentRef Id="System.Runtime.Handles.dll" />
+            <ComponentRef Id="System.Runtime.InteropServices.dll" />
+            <ComponentRef Id="System.Runtime.InteropServices.RuntimeInformation.dll" />
+            <ComponentRef Id="System.Runtime.Intrinsics.dll" />
+            <ComponentRef Id="System.Runtime.Loader.dll" />
+            <ComponentRef Id="System.Runtime.Numerics.dll" />
+            <ComponentRef Id="System.Runtime.Serialization.dll" />
+            <ComponentRef Id="System.Runtime.Serialization.Formatters.dll" />
+            <ComponentRef Id="System.Runtime.Serialization.Json.dll" />
+            <ComponentRef Id="System.Runtime.Serialization.Primitives.dll" />
+            <ComponentRef Id="System.Runtime.Serialization.Xml.dll" />
+            <ComponentRef Id="System.Security.AccessControl.dll" />
+            <ComponentRef Id="System.Security.Claims.dll" />
+            <ComponentRef Id="System.Security.Cryptography.Algorithms.dll" />
+            <ComponentRef Id="System.Security.Cryptography.Cng.dll" />
+            <ComponentRef Id="System.Security.Cryptography.Csp.dll" />
+            <ComponentRef Id="System.Security.Cryptography.Encoding.dll" />
+            <ComponentRef Id="System.Security.Cryptography.OpenSsl.dll" />
+            <ComponentRef Id="System.Security.Cryptography.Pkcs.dll" />
+            <ComponentRef Id="System.Security.Cryptography.Primitives.dll" />
+            <ComponentRef Id="System.Security.Cryptography.ProtectedData.dll" />
+            <ComponentRef Id="System.Security.Cryptography.X509Certificates.dll" />
+            <ComponentRef Id="System.Security.Cryptography.Xml.dll" />
+            <ComponentRef Id="System.Security.dll" />
+            <ComponentRef Id="System.Security.Permissions.dll" />
+            <ComponentRef Id="System.Security.Principal.dll" />
+            <ComponentRef Id="System.Security.Principal.Windows.dll" />
+            <ComponentRef Id="System.Security.SecureString.dll" />
+            <ComponentRef Id="System.ServiceModel.Web.dll" />
+            <ComponentRef Id="System.ServiceProcess.dll" />
+            <ComponentRef Id="System.Text.Encoding.CodePages.dll" />
+            <ComponentRef Id="System.Text.Encoding.dll" />
+            <ComponentRef Id="System.Text.Encoding.Extensions.dll" />
+            <ComponentRef Id="System.Text.Encodings.Web.dll" />
+            <ComponentRef Id="System.Text.Json.dll" />
+            <ComponentRef Id="System.Text.RegularExpressions.dll" />
+            <ComponentRef Id="System.Threading.AccessControl.dll" />
+            <ComponentRef Id="System.Threading.Channels.dll" />
+            <ComponentRef Id="System.Threading.dll" />
+            <ComponentRef Id="System.Threading.Overlapped.dll" />
+            <ComponentRef Id="System.Threading.Tasks.Dataflow.dll" />
+            <ComponentRef Id="System.Threading.Tasks.dll" />
+            <ComponentRef Id="System.Threading.Tasks.Extensions.dll" />
+            <ComponentRef Id="System.Threading.Tasks.Parallel.dll" />
+            <ComponentRef Id="System.Threading.Thread.dll" />
+            <ComponentRef Id="System.Threading.ThreadPool.dll" />
+            <ComponentRef Id="System.Threading.Timer.dll" />
+            <ComponentRef Id="System.Transactions.dll" />
+            <ComponentRef Id="System.Transactions.Local.dll" />
+            <ComponentRef Id="System.ValueTuple.dll" />
+            <ComponentRef Id="System.Web.dll" />
+            <ComponentRef Id="System.Web.HttpUtility.dll" />
+            <ComponentRef Id="System.Windows.Controls.Ribbon.dll" />
+            <ComponentRef Id="System.Windows.dll" />
+            <ComponentRef Id="System.Windows.Extensions.dll" />
+            <ComponentRef Id="System.Windows.Forms.Design.dll" />
+            <ComponentRef Id="System.Windows.Forms.Design.Editors.dll" />
+            <ComponentRef Id="System.Windows.Forms.dll" />
+            <ComponentRef Id="System.Windows.Forms.Primitives.dll" />
+            <ComponentRef Id="System.Windows.Input.Manipulations.dll" />
+            <ComponentRef Id="System.Windows.Presentation.dll" />
+            <ComponentRef Id="System.Xaml.dll" />
+            <ComponentRef Id="System.Xml.dll" />
+            <ComponentRef Id="System.Xml.Linq.dll" />
+            <ComponentRef Id="System.Xml.ReaderWriter.dll" />
+            <ComponentRef Id="System.Xml.Serialization.dll" />
+            <ComponentRef Id="System.Xml.XDocument.dll" />
+            <ComponentRef Id="System.Xml.XmlDocument.dll" />
+            <ComponentRef Id="System.Xml.XmlSerializer.dll" />
+            <ComponentRef Id="System.Xml.XPath.dll" />
+            <ComponentRef Id="System.Xml.XPath.XDocument.dll" />
+            <ComponentRef Id="ucrtbase.dll" />
+            <ComponentRef Id="UIAutomationClient.dll" />
+            <ComponentRef Id="UIAutomationClientSideProviders.dll" />
+            <ComponentRef Id="UIAutomationProvider.dll" />
+            <ComponentRef Id="UIAutomationTypes.dll" />
+            <ComponentRef Id="vcruntime140_cor3.dll" />
+            <ComponentRef Id="WindowsBase.dll" />
+            <ComponentRef Id="WindowsFormsIntegration.dll" />
+            <ComponentRef Id="wpfgfx_cor3.dll" />
+            <ComponentRef Id="Microsoft.VisualBasic.Forms.resources.dll" />
+            <ComponentRef Id="PresentationCore.resources.dll" />
+            <ComponentRef Id="PresentationFramework.resources.dll" />
+            <ComponentRef Id="PresentationUI.resources.dll" />
+            <ComponentRef Id="ReachFramework.resources.dll" />
+            <ComponentRef Id="System.Windows.Controls.Ribbon.resources.dll" />
+            <ComponentRef Id="System.Windows.Forms.Design.resources.dll" />
+            <ComponentRef Id="System.Windows.Forms.Primitives.resources.dll" />
+            <ComponentRef Id="System.Windows.Forms.resources.dll" />
+            <ComponentRef Id="System.Windows.Input.Manipulations.resources.dll" />
+            <ComponentRef Id="System.Xaml.resources.dll" />
+            <ComponentRef Id="UIAutomationClient.resources.dll" />
+            <ComponentRef Id="UIAutomationClientSideProviders.resources.dll" />
+            <ComponentRef Id="UIAutomationProvider.resources.dll" />
+            <ComponentRef Id="UIAutomationTypes.resources.dll" />
+            <ComponentRef Id="WindowsBase.resources.dll" />
+            <ComponentRef Id="WindowsFormsIntegration.resources.dll" />
+            <ComponentRef Id="Microsoft.VisualBasic.Forms.resources.dll_1" />
+            <ComponentRef Id="PresentationCore.resources.dll_1" />
+            <ComponentRef Id="PresentationFramework.resources.dll_1" />
+            <ComponentRef Id="PresentationUI.resources.dll_1" />
+            <ComponentRef Id="ReachFramework.resources.dll_1" />
+            <ComponentRef Id="System.Windows.Controls.Ribbon.resources.dll_1" />
+            <ComponentRef Id="System.Windows.Forms.Design.resources.dll_1" />
+            <ComponentRef Id="System.Windows.Forms.Primitives.resources.dll_1" />
+            <ComponentRef Id="System.Windows.Forms.resources.dll_1" />
+            <ComponentRef Id="System.Windows.Input.Manipulations.resources.dll_1" />
+            <ComponentRef Id="System.Xaml.resources.dll_1" />
+            <ComponentRef Id="UIAutomationClient.resources.dll_1" />
+            <ComponentRef Id="UIAutomationClientSideProviders.resources.dll_1" />
+            <ComponentRef Id="UIAutomationProvider.resources.dll_1" />
+            <ComponentRef Id="UIAutomationTypes.resources.dll_1" />
+            <ComponentRef Id="WindowsBase.resources.dll_1" />
+            <ComponentRef Id="WindowsFormsIntegration.resources.dll_1" />
+            <ComponentRef Id="Microsoft.VisualBasic.Forms.resources.dll_2" />
+            <ComponentRef Id="PresentationCore.resources.dll_2" />
+            <ComponentRef Id="PresentationFramework.resources.dll_2" />
+            <ComponentRef Id="PresentationUI.resources.dll_2" />
+            <ComponentRef Id="ReachFramework.resources.dll_2" />
+            <ComponentRef Id="System.Windows.Controls.Ribbon.resources.dll_2" />
+            <ComponentRef Id="System.Windows.Forms.Design.resources.dll_2" />
+            <ComponentRef Id="System.Windows.Forms.Primitives.resources.dll_2" />
+            <ComponentRef Id="System.Windows.Forms.resources.dll_2" />
+            <ComponentRef Id="System.Windows.Input.Manipulations.resources.dll_2" />
+            <ComponentRef Id="System.Xaml.resources.dll_2" />
+            <ComponentRef Id="UIAutomationClient.resources.dll_2" />
+            <ComponentRef Id="UIAutomationClientSideProviders.resources.dll_2" />
+            <ComponentRef Id="UIAutomationProvider.resources.dll_2" />
+            <ComponentRef Id="UIAutomationTypes.resources.dll_2" />
+            <ComponentRef Id="WindowsBase.resources.dll_2" />
+            <ComponentRef Id="WindowsFormsIntegration.resources.dll_2" />
+            <ComponentRef Id="Microsoft.VisualBasic.Forms.resources.dll_3" />
+            <ComponentRef Id="PresentationCore.resources.dll_3" />
+            <ComponentRef Id="PresentationFramework.resources.dll_3" />
+            <ComponentRef Id="PresentationUI.resources.dll_3" />
+            <ComponentRef Id="ReachFramework.resources.dll_3" />
+            <ComponentRef Id="System.Windows.Controls.Ribbon.resources.dll_3" />
+            <ComponentRef Id="System.Windows.Forms.Design.resources.dll_3" />
+            <ComponentRef Id="System.Windows.Forms.Primitives.resources.dll_3" />
+            <ComponentRef Id="System.Windows.Forms.resources.dll_3" />
+            <ComponentRef Id="System.Windows.Input.Manipulations.resources.dll_3" />
+            <ComponentRef Id="System.Xaml.resources.dll_3" />
+            <ComponentRef Id="UIAutomationClient.resources.dll_3" />
+            <ComponentRef Id="UIAutomationClientSideProviders.resources.dll_3" />
+            <ComponentRef Id="UIAutomationProvider.resources.dll_3" />
+            <ComponentRef Id="UIAutomationTypes.resources.dll_3" />
+            <ComponentRef Id="WindowsBase.resources.dll_3" />
+            <ComponentRef Id="WindowsFormsIntegration.resources.dll_3" />
+            <ComponentRef Id="Microsoft.VisualBasic.Forms.resources.dll_4" />
+            <ComponentRef Id="PresentationCore.resources.dll_4" />
+            <ComponentRef Id="PresentationFramework.resources.dll_4" />
+            <ComponentRef Id="PresentationUI.resources.dll_4" />
+            <ComponentRef Id="ReachFramework.resources.dll_4" />
+            <ComponentRef Id="System.Windows.Controls.Ribbon.resources.dll_4" />
+            <ComponentRef Id="System.Windows.Forms.Design.resources.dll_4" />
+            <ComponentRef Id="System.Windows.Forms.Primitives.resources.dll_4" />
+            <ComponentRef Id="System.Windows.Forms.resources.dll_4" />
+            <ComponentRef Id="System.Windows.Input.Manipulations.resources.dll_4" />
+            <ComponentRef Id="System.Xaml.resources.dll_4" />
+            <ComponentRef Id="UIAutomationClient.resources.dll_4" />
+            <ComponentRef Id="UIAutomationClientSideProviders.resources.dll_4" />
+            <ComponentRef Id="UIAutomationProvider.resources.dll_4" />
+            <ComponentRef Id="UIAutomationTypes.resources.dll_4" />
+            <ComponentRef Id="WindowsBase.resources.dll_4" />
+            <ComponentRef Id="WindowsFormsIntegration.resources.dll_4" />
+            <ComponentRef Id="Microsoft.VisualBasic.Forms.resources.dll_5" />
+            <ComponentRef Id="PresentationCore.resources.dll_5" />
+            <ComponentRef Id="PresentationFramework.resources.dll_5" />
+            <ComponentRef Id="PresentationUI.resources.dll_5" />
+            <ComponentRef Id="ReachFramework.resources.dll_5" />
+            <ComponentRef Id="System.Windows.Controls.Ribbon.resources.dll_5" />
+            <ComponentRef Id="System.Windows.Forms.Design.resources.dll_5" />
+            <ComponentRef Id="System.Windows.Forms.Primitives.resources.dll_5" />
+            <ComponentRef Id="System.Windows.Forms.resources.dll_5" />
+            <ComponentRef Id="System.Windows.Input.Manipulations.resources.dll_5" />
+            <ComponentRef Id="System.Xaml.resources.dll_5" />
+            <ComponentRef Id="UIAutomationClient.resources.dll_5" />
+            <ComponentRef Id="UIAutomationClientSideProviders.resources.dll_5" />
+            <ComponentRef Id="UIAutomationProvider.resources.dll_5" />
+            <ComponentRef Id="UIAutomationTypes.resources.dll_5" />
+            <ComponentRef Id="WindowsBase.resources.dll_5" />
+            <ComponentRef Id="WindowsFormsIntegration.resources.dll_5" />
+            <ComponentRef Id="Microsoft.VisualBasic.Forms.resources.dll_6" />
+            <ComponentRef Id="PresentationCore.resources.dll_6" />
+            <ComponentRef Id="PresentationFramework.resources.dll_6" />
+            <ComponentRef Id="PresentationUI.resources.dll_6" />
+            <ComponentRef Id="ReachFramework.resources.dll_6" />
+            <ComponentRef Id="System.Windows.Controls.Ribbon.resources.dll_6" />
+            <ComponentRef Id="System.Windows.Forms.Design.resources.dll_6" />
+            <ComponentRef Id="System.Windows.Forms.Primitives.resources.dll_6" />
+            <ComponentRef Id="System.Windows.Forms.resources.dll_6" />
+            <ComponentRef Id="System.Windows.Input.Manipulations.resources.dll_6" />
+            <ComponentRef Id="System.Xaml.resources.dll_6" />
+            <ComponentRef Id="UIAutomationClient.resources.dll_6" />
+            <ComponentRef Id="UIAutomationClientSideProviders.resources.dll_6" />
+            <ComponentRef Id="UIAutomationProvider.resources.dll_6" />
+            <ComponentRef Id="UIAutomationTypes.resources.dll_6" />
+            <ComponentRef Id="WindowsBase.resources.dll_6" />
+            <ComponentRef Id="WindowsFormsIntegration.resources.dll_6" />
+            <ComponentRef Id="Microsoft.VisualBasic.Forms.resources.dll_7" />
+            <ComponentRef Id="PresentationCore.resources.dll_7" />
+            <ComponentRef Id="PresentationFramework.resources.dll_7" />
+            <ComponentRef Id="PresentationUI.resources.dll_7" />
+            <ComponentRef Id="ReachFramework.resources.dll_7" />
+            <ComponentRef Id="System.Windows.Controls.Ribbon.resources.dll_7" />
+            <ComponentRef Id="System.Windows.Forms.Design.resources.dll_7" />
+            <ComponentRef Id="System.Windows.Forms.Primitives.resources.dll_7" />
+            <ComponentRef Id="System.Windows.Forms.resources.dll_7" />
+            <ComponentRef Id="System.Windows.Input.Manipulations.resources.dll_7" />
+            <ComponentRef Id="System.Xaml.resources.dll_7" />
+            <ComponentRef Id="UIAutomationClient.resources.dll_7" />
+            <ComponentRef Id="UIAutomationClientSideProviders.resources.dll_7" />
+            <ComponentRef Id="UIAutomationProvider.resources.dll_7" />
+            <ComponentRef Id="UIAutomationTypes.resources.dll_7" />
+            <ComponentRef Id="WindowsBase.resources.dll_7" />
+            <ComponentRef Id="WindowsFormsIntegration.resources.dll_7" />
+            <ComponentRef Id="Microsoft.VisualBasic.Forms.resources.dll_8" />
+            <ComponentRef Id="PresentationCore.resources.dll_8" />
+            <ComponentRef Id="PresentationFramework.resources.dll_8" />
+            <ComponentRef Id="PresentationUI.resources.dll_8" />
+            <ComponentRef Id="ReachFramework.resources.dll_8" />
+            <ComponentRef Id="System.Windows.Controls.Ribbon.resources.dll_8" />
+            <ComponentRef Id="System.Windows.Forms.Design.resources.dll_8" />
+            <ComponentRef Id="System.Windows.Forms.Primitives.resources.dll_8" />
+            <ComponentRef Id="System.Windows.Forms.resources.dll_8" />
+            <ComponentRef Id="System.Windows.Input.Manipulations.resources.dll_8" />
+            <ComponentRef Id="System.Xaml.resources.dll_8" />
+            <ComponentRef Id="UIAutomationClient.resources.dll_8" />
+            <ComponentRef Id="UIAutomationClientSideProviders.resources.dll_8" />
+            <ComponentRef Id="UIAutomationProvider.resources.dll_8" />
+            <ComponentRef Id="UIAutomationTypes.resources.dll_8" />
+            <ComponentRef Id="WindowsBase.resources.dll_8" />
+            <ComponentRef Id="WindowsFormsIntegration.resources.dll_8" />
+            <ComponentRef Id="Microsoft.VisualBasic.Forms.resources.dll_9" />
+            <ComponentRef Id="PresentationCore.resources.dll_9" />
+            <ComponentRef Id="PresentationFramework.resources.dll_9" />
+            <ComponentRef Id="PresentationUI.resources.dll_9" />
+            <ComponentRef Id="ReachFramework.resources.dll_9" />
+            <ComponentRef Id="System.Windows.Controls.Ribbon.resources.dll_9" />
+            <ComponentRef Id="System.Windows.Forms.Design.resources.dll_9" />
+            <ComponentRef Id="System.Windows.Forms.Primitives.resources.dll_9" />
+            <ComponentRef Id="System.Windows.Forms.resources.dll_9" />
+            <ComponentRef Id="System.Windows.Input.Manipulations.resources.dll_9" />
+            <ComponentRef Id="System.Xaml.resources.dll_9" />
+            <ComponentRef Id="UIAutomationClient.resources.dll_9" />
+            <ComponentRef Id="UIAutomationClientSideProviders.resources.dll_9" />
+            <ComponentRef Id="UIAutomationProvider.resources.dll_9" />
+            <ComponentRef Id="UIAutomationTypes.resources.dll_9" />
+            <ComponentRef Id="WindowsBase.resources.dll_9" />
+            <ComponentRef Id="WindowsFormsIntegration.resources.dll_9" />
+            <ComponentRef Id="Microsoft.VisualBasic.Forms.resources.dll_10" />
+            <ComponentRef Id="PresentationCore.resources.dll_10" />
+            <ComponentRef Id="PresentationFramework.resources.dll_10" />
+            <ComponentRef Id="PresentationUI.resources.dll_10" />
+            <ComponentRef Id="ReachFramework.resources.dll_10" />
+            <ComponentRef Id="System.Windows.Controls.Ribbon.resources.dll_10" />
+            <ComponentRef Id="System.Windows.Forms.Design.resources.dll_10" />
+            <ComponentRef Id="System.Windows.Forms.Primitives.resources.dll_10" />
+            <ComponentRef Id="System.Windows.Forms.resources.dll_10" />
+            <ComponentRef Id="System.Windows.Input.Manipulations.resources.dll_10" />
+            <ComponentRef Id="System.Xaml.resources.dll_10" />
+            <ComponentRef Id="UIAutomationClient.resources.dll_10" />
+            <ComponentRef Id="UIAutomationClientSideProviders.resources.dll_10" />
+            <ComponentRef Id="UIAutomationProvider.resources.dll_10" />
+            <ComponentRef Id="UIAutomationTypes.resources.dll_10" />
+            <ComponentRef Id="WindowsBase.resources.dll_10" />
+            <ComponentRef Id="WindowsFormsIntegration.resources.dll_10" />
+            <ComponentRef Id="Microsoft.VisualBasic.Forms.resources.dll_11" />
+            <ComponentRef Id="PresentationCore.resources.dll_11" />
+            <ComponentRef Id="PresentationFramework.resources.dll_11" />
+            <ComponentRef Id="PresentationUI.resources.dll_11" />
+            <ComponentRef Id="ReachFramework.resources.dll_11" />
+            <ComponentRef Id="System.Windows.Controls.Ribbon.resources.dll_11" />
+            <ComponentRef Id="System.Windows.Forms.Design.resources.dll_11" />
+            <ComponentRef Id="System.Windows.Forms.Primitives.resources.dll_11" />
+            <ComponentRef Id="System.Windows.Forms.resources.dll_11" />
+            <ComponentRef Id="System.Windows.Input.Manipulations.resources.dll_11" />
+            <ComponentRef Id="System.Xaml.resources.dll_11" />
+            <ComponentRef Id="UIAutomationClient.resources.dll_11" />
+            <ComponentRef Id="UIAutomationClientSideProviders.resources.dll_11" />
+            <ComponentRef Id="UIAutomationProvider.resources.dll_11" />
+            <ComponentRef Id="UIAutomationTypes.resources.dll_11" />
+            <ComponentRef Id="WindowsBase.resources.dll_11" />
+            <ComponentRef Id="WindowsFormsIntegration.resources.dll_11" />
+            <ComponentRef Id="Microsoft.VisualBasic.Forms.resources.dll_12" />
+            <ComponentRef Id="PresentationCore.resources.dll_12" />
+            <ComponentRef Id="PresentationFramework.resources.dll_12" />
+            <ComponentRef Id="PresentationUI.resources.dll_12" />
+            <ComponentRef Id="ReachFramework.resources.dll_12" />
+            <ComponentRef Id="System.Windows.Controls.Ribbon.resources.dll_12" />
+            <ComponentRef Id="System.Windows.Forms.Design.resources.dll_12" />
+            <ComponentRef Id="System.Windows.Forms.Primitives.resources.dll_12" />
+            <ComponentRef Id="System.Windows.Forms.resources.dll_12" />
+            <ComponentRef Id="System.Windows.Input.Manipulations.resources.dll_12" />
+            <ComponentRef Id="System.Xaml.resources.dll_12" />
+            <ComponentRef Id="UIAutomationClient.resources.dll_12" />
+            <ComponentRef Id="UIAutomationClientSideProviders.resources.dll_12" />
+            <ComponentRef Id="UIAutomationProvider.resources.dll_12" />
+            <ComponentRef Id="UIAutomationTypes.resources.dll_12" />
+            <ComponentRef Id="WindowsBase.resources.dll_12" />
+            <ComponentRef Id="WindowsFormsIntegration.resources.dll_12" />
+        </ComponentGroup>
+    </Fragment>
+</Wix>

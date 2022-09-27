@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="*" Name="RemoteApplicationPublisherSetup" Language="1033" Version="1.0.0.0" Manufacturer="!(loc.CompanyName)" UpgradeCode="038cfb0d-6ef4-44fa-a5b0-1212e037cd48">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <MediaTemplate EmbedCab="yes"  />
+
+    <Property Id="ARPURLINFOABOUT">https://github.com/OneIdentity/RemoteApplicationPublisher</Property>
+
+    <Condition Message="32 bit windows is not supported.">
+      VersionNT64
+    </Condition>
+
+    <UIRef Id="WixUI_Minimal" />
+    <WixVariable Id="WixUIBannerBmp" Value="$(var.ProjectDir)\install-banner.bmp"/>
+    <WixVariable Id="WixUIDialogBmp" Value="$(var.ProjectDir)\install-panel.bmp"/>
+    <WixVariable Id="WixUILicenseRtf" Value="$(var.ProjectDir)\..\LICENSE.rtf"/>
+
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="37440bbb-7070-4360-9c01-9c92335c9a40">
+        <Shortcut Id="ApplicationStartMenuShortcut" 
+                  Name="Remote Application Publisher" 
+                  Description="Publish remote applications"
+                  Target="[#RemoteApplicationPublisher.exe]"
+                  WorkingDirectory="APPLICATIONROOTDIRECTORY"
+                  Icon="safeguardlogo.ico"/>
+        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\OneIdentity\RemoteApplicationPublisher" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+      <Component Id="ApplicationShortcutDesktop" Guid="a86c3a73-3b29-47cc-a234-7bf3ce8f238f">
+        <Shortcut Id="ApplicationDesktopShortcut" 
+                  Name="Remote Application Publisher" 
+                  Description="Publish remote applications"
+                  Directory="DesktopFolder"
+                  Target="[#RemoteApplicationPublisher.exe]"
+                  Icon="safeguardlogo.ico"/>
+        <RemoveFolder Id="ApplicationShortcutDesktop" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\OneIdentity\RemoteApplicationPublisher" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+
+		<Feature Id="ProductFeature" Title="RemoteApplicationPublisherSetup" Level="1">
+			<ComponentGroupRef Id="RemoteAppsPub_CommonAssemblies" />
+      <ComponentRef Id="ApplicationShortcut" />
+      <ComponentRef Id="ApplicationShortcutDesktop" />
+		</Feature>
+
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFiles64Folder">
+				<Directory Id="INSTALLLOCATION" Name="!(loc.ProductNameFolder" />
+			</Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="Remote Application Publisher"/>
+      </Directory>
+      <Directory Id="DesktopFolder" />
+		</Directory>
+    <Icon Id="safeguardlogo.ico" SourceFile="..\RemoteApplicationPublisher\SafeguardLogo.ico" />
+	</Fragment>
+
+</Wix>
