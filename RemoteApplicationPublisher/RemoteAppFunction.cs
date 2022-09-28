@@ -41,24 +41,15 @@ namespace RemoteApplicationPublisher
             textBox.Select(cloc, 0);
         }
 
-        public static void ValidateSeconds(TextBox textBox)
+        public static void ValidateSeconds(NumericUpDown counter)
         {
-            int cloc = textBox.SelectionStart;
-            var result = int.TryParse(textBox.Text, out var seconds);
-            if (!result)
-            {
-                textBox.Text = string.Empty;
-                textBox.Select(0, 0);
-            }
+            var seconds = Convert.ToInt32(counter.Value);
             if (seconds > 2147483d)
             {
-                textBox.Text = 2147483.ToString();
-                cloc = textBox.Text.Length;
+                counter.Value = 2147483;
             }
 
-            textBox.Text = seconds.ToString();
-            textBox.Select(textBox.Text.Length, 0);
-            textBox.Select(cloc, 0);
+            counter.Value = seconds;
         }
 
         public static void ValidateAppName(TextBox textBox)

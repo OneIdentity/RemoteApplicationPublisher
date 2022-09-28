@@ -47,6 +47,7 @@ namespace RemoteApplicationPublisher
             // 
             this.TitleLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.TitleLabel.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TitleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(150)))), ((int)(((byte)(209)))));
             this.TitleLabel.Location = new System.Drawing.Point(12, 174);
             this.TitleLabel.Name = "TitleLabel";
             this.TitleLabel.Size = new System.Drawing.Size(383, 30);
