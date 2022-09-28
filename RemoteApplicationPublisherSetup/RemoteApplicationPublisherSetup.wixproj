@@ -64,11 +64,10 @@
     <Exec Command="dotnet publish $(ProjectDir)\..\RemoteApplicationPublisher\RemoteApplicationPublisher.csproj -c $(Configuration) -o $(ProjectDir)bin\$(Configuration)\Publish --self-contained true -r win-x64" />
     <HeatDirectory SuppressAllWarnings="true" ToolPath="$(WixToolPath)" AutogenerateGuids="$(HarvestDirectoryAutogenerateGuids)" OutputFile="Component-generated.wxs" SuppressFragments="true" SuppressUniqueIds="true" Transforms="%(HarvestDirectory.Transforms)" Directory="$(ProjectDir)bin\$(Configuration)\Publish" ComponentGroupName="RemoteAppsPub_CommonAssemblies" DirectoryRefId="INSTALLLOCATION" KeepEmptyDirectories="false" PreprocessorVariable="var.SourceDir" SuppressRootDirectory="true" SuppressRegistry="true">
     </HeatDirectory>
-    <!-- <GetAssemblyIdentity AssemblyFiles="$(ProjectDir)bin\$(Configuration)\Publish\RemoteApplicationPublisher.exe"> -->
-    <!--   <Output TaskParameter="Assemblies" ItemName="AsmInfo" /> -->
-    <!-- </GetAssemblyIdentity> -->
-    <!-- <CreateProperty Value="RemoteApplicationPublisher_%(AsmInfo.Version)_$(Configuration)"> -->
-    <CreateProperty Value="RemoteApplicationPublisher_1.0.0.0_$(Configuration)">
+    <GetAssemblyIdentity AssemblyFiles="$(ProjectDir)bin\$(Configuration)\Publish\RemoteApplicationPublisher.dll">
+      <Output TaskParameter="Assemblies" ItemName="AsmInfo" />
+    </GetAssemblyIdentity>
+    <CreateProperty Value="RemoteApplicationPublisher_%(AsmInfo.Version)_$(Configuration)">
       <Output TaskParameter="Value" PropertyName="TargetName" />
     </CreateProperty>
   </Target>
