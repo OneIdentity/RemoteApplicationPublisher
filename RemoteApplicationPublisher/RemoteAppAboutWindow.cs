@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace RemoteApplicationPublisher
@@ -17,20 +18,26 @@ namespace RemoteApplicationPublisher
 
         private void RemoteAppAboutWindow_Load(object sender, EventArgs e)
         {
-            Text = "About " + _mainWindow.Title.Text;
-            TitleLabel.Text = _mainWindow.Title.Text;
             VersionLabel.Text = "Version " + Application.ProductVersion.ToString();
         }
 
         private void SiteLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // Process.Start(SiteLinkLabel.Text);
+            try
+            {
+                Process proc = new Process ();
+                proc.StartInfo.UseShellExecute = true;
+                proc.StartInfo.FileName = SiteLinkLabel.Text;
+                proc.Start ();
+            }
+            catch
+            {
+            }
         }
 
-        private void IconLibLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void buttonCancel_Click(object sender, EventArgs e)
         {
-            // Process.Start(IconLibLinkLabel.Text);
+            Close();
         }
-
     }
 }

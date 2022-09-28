@@ -31,149 +31,149 @@ namespace RemoteApplicationPublisher
         /// </summary>
         private void InitializeComponent()
         {
-            var resources = new System.ComponentModel.ComponentResourceManager(typeof(RemoteAppAboutWindow));
-            TitleLabel = new Label();
-            VersionLabel = new Label();
-            CopyrightLabel = new Label();
-            SiteLinkLabel = new LinkLabel();
-            SiteLinkLabel.LinkClicked += new LinkLabelLinkClickedEventHandler(SiteLinkLabel_LinkClicked);
-            IconLibCreatedByLabel = new Label();
-            IconLibLabel = new Label();
-            IconLibLinkLabel = new LinkLabel();
-            IconLibLinkLabel.LinkClicked += new LinkLabelLinkClickedEventHandler(IconLibLinkLabel_LinkClicked);
-            IconLibLicenceTextLabel = new Label();
-            RemoteAppToolLicenceTextLabel = new Label();
-            SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RemoteAppAboutWindow));
+            this.TitleLabel = new System.Windows.Forms.Label();
+            this.SiteLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.labelSeparator1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.labelLogo = new System.Windows.Forms.Label();
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.VersionLabel = new System.Windows.Forms.Label();
+            this.SuspendLayout();
             // 
             // TitleLabel
             // 
-            TitleLabel.Anchor = AnchorStyles.Top;
-            TitleLabel.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, 0);
-            TitleLabel.Location = new Point(17, 9);
-            TitleLabel.Name = "TitleLabel";
-            TitleLabel.Size = new Size(263, 30);
-            TitleLabel.TabIndex = 0;
-            TitleLabel.Text = "RemoteApp Tool";
-            TitleLabel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // VersionLabel
-            // 
-            VersionLabel.Anchor = AnchorStyles.Top;
-            VersionLabel.Location = new Point(17, 39);
-            VersionLabel.Name = "VersionLabel";
-            VersionLabel.Size = new Size(263, 30);
-            VersionLabel.TabIndex = 0;
-            VersionLabel.Text = "Version 0.0.0.0";
-            VersionLabel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // CopyrightLabel
-            // 
-            CopyrightLabel.Anchor = AnchorStyles.Top;
-            CopyrightLabel.Location = new Point(17, 69);
-            CopyrightLabel.Name = "CopyrightLabel";
-            CopyrightLabel.Size = new Size(263, 30);
-            CopyrightLabel.TabIndex = 0;
-            CopyrightLabel.Text = "Kim Knight, Brian Gale";
-            CopyrightLabel.TextAlign = ContentAlignment.MiddleCenter;
+            this.TitleLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.TitleLabel.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TitleLabel.Location = new System.Drawing.Point(12, 174);
+            this.TitleLabel.Name = "TitleLabel";
+            this.TitleLabel.Size = new System.Drawing.Size(383, 30);
+            this.TitleLabel.TabIndex = 0;
+            this.TitleLabel.Text = "Remote Application Publisher";
+            this.TitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SiteLinkLabel
             // 
-            SiteLinkLabel.Anchor = AnchorStyles.Top;
-            SiteLinkLabel.Location = new Point(15, 129);
-            SiteLinkLabel.Name = "SiteLinkLabel";
-            SiteLinkLabel.Size = new Size(271, 30);
-            SiteLinkLabel.TabIndex = 1;
-            SiteLinkLabel.TabStop = true;
-            SiteLinkLabel.Text = "https://github.com/kimmknight/remoteapptool";
-            SiteLinkLabel.TextAlign = ContentAlignment.MiddleCenter;
+            this.SiteLinkLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.SiteLinkLabel.LinkArea = new System.Windows.Forms.LinkArea(0, 100);
+            this.SiteLinkLabel.Location = new System.Drawing.Point(12, 249);
+            this.SiteLinkLabel.Name = "SiteLinkLabel";
+            this.SiteLinkLabel.Size = new System.Drawing.Size(383, 30);
+            this.SiteLinkLabel.TabIndex = 1;
+            this.SiteLinkLabel.TabStop = true;
+            this.SiteLinkLabel.Text = "https://github.com/OneIdentity/RemoteApplicationPublisher";
+            this.SiteLinkLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.SiteLinkLabel.UseCompatibleTextRendering = true;
+            this.SiteLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.SiteLinkLabel_LinkClicked);
             // 
-            // IconLibCreatedByLabel
+            // label1
             // 
-            IconLibCreatedByLabel.Anchor = AnchorStyles.Top;
-            IconLibCreatedByLabel.Location = new Point(17, 189);
-            IconLibCreatedByLabel.Name = "IconLibCreatedByLabel";
-            IconLibCreatedByLabel.Size = new Size(263, 30);
-            IconLibCreatedByLabel.TabIndex = 4;
-            IconLibCreatedByLabel.Text = "Created by CastorTiu";
-            IconLibCreatedByLabel.TextAlign = ContentAlignment.MiddleCenter;
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label1.Location = new System.Drawing.Point(12, 282);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(383, 89);
+            this.label1.TabIndex = 7;
+            this.label1.Text = resources.GetString("label1.Text");
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // IconLibLabel
+            // label2
             // 
-            IconLibLabel.Anchor = AnchorStyles.Top;
-            IconLibLabel.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, 0);
-            IconLibLabel.Location = new Point(17, 159);
-            IconLibLabel.Name = "IconLibLabel";
-            IconLibLabel.Size = new Size(263, 30);
-            IconLibLabel.TabIndex = 5;
-            IconLibLabel.Text = "IconLib";
-            IconLibLabel.TextAlign = ContentAlignment.MiddleCenter;
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label2.Location = new System.Drawing.Point(12, 362);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(383, 39);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "© 2022 OneIdentity LLC. ALL RIGHTS RESERVED.";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // IconLibLinkLabel
+            // labelSeparator1
             // 
-            IconLibLinkLabel.Anchor = AnchorStyles.Top;
-            IconLibLinkLabel.Location = new Point(12, 249);
-            IconLibLinkLabel.Name = "IconLibLinkLabel";
-            IconLibLinkLabel.Size = new Size(274, 30);
-            IconLibLinkLabel.TabIndex = 1;
-            IconLibLinkLabel.TabStop = true;
-            IconLibLinkLabel.Text = "https://creativecommons.org/licenses/by-sa/3.0/";
-            IconLibLinkLabel.TextAlign = ContentAlignment.MiddleCenter;
+            this.labelSeparator1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelSeparator1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelSeparator1.Location = new System.Drawing.Point(12, 164);
+            this.labelSeparator1.Name = "labelSeparator1";
+            this.labelSeparator1.Size = new System.Drawing.Size(383, 1);
+            this.labelSeparator1.TabIndex = 9;
             // 
-            // IconLibLicenceTextLabel
+            // label3
             // 
-            IconLibLicenceTextLabel.Anchor = AnchorStyles.Top;
-            IconLibLicenceTextLabel.Location = new Point(17, 219);
-            IconLibLicenceTextLabel.Name = "IconLibLicenceTextLabel";
-            IconLibLicenceTextLabel.Size = new Size(263, 30);
-            IconLibLicenceTextLabel.TabIndex = 4;
-            IconLibLicenceTextLabel.Text = "Licensed under a Creative Commons" + '\r' + '\n' + "Attribution-Share Alike 3.0 Unported License";
-            IconLibLicenceTextLabel.TextAlign = ContentAlignment.MiddleCenter;
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label3.Location = new System.Drawing.Point(12, 236);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(383, 1);
+            this.label3.TabIndex = 10;
             // 
-            // RemoteAppToolLicenceTextLabel
+            // labelLogo
             // 
-            RemoteAppToolLicenceTextLabel.Anchor = AnchorStyles.Top;
-            RemoteAppToolLicenceTextLabel.Location = new Point(17, 99);
-            RemoteAppToolLicenceTextLabel.Name = "RemoteAppToolLicenceTextLabel";
-            RemoteAppToolLicenceTextLabel.Size = new Size(263, 30);
-            RemoteAppToolLicenceTextLabel.TabIndex = 6;
-            RemoteAppToolLicenceTextLabel.Text = "Licensed under The MIT License";
-            RemoteAppToolLicenceTextLabel.TextAlign = ContentAlignment.MiddleCenter;
+            this.labelLogo.Image = ((System.Drawing.Image)(resources.GetObject("labelLogo.Image")));
+            this.labelLogo.Location = new System.Drawing.Point(121, 15);
+            this.labelLogo.Name = "labelLogo";
+            this.labelLogo.Size = new System.Drawing.Size(166, 135);
+            this.labelLogo.TabIndex = 11;
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.AutoSize = true;
+            this.buttonCancel.BackColor = System.Drawing.Color.Transparent;
+            this.buttonCancel.FlatAppearance.BorderSize = 0;
+            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCancel.Font = new System.Drawing.Font("Lucida Console", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonCancel.Location = new System.Drawing.Point(380, 3);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(26, 25);
+            this.buttonCancel.TabIndex = 12;
+            this.buttonCancel.Text = "X";
+            this.buttonCancel.UseVisualStyleBackColor = false;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
+            // VersionLabel
+            // 
+            this.VersionLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.VersionLabel.Location = new System.Drawing.Point(12, 209);
+            this.VersionLabel.Name = "VersionLabel";
+            this.VersionLabel.Size = new System.Drawing.Size(383, 20);
+            this.VersionLabel.TabIndex = 13;
+            this.VersionLabel.Text = "Version: ";
+            this.VersionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // RemoteAppAboutWindow
             // 
-            AutoScaleDimensions = new SizeF(7.0f, 15.0f);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
-            ClientSize = new Size(298, 296);
-            Controls.Add(RemoteAppToolLicenceTextLabel);
-            Controls.Add(IconLibLicenceTextLabel);
-            Controls.Add(IconLibCreatedByLabel);
-            Controls.Add(IconLibLabel);
-            Controls.Add(IconLibLinkLabel);
-            Controls.Add(SiteLinkLabel);
-            Controls.Add(CopyrightLabel);
-            Controls.Add(VersionLabel);
-            Controls.Add(TitleLabel);
-            Font = new Font("Segoe UI", 9.0f);
-            FormBorderStyle = FormBorderStyle.FixedDialog;
-            Icon = (Icon)resources.GetObject("$this.Icon");
-            MaximizeBox = false;
-            MinimizeBox = false;
-            Name = "RemoteAppAboutWindow";
-            StartPosition = FormStartPosition.CenterParent;
-            Text = "RemoteAppAboutWindow";
-            Load += new EventHandler(RemoteAppAboutWindow_Load);
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ClientSize = new System.Drawing.Size(407, 409);
+            this.ControlBox = false;
+            this.Controls.Add(this.VersionLabel);
+            this.Controls.Add(this.labelLogo);
+            this.Controls.Add(this.buttonCancel);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelSeparator1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.SiteLinkLabel);
+            this.Controls.Add(this.TitleLabel);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "RemoteAppAboutWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Load += new System.EventHandler(this.RemoteAppAboutWindow_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
         internal Label TitleLabel;
-        internal Label VersionLabel;
-        internal Label CopyrightLabel;
         internal LinkLabel SiteLinkLabel;
-        internal Label IconLibCreatedByLabel;
-        internal Label IconLibLabel;
-        internal LinkLabel IconLibLinkLabel;
-        internal Label IconLibLicenceTextLabel;
-        internal Label RemoteAppToolLicenceTextLabel;
+        internal Label label1;
+        internal Label label2;
+        private Label labelSeparator1;
+        private Label label3;
+        private Label labelLogo;
+        private Button buttonCancel;
+        internal Label VersionLabel;
     }
 }
