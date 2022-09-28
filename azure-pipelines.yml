@@ -11,6 +11,7 @@ pool:
 
 variables:
   #version: '1.0.0.$(Build.BuildId)'
+  semanticVersion: "1.0.0"
   solution: '**/*.sln'
   buildPlatform: 'x64'
   buildConfiguration: 'Release'
@@ -25,6 +26,13 @@ steps:
     targetType: 'inline'
     script: 'env | sort'
   displayName: 'Display environment variables'
+
+- task: PowerShell@2
+  inputs:
+    targetType: filePath
+    filePath: $(System.DefaultWorkingDirectory)\versionnumber.ps1
+    arguments: $(Build.SourcesDirectory) $(semanticVersion) $(Build.BuildId) $$(isPrerelease)
+  displayName: 'Setting build version'
 
 - task: NuGetToolInstaller@1
 
