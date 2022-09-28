@@ -14,14 +14,14 @@ namespace RemoteApplicationPublisher
             _mainWindow = mainWindow;
         }
 
-        private void DisconnectTimeTextBox_TextChanged(object sender, EventArgs e)
+        private void disconnectTimeCounter_ValueChanged(object sender, EventArgs e)
         {
-            RemoteAppFunction.ValidateSeconds(DisconnectTimeTextBox);
+            RemoteAppFunction.ValidateSeconds(disconnectTimeCounter);
         }
 
-        private void IdleTimeTextBox_TextChanged(object sender, EventArgs e)
+        private void idleTimeCounter_ValueChanged(object sender, EventArgs e)
         {
-            RemoteAppFunction.ValidateSeconds(IdleTimeTextBox);
+            RemoteAppFunction.ValidateSeconds(idleTimeCounter);
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
@@ -63,10 +63,8 @@ namespace RemoteApplicationPublisher
 
             if (TimeoutDisconnectedCheckBox.Checked)
             {
-                if (int.TryParse(DisconnectTimeTextBox.Text, out var disconnectionTime))
-                {
-                    PolicyKey.SetValue("MaxDisconnectionTime", disconnectionTime * 1000d, RegistryValueKind.DWord);
-                }
+                var disconnectionTime = Convert.ToInt32(disconnectTimeCounter.Value);
+                PolicyKey.SetValue("MaxDisconnectionTime", disconnectionTime * 1000d, RegistryValueKind.DWord);
             }
             else
             {
@@ -75,10 +73,8 @@ namespace RemoteApplicationPublisher
 
             if (TimeoutIdleCheckBox.Checked)
             {
-                if (int.TryParse(IdleTimeTextBox.Text, out var idleTime))
-                {
-                    PolicyKey.SetValue("MaxIdleTime", idleTime * 1000d, RegistryValueKind.DWord);
-                }
+                var idleTime = Convert.ToInt32(idleTimeCounter.Value);
+                PolicyKey.SetValue("MaxIdleTime", idleTime * 1000d, RegistryValueKind.DWord);
             }
             else
             {
@@ -108,8 +104,8 @@ namespace RemoteApplicationPublisher
                 return;
             }
 
-            DisconnectTimeTextBox.Text = "0";
-            IdleTimeTextBox.Text = "0";
+            disconnectTimeCounter.Value = 0;
+            idleTimeCounter.Value = 0;
 
             var tsAppAllowList = Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Terminal Server\TSAppAllowList", "fDisabledAllowList", "");
             if (tsAppAllowList != null && ((int)tsAppAllowList) == 1)
@@ -125,7 +121,7 @@ namespace RemoteApplicationPublisher
             if (!(MaxDisconnectionTime == -1))
             {
                 TimeoutDisconnectedCheckBox.Checked = true;
-                DisconnectTimeTextBox.Text = (MaxDisconnectionTime / 1000d).ToString();
+                disconnectTimeCounter.Value = MaxDisconnectionTime == null ? 0 : (MaxDisconnectionTime.Value / 1000);
             }
             else
             {
@@ -136,7 +132,7 @@ namespace RemoteApplicationPublisher
             if (MaxIdleTime != null && !(MaxIdleTime == -1))
             {
                 TimeoutIdleCheckBox.Checked = true;
-                IdleTimeTextBox.Text = (MaxIdleTime / 1000d).ToString();
+                idleTimeCounter.Value = MaxIdleTime == null ? 0 : (MaxIdleTime.Value / 1000);
             }
             else
             {
@@ -165,20 +161,20 @@ namespace RemoteApplicationPublisher
 
             if (TimeoutDisconnectedCheckBox.Checked == true)
             {
-                DisconnectTimeTextBox.Enabled = true;
+                disconnectTimeCounter.Enabled = true;
             }
             else
             {
-                DisconnectTimeTextBox.Enabled = false;
+                disconnectTimeCounter.Enabled = false;
             }
 
             if (TimeoutIdleCheckBox.Checked == true)
             {
-                IdleTimeTextBox.Enabled = true;
+                idleTimeCounter.Enabled = true;
             }
             else
             {
-                IdleTimeTextBox.Enabled = false;
+                idleTimeCounter.Enabled = false;
             }
 
         }
@@ -187,11 +183,11 @@ namespace RemoteApplicationPublisher
         {
             if (TimeoutDisconnectedCheckBox.Checked == true)
             {
-                DisconnectTimeTextBox.Enabled = true;
+                disconnectTimeCounter.Enabled = true;
             }
             else
             {
-                DisconnectTimeTextBox.Enabled = false;
+                disconnectTimeCounter.Enabled = false;
             }
         }
 
@@ -199,11 +195,11 @@ namespace RemoteApplicationPublisher
         {
             if (TimeoutIdleCheckBox.Checked == true)
             {
-                IdleTimeTextBox.Enabled = true;
+                idleTimeCounter.Enabled = true;
             }
             else
             {
-                IdleTimeTextBox.Enabled = false;
+                idleTimeCounter.Enabled = false;
             }
         }
 
