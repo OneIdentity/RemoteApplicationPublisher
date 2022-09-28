@@ -68,7 +68,6 @@
       <Output TaskParameter="Assemblies" ItemName="AsmInfo" />
     </GetAssemblyIdentity>
     <CreateProperty Value="RemoteApplicationPublisher_%(AsmInfo.Version)_$(Configuration)">
-    <!-- <CreateProperty Value="RemoteApplicationPublisher_1.0.0.0_$(Configuration)"> -->
       <Output TaskParameter="Value" PropertyName="TargetName" />
     </CreateProperty>
   </Target>
