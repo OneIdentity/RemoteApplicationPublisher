@@ -162,9 +162,8 @@ namespace RemoteApplicationPublisher
             this.CancelEditButton.BackColor = System.Drawing.Color.WhiteSmoke;
             this.CancelEditButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.CancelEditButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(150)))), ((int)(((byte)(209)))));
-            this.CancelEditButton.FlatAppearance.BorderSize = 0;
             this.CancelEditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelEditButton.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CancelEditButton.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CancelEditButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(150)))), ((int)(((byte)(209)))));
             this.CancelEditButton.ImageList = this.SmallerIcons;
             this.CancelEditButton.Location = new System.Drawing.Point(248, 241);
