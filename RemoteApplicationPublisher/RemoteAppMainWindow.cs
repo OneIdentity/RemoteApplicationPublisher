@@ -7,6 +7,8 @@ namespace RemoteApplicationPublisher
 {
     public partial class RemoteAppMainWindow : Form
     {
+        private string clipboardText = string.Empty;
+
         public RemoteAppMainWindow()
         {
             InitializeComponent();
@@ -200,24 +202,10 @@ namespace RemoteApplicationPublisher
             remoteAppAboutWindow.ShowDialog();
         }
 
-        private void AppList_MouseClick(object sender, MouseEventArgs e)
-        {
-            // if (e.Button == MouseButtons.Right)
-            // {
-            //     var item = AppList.HitTest(e.Location).Item;
-            //     if (item != null)
-            //     {
-            //         AppList.FocusedItem = item;
-            //         listViewContextMenuStrip.Show(AppList, e.Location);
-            //     }
-            // }
-        }
-
         private void copyToClipboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (AppList.FocusedItem != null)
             {
-                var clipboardText = AppList.FocusedItem.Text;
                 Clipboard.SetText(clipboardText);
             }
         }
@@ -226,11 +214,20 @@ namespace RemoteApplicationPublisher
         {
             if (e.Button == MouseButtons.Right)
             {
-                var hittest = AppList.HitTest(e.Location);
                 var item = AppList.HitTest(e.Location).Item;
                 if (item != null)
                 {
                     AppList.FocusedItem = item;
+                    clipboardText = string.Empty;
+
+                    foreach (var i in item.SubItems)
+                    {
+                        if (((ListViewItem.ListViewSubItem)i).Bounds.Contains(e.Location))
+                        {
+                            clipboardText = ((ListViewItem.ListViewSubItem)i).Text;
+                        }
+                    }
+
                     listViewContextMenuStrip.Show(AppList, e.Location);
                 }
             }
