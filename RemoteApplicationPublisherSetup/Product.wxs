@@ -58,7 +58,7 @@
       </Directory>
       <Directory Id="DesktopFolder" />
 		</Directory>
-    <Icon Id="safeguardlogo.ico" SourceFile="..\RemoteApplicationPublisher\SafeguardLogo.ico" />
+    <Icon Id="safeguardlogo.ico" SourceFile="..\RemoteApplicationPublisher\Images\SafeguardRemoteAppLogo.targetsize-32.ico" />
 	</Fragment>
 
 </Wix>
