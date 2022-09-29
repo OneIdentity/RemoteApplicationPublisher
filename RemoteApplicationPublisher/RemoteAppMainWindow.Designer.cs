@@ -37,12 +37,12 @@ namespace RemoteApplicationPublisher
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonSettingsMenu = new System.Windows.Forms.Button();
-            this.buttonSave = new System.Windows.Forms.Button();
             this.buttonRemove = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.remoteAppCollectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contextSettingsMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.backupApplicationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hostOptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.AppList = new System.Windows.Forms.ListView();
             this.ShortName = new System.Windows.Forms.ColumnHeader();
@@ -113,7 +113,6 @@ namespace RemoteApplicationPublisher
             // 
             this.panel1.Controls.Add(this.buttonEdit);
             this.panel1.Controls.Add(this.buttonSettingsMenu);
-            this.panel1.Controls.Add(this.buttonSave);
             this.panel1.Controls.Add(this.buttonRemove);
             this.panel1.Controls.Add(this.buttonAdd);
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -146,18 +145,6 @@ namespace RemoteApplicationPublisher
             this.buttonSettingsMenu.UseVisualStyleBackColor = true;
             this.buttonSettingsMenu.Click += new System.EventHandler(this.buttonSettingsMenu_Click);
             // 
-            // buttonSave
-            // 
-            this.buttonSave.FlatAppearance.BorderSize = 0;
-            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSave.Image = ((System.Drawing.Image)(resources.GetObject("buttonSave.Image")));
-            this.buttonSave.Location = new System.Drawing.Point(121, 3);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(31, 26);
-            this.buttonSave.TabIndex = 2;
-            this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.BackupAllRemoteAppsToolStripMenuItem_Click);
-            // 
             // buttonRemove
             // 
             this.buttonRemove.Enabled = false;
@@ -185,17 +172,14 @@ namespace RemoteApplicationPublisher
             this.buttonAdd.UseVisualStyleBackColor = false;
             this.buttonAdd.Click += new System.EventHandler(this.CreateButton_Click);
             // 
-            // remoteAppCollectionBindingSource
-            // 
-            this.remoteAppCollectionBindingSource.DataSource = typeof(RemoteApplicationPublisher.RemoteAppCollection);
-            // 
             // contextSettingsMenuStrip
             // 
             this.contextSettingsMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.backupApplicationsToolStripMenuItem,
+            this.hostOptionsToolStripMenuItem,
             this.aboutToolStripMenuItem1});
             this.contextSettingsMenuStrip.Name = "contextSettingsMenuStrip";
-            this.contextSettingsMenuStrip.Size = new System.Drawing.Size(209, 48);
+            this.contextSettingsMenuStrip.Size = new System.Drawing.Size(209, 70);
             // 
             // backupApplicationsToolStripMenuItem
             // 
@@ -203,6 +187,13 @@ namespace RemoteApplicationPublisher
             this.backupApplicationsToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.backupApplicationsToolStripMenuItem.Text = "Backup All Applications...";
             this.backupApplicationsToolStripMenuItem.Click += new System.EventHandler(this.backupApplicationsToolStripMenuItem_Click);
+            // 
+            // hostOptionsToolStripMenuItem
+            // 
+            this.hostOptionsToolStripMenuItem.Name = "hostOptionsToolStripMenuItem";
+            this.hostOptionsToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.hostOptionsToolStripMenuItem.Text = "Host Options...";
+            this.hostOptionsToolStripMenuItem.Click += new System.EventHandler(this.HostOptionsToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem1
             // 
@@ -223,6 +214,7 @@ namespace RemoteApplicationPublisher
             this.FullName,
             this.ProgramPath,
             this.CommandLine});
+            this.AppList.FullRowSelect = true;
             this.AppList.LargeImageList = this.SmallIcons;
             this.AppList.Location = new System.Drawing.Point(10, 46);
             this.AppList.MultiSelect = false;
@@ -232,6 +224,7 @@ namespace RemoteApplicationPublisher
             this.AppList.TabIndex = 1;
             this.AppList.UseCompatibleStateImageBehavior = false;
             this.AppList.View = System.Windows.Forms.View.Details;
+            this.AppList.Click += new System.EventHandler(this.AppList_SelectedIndexChanged);
             this.AppList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AppList_MouseClick);
             this.AppList.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AppList_MouseDown);
             // 
@@ -312,7 +305,6 @@ namespace RemoteApplicationPublisher
         internal SaveFileDialog BackupSaveFileDialog;
         private Panel panel1;
         private Button buttonEdit;
-        private Button buttonSave;
         private Button buttonRemove;
         private Button buttonAdd;
         private BindingSource remoteAppCollectionBindingSource;
@@ -328,5 +320,6 @@ namespace RemoteApplicationPublisher
         private ColumnHeader ProgramPath;
         private ContextMenuStrip listViewContextMenuStrip;
         private ToolStripMenuItem copyToClipboardToolStripMenuItem;
+        private ToolStripMenuItem hostOptionsToolStripMenuItem;
     }
 }
