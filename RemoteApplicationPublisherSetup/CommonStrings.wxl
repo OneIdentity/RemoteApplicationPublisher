@@ -2,6 +2,6 @@
 <WixLocalization Culture="en-us" xmlns="http://schemas.microsoft.com/wix/2006/localization">
 
   <String Id="ProductNameFolder">RemoteApplicationPublisher</String>
-  <String Id="CompanyName">OneIdentity</String>
+  <String Id="CompanyName">One Identity LLC</String>
 
 </WixLocalization>
