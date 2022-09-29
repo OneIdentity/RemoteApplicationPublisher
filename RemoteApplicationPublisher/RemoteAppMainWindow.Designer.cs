@@ -29,36 +29,33 @@ namespace RemoteApplicationPublisher
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RemoteAppMainWindow));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.SmallIcons = new System.Windows.Forms.ImageList(this.components);
             this.SmallerIcons = new System.Windows.Forms.ImageList(this.components);
             this.NoAppsLabel = new System.Windows.Forms.Label();
             this.ToolsMenuStrip = new System.Windows.Forms.MenuStrip();
-            this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.NewRemoteAppadvancedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.HostOptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.BackupAllRemoteAppsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.HelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.AboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BackupSaveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonEdit = new System.Windows.Forms.Button();
+            this.buttonSettingsMenu = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonRemove = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
-            this.dataGrid = new System.Windows.Forms.DataGridView();
             this.remoteAppCollectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ToolsMenuStrip.SuspendLayout();
+            this.contextSettingsMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.backupApplicationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.AppList = new System.Windows.Forms.ListView();
+            this.ShortName = new System.Windows.Forms.ColumnHeader();
+            this.FullName = new System.Windows.Forms.ColumnHeader();
+            this.ProgramPath = new System.Windows.Forms.ColumnHeader();
+            this.CommandLine = new System.Windows.Forms.ColumnHeader();
+            this.labelSeparator1 = new System.Windows.Forms.Label();
+            this.listViewContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.copyToClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.remoteAppCollectionBindingSource)).BeginInit();
+            this.contextSettingsMenuStrip.SuspendLayout();
+            this.listViewContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // SmallIcons
@@ -87,9 +84,9 @@ namespace RemoteApplicationPublisher
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.NoAppsLabel.ForeColor = System.Drawing.Color.DarkGray;
-            this.NoAppsLabel.Location = new System.Drawing.Point(9, 120);
+            this.NoAppsLabel.Location = new System.Drawing.Point(12, 144);
             this.NoAppsLabel.Name = "NoAppsLabel";
-            this.NoAppsLabel.Size = new System.Drawing.Size(631, 138);
+            this.NoAppsLabel.Size = new System.Drawing.Size(631, 73);
             this.NoAppsLabel.TabIndex = 0;
             this.NoAppsLabel.Text = "There are no RemoteApps hosted on this computer.\r\nClick + to add one.";
             this.NoAppsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -100,94 +97,12 @@ namespace RemoteApplicationPublisher
             this.ToolsMenuStrip.AllowMerge = false;
             this.ToolsMenuStrip.AutoSize = false;
             this.ToolsMenuStrip.BackColor = System.Drawing.Color.Transparent;
-            this.ToolsMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.FileToolStripMenuItem,
-            this.ToolsToolStripMenuItem,
-            this.HelpToolStripMenuItem});
+            this.ToolsMenuStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.ToolsMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.ToolsMenuStrip.Name = "ToolsMenuStrip";
             this.ToolsMenuStrip.ShowItemToolTips = true;
-            this.ToolsMenuStrip.Size = new System.Drawing.Size(655, 24);
+            this.ToolsMenuStrip.Size = new System.Drawing.Size(655, 37);
             this.ToolsMenuStrip.TabIndex = 5;
-            // 
-            // FileToolStripMenuItem
-            // 
-            this.FileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.NewRemoteAppadvancedToolStripMenuItem,
-            this.ToolStripSeparator2,
-            this.ExitToolStripMenuItem});
-            this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
-            this.FileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.FileToolStripMenuItem.Text = "File";
-            // 
-            // NewRemoteAppadvancedToolStripMenuItem
-            // 
-            this.NewRemoteAppadvancedToolStripMenuItem.Name = "NewRemoteAppadvancedToolStripMenuItem";
-            this.NewRemoteAppadvancedToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
-            this.NewRemoteAppadvancedToolStripMenuItem.Text = "New RemoteApp (advanced)...";
-            this.NewRemoteAppadvancedToolStripMenuItem.Click += new System.EventHandler(this.NewRemoteAppadvancedToolStripMenuItem_Click);
-            // 
-            // ToolStripSeparator2
-            // 
-            this.ToolStripSeparator2.Name = "ToolStripSeparator2";
-            this.ToolStripSeparator2.Size = new System.Drawing.Size(232, 6);
-            // 
-            // ExitToolStripMenuItem
-            // 
-            this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
-            this.ExitToolStripMenuItem.Text = "Exit";
-            this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
-            // 
-            // ToolsToolStripMenuItem
-            // 
-            this.ToolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.HostOptionsToolStripMenuItem,
-            this.ToolStripSeparator3,
-            this.BackupAllRemoteAppsToolStripMenuItem});
-            this.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem";
-            this.ToolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
-            this.ToolsToolStripMenuItem.Text = "&Tools";
-            // 
-            // HostOptionsToolStripMenuItem
-            // 
-            this.HostOptionsToolStripMenuItem.Name = "HostOptionsToolStripMenuItem";
-            this.HostOptionsToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-            this.HostOptionsToolStripMenuItem.Text = "Host Options...";
-            this.HostOptionsToolStripMenuItem.Click += new System.EventHandler(this.HostOptionsToolStripMenuItem_Click);
-            // 
-            // ToolStripSeparator3
-            // 
-            this.ToolStripSeparator3.Name = "ToolStripSeparator3";
-            this.ToolStripSeparator3.Size = new System.Drawing.Size(205, 6);
-            // 
-            // BackupAllRemoteAppsToolStripMenuItem
-            // 
-            this.BackupAllRemoteAppsToolStripMenuItem.Name = "BackupAllRemoteAppsToolStripMenuItem";
-            this.BackupAllRemoteAppsToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-            this.BackupAllRemoteAppsToolStripMenuItem.Text = "Backup all RemoteApps...";
-            this.BackupAllRemoteAppsToolStripMenuItem.Click += new System.EventHandler(this.BackupAllRemoteAppsToolStripMenuItem_Click);
-            // 
-            // HelpToolStripMenuItem
-            // 
-            this.HelpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripSeparator1,
-            this.AboutToolStripMenuItem});
-            this.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem";
-            this.HelpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.HelpToolStripMenuItem.Text = "Help";
-            // 
-            // ToolStripSeparator1
-            // 
-            this.ToolStripSeparator1.Name = "ToolStripSeparator1";
-            this.ToolStripSeparator1.Size = new System.Drawing.Size(113, 6);
-            // 
-            // AboutToolStripMenuItem
-            // 
-            this.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem";
-            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
-            this.AboutToolStripMenuItem.Text = "About...";
-            this.AboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
             // BackupSaveFileDialog
             // 
@@ -197,13 +112,13 @@ namespace RemoteApplicationPublisher
             // panel1
             // 
             this.panel1.Controls.Add(this.buttonEdit);
+            this.panel1.Controls.Add(this.buttonSettingsMenu);
             this.panel1.Controls.Add(this.buttonSave);
             this.panel1.Controls.Add(this.buttonRemove);
             this.panel1.Controls.Add(this.buttonAdd);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 24);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(655, 317);
+            this.panel1.Size = new System.Drawing.Size(655, 37);
             this.panel1.TabIndex = 8;
             // 
             // buttonEdit
@@ -218,6 +133,18 @@ namespace RemoteApplicationPublisher
             this.buttonEdit.TabIndex = 3;
             this.buttonEdit.UseVisualStyleBackColor = true;
             this.buttonEdit.Click += new System.EventHandler(this.EditButton_Click);
+            // 
+            // buttonSettingsMenu
+            // 
+            this.buttonSettingsMenu.FlatAppearance.BorderSize = 0;
+            this.buttonSettingsMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSettingsMenu.Image = ((System.Drawing.Image)(resources.GetObject("buttonSettingsMenu.Image")));
+            this.buttonSettingsMenu.Location = new System.Drawing.Point(612, 3);
+            this.buttonSettingsMenu.Name = "buttonSettingsMenu";
+            this.buttonSettingsMenu.Size = new System.Drawing.Size(31, 26);
+            this.buttonSettingsMenu.TabIndex = 2;
+            this.buttonSettingsMenu.UseVisualStyleBackColor = true;
+            this.buttonSettingsMenu.Click += new System.EventHandler(this.buttonSettingsMenu_Click);
             // 
             // buttonSave
             // 
@@ -258,79 +185,123 @@ namespace RemoteApplicationPublisher
             this.buttonAdd.UseVisualStyleBackColor = false;
             this.buttonAdd.Click += new System.EventHandler(this.CreateButton_Click);
             // 
-            // dataGrid
-            // 
-            this.dataGrid.AllowUserToAddRows = false;
-            this.dataGrid.AllowUserToDeleteRows = false;
-            this.dataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGrid.BackgroundColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGrid.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGrid.Location = new System.Drawing.Point(0, 76);
-            this.dataGrid.MultiSelect = false;
-            this.dataGrid.Name = "dataGrid";
-            this.dataGrid.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGrid.RowHeadersVisible = false;
-            this.dataGrid.RowTemplate.Height = 25;
-            this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid.ShowEditingIcon = false;
-            this.dataGrid.Size = new System.Drawing.Size(655, 265);
-            this.dataGrid.TabIndex = 9;
-            this.dataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellContentClick);
-            // 
             // remoteAppCollectionBindingSource
             // 
             this.remoteAppCollectionBindingSource.DataSource = typeof(RemoteApplicationPublisher.RemoteAppCollection);
+            // 
+            // contextSettingsMenuStrip
+            // 
+            this.contextSettingsMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.backupApplicationsToolStripMenuItem,
+            this.aboutToolStripMenuItem1});
+            this.contextSettingsMenuStrip.Name = "contextSettingsMenuStrip";
+            this.contextSettingsMenuStrip.Size = new System.Drawing.Size(209, 48);
+            // 
+            // backupApplicationsToolStripMenuItem
+            // 
+            this.backupApplicationsToolStripMenuItem.Name = "backupApplicationsToolStripMenuItem";
+            this.backupApplicationsToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.backupApplicationsToolStripMenuItem.Text = "Backup All Applications...";
+            this.backupApplicationsToolStripMenuItem.Click += new System.EventHandler(this.backupApplicationsToolStripMenuItem_Click);
+            // 
+            // aboutToolStripMenuItem1
+            // 
+            this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(208, 22);
+            this.aboutToolStripMenuItem1.Text = "About...";
+            this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
+            // 
+            // AppList
+            // 
+            this.AppList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AppList.BackColor = System.Drawing.Color.White;
+            this.AppList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.AppList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ShortName,
+            this.FullName,
+            this.ProgramPath,
+            this.CommandLine});
+            this.AppList.LargeImageList = this.SmallIcons;
+            this.AppList.Location = new System.Drawing.Point(10, 46);
+            this.AppList.MultiSelect = false;
+            this.AppList.Name = "AppList";
+            this.AppList.Size = new System.Drawing.Size(644, 295);
+            this.AppList.SmallImageList = this.SmallIcons;
+            this.AppList.TabIndex = 1;
+            this.AppList.UseCompatibleStateImageBehavior = false;
+            this.AppList.View = System.Windows.Forms.View.Details;
+            this.AppList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AppList_MouseClick);
+            this.AppList.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AppList_MouseDown);
+            // 
+            // ShortName
+            // 
+            this.ShortName.Text = "Name";
+            this.ShortName.Width = 140;
+            // 
+            // FullName
+            // 
+            this.FullName.Text = "Full Name";
+            this.FullName.Width = 140;
+            // 
+            // ProgramPath
+            // 
+            this.ProgramPath.Text = "Program Path";
+            this.ProgramPath.Width = 120;
+            // 
+            // CommandLine
+            // 
+            this.CommandLine.Text = "CommandLine";
+            this.CommandLine.Width = 400;
+            // 
+            // labelSeparator1
+            // 
+            this.labelSeparator1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelSeparator1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelSeparator1.Location = new System.Drawing.Point(0, 40);
+            this.labelSeparator1.Name = "labelSeparator1";
+            this.labelSeparator1.Size = new System.Drawing.Size(655, 1);
+            this.labelSeparator1.TabIndex = 10;
+            // 
+            // listViewContextMenuStrip
+            // 
+            this.listViewContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyToClipboardToolStripMenuItem});
+            this.listViewContextMenuStrip.Name = "listViewContextMenuStrip";
+            this.listViewContextMenuStrip.Size = new System.Drawing.Size(173, 26);
+            // 
+            // copyToClipboardToolStripMenuItem
+            // 
+            this.copyToClipboardToolStripMenuItem.Name = "copyToClipboardToolStripMenuItem";
+            this.copyToClipboardToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.copyToClipboardToolStripMenuItem.Text = "Copy To Clipboard";
+            this.copyToClipboardToolStripMenuItem.Click += new System.EventHandler(this.copyToClipboardToolStripMenuItem_Click);
             // 
             // RemoteAppMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(655, 341);
-            this.Controls.Add(this.dataGrid);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.labelSeparator1);
+            this.Controls.Add(this.AppList);
             this.Controls.Add(this.NoAppsLabel);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.ToolsMenuStrip);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.ToolsMenuStrip;
             this.MinimumSize = new System.Drawing.Size(450, 300);
             this.Name = "RemoteAppMainWindow";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
-            this.Text = "RemoteApp Tool";
+            this.Text = "Remote Application Publisher";
             this.Load += new System.EventHandler(this.RemoteAppMainWindow_Load);
             this.Disposed += new System.EventHandler(this.RemoteAppMainWindow_Disposed);
-            this.ToolsMenuStrip.ResumeLayout(false);
-            this.ToolsMenuStrip.PerformLayout();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.remoteAppCollectionBindingSource)).EndInit();
+            this.contextSettingsMenuStrip.ResumeLayout(false);
+            this.listViewContextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -338,24 +309,24 @@ namespace RemoteApplicationPublisher
         internal ImageList SmallerIcons;
         internal Label NoAppsLabel;
         internal MenuStrip ToolsMenuStrip;
-        internal ToolStripMenuItem ToolsToolStripMenuItem;
-        internal ToolStripMenuItem HostOptionsToolStripMenuItem;
-        internal ToolStripMenuItem FileToolStripMenuItem;
-        internal ToolStripMenuItem ExitToolStripMenuItem;
-        internal ToolStripMenuItem HelpToolStripMenuItem;
-        internal ToolStripMenuItem AboutToolStripMenuItem;
-        internal ToolStripSeparator ToolStripSeparator1;
-        internal ToolStripMenuItem NewRemoteAppadvancedToolStripMenuItem;
-        internal ToolStripSeparator ToolStripSeparator2;
-        internal ToolStripSeparator ToolStripSeparator3;
-        internal ToolStripMenuItem BackupAllRemoteAppsToolStripMenuItem;
         internal SaveFileDialog BackupSaveFileDialog;
         private Panel panel1;
         private Button buttonEdit;
         private Button buttonSave;
         private Button buttonRemove;
         private Button buttonAdd;
-        private DataGridView dataGrid;
         private BindingSource remoteAppCollectionBindingSource;
+        private Button buttonSettingsMenu;
+        private ContextMenuStrip contextSettingsMenuStrip;
+        private ToolStripMenuItem backupApplicationsToolStripMenuItem;
+        private ToolStripMenuItem aboutToolStripMenuItem1;
+        internal ListView AppList;
+        private Label labelSeparator1;
+        internal ColumnHeader ShortName;
+        internal ColumnHeader FullName;
+        internal ColumnHeader CommandLine;
+        private ColumnHeader ProgramPath;
+        private ContextMenuStrip listViewContextMenuStrip;
+        private ToolStripMenuItem copyToClipboardToolStripMenuItem;
     }
 }
