@@ -49,7 +49,6 @@ namespace RemoteApplicationPublisher
             this.AboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BackupSaveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonRemove = new System.Windows.Forms.Button();
@@ -58,7 +57,6 @@ namespace RemoteApplicationPublisher
             this.remoteAppCollectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ToolsMenuStrip.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.remoteAppCollectionBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -198,24 +196,15 @@ namespace RemoteApplicationPublisher
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.buttonEdit);
+            this.panel1.Controls.Add(this.buttonSave);
+            this.panel1.Controls.Add(this.buttonRemove);
+            this.panel1.Controls.Add(this.buttonAdd);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 24);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(655, 317);
             this.panel1.TabIndex = 8;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.buttonEdit);
-            this.panel2.Controls.Add(this.buttonSave);
-            this.panel2.Controls.Add(this.buttonRemove);
-            this.panel2.Controls.Add(this.buttonAdd);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(655, 317);
-            this.panel2.TabIndex = 4;
             // 
             // buttonEdit
             // 
@@ -223,10 +212,10 @@ namespace RemoteApplicationPublisher
             this.buttonEdit.FlatAppearance.BorderSize = 0;
             this.buttonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEdit.Image = ((System.Drawing.Image)(resources.GetObject("buttonEdit.Image")));
-            this.buttonEdit.Location = new System.Drawing.Point(99, 9);
+            this.buttonEdit.Location = new System.Drawing.Point(84, 3);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(31, 26);
-            this.buttonEdit.TabIndex = 7;
+            this.buttonEdit.TabIndex = 3;
             this.buttonEdit.UseVisualStyleBackColor = true;
             this.buttonEdit.Click += new System.EventHandler(this.EditButton_Click);
             // 
@@ -235,10 +224,10 @@ namespace RemoteApplicationPublisher
             this.buttonSave.FlatAppearance.BorderSize = 0;
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSave.Image = ((System.Drawing.Image)(resources.GetObject("buttonSave.Image")));
-            this.buttonSave.Location = new System.Drawing.Point(136, 9);
+            this.buttonSave.Location = new System.Drawing.Point(121, 3);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(31, 26);
-            this.buttonSave.TabIndex = 6;
+            this.buttonSave.TabIndex = 2;
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.BackupAllRemoteAppsToolStripMenuItem_Click);
             // 
@@ -248,10 +237,10 @@ namespace RemoteApplicationPublisher
             this.buttonRemove.FlatAppearance.BorderSize = 0;
             this.buttonRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRemove.Image = ((System.Drawing.Image)(resources.GetObject("buttonRemove.Image")));
-            this.buttonRemove.Location = new System.Drawing.Point(62, 9);
+            this.buttonRemove.Location = new System.Drawing.Point(47, 3);
             this.buttonRemove.Name = "buttonRemove";
             this.buttonRemove.Size = new System.Drawing.Size(31, 26);
-            this.buttonRemove.TabIndex = 5;
+            this.buttonRemove.TabIndex = 1;
             this.buttonRemove.UseVisualStyleBackColor = true;
             this.buttonRemove.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
@@ -261,10 +250,10 @@ namespace RemoteApplicationPublisher
             this.buttonAdd.FlatAppearance.BorderSize = 0;
             this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdd.Image = ((System.Drawing.Image)(resources.GetObject("buttonAdd.Image")));
-            this.buttonAdd.Location = new System.Drawing.Point(25, 9);
+            this.buttonAdd.Location = new System.Drawing.Point(10, 3);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(31, 26);
-            this.buttonAdd.TabIndex = 4;
+            this.buttonAdd.TabIndex = 0;
             this.buttonAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonAdd.UseVisualStyleBackColor = false;
             this.buttonAdd.Click += new System.EventHandler(this.CreateButton_Click);
@@ -273,8 +262,7 @@ namespace RemoteApplicationPublisher
             // 
             this.dataGrid.AllowUserToAddRows = false;
             this.dataGrid.AllowUserToDeleteRows = false;
-            this.dataGrid.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.dataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGrid.BackgroundColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -293,8 +281,9 @@ namespace RemoteApplicationPublisher
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGrid.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGrid.Location = new System.Drawing.Point(0, 65);
+            this.dataGrid.Location = new System.Drawing.Point(0, 76);
             this.dataGrid.MultiSelect = false;
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
@@ -310,7 +299,7 @@ namespace RemoteApplicationPublisher
             this.dataGrid.RowTemplate.Height = 25;
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGrid.ShowEditingIcon = false;
-            this.dataGrid.Size = new System.Drawing.Size(655, 276);
+            this.dataGrid.Size = new System.Drawing.Size(655, 265);
             this.dataGrid.TabIndex = 9;
             this.dataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellContentClick);
             // 
@@ -340,7 +329,6 @@ namespace RemoteApplicationPublisher
             this.ToolsMenuStrip.ResumeLayout(false);
             this.ToolsMenuStrip.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.remoteAppCollectionBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -363,12 +351,11 @@ namespace RemoteApplicationPublisher
         internal ToolStripMenuItem BackupAllRemoteAppsToolStripMenuItem;
         internal SaveFileDialog BackupSaveFileDialog;
         private Panel panel1;
-        private DataGridView dataGrid;
-        private BindingSource remoteAppCollectionBindingSource;
-        private Panel panel2;
         private Button buttonEdit;
         private Button buttonSave;
         private Button buttonRemove;
         private Button buttonAdd;
+        private DataGridView dataGrid;
+        private BindingSource remoteAppCollectionBindingSource;
     }
 }
