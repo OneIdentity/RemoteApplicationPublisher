@@ -139,8 +139,8 @@ namespace RemoteApplicationPublisher
                 TimeoutIdleCheckBox.Checked = false;
             }
 
-            var fResetBroken = (bool?)PolicyKey.GetValue("fResetBroken");
-            if (fResetBroken != null && fResetBroken != default)
+            var fResetBroken = ((Int32)PolicyKey.GetValue("fResetBroken", 0)) == 0 ? false : true;
+            if (fResetBroken != default)
             {
                 LogoffWhenTimoutCheckBox.Checked = true;
             }
@@ -149,8 +149,8 @@ namespace RemoteApplicationPublisher
                 LogoffWhenTimoutCheckBox.Checked = false;
             }
 
-            var fAllowUnlistedRemotePrograms = (bool?)PolicyKey.GetValue("fAllowUnlistedRemotePrograms");
-            if (fAllowUnlistedRemotePrograms != null && fAllowUnlistedRemotePrograms != default)
+            var fAllowUnlistedRemotePrograms = ((Int32)PolicyKey.GetValue("fAllowUnlistedRemotePrograms", 0)) == 0 ? false : true;
+            if (fAllowUnlistedRemotePrograms != default)
             {
                 AllowUnlistedRemoteProgramsCheckBox.Checked = true;
             }
