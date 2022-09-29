@@ -10,13 +10,6 @@ namespace RemoteApplicationPublisher
         public RemoteAppMainWindow()
         {
             InitializeComponent();
-            this.dataGrid.ColumnCount = 3;
-            this.dataGrid.Columns[0].Name = "Application Name";
-            this.dataGrid.Columns[1].Name = "Path";
-            this.dataGrid.Columns[2].Name = "Command Line";
-
-            this.dataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid.MultiSelect = false;
         }
 
         private void RemoteAppMainWindow_Disposed(object sender, EventArgs e)
@@ -32,7 +25,7 @@ namespace RemoteApplicationPublisher
             var sra = new SystemRemoteApps();
             sra.Init();
 
-            Text = Application.ProductName + " " + Application.ProductVersion + " (" + System.Net.Dns.GetHostName() + ")";
+            Text = "Remote Application Publisher " + Application.ProductVersion + " (" + System.Net.Dns.GetHostName() + ")";
             HelpSystem.SetupTips(this);
             ReloadApps();
         }
@@ -40,93 +33,68 @@ namespace RemoteApplicationPublisher
 
         public void ReloadApps()
         {
-//            AppList.Clear();
+            AppList.Items.Clear();
 
             var systemApps = new SystemRemoteApps();
             var apps = systemApps.GetAll();
 
-            this.dataGrid.Rows.Clear();
-
             foreach (RemoteApp app in apps)
             {
-                var columns = new string[3];
-                columns[0] = app.Name;
-                columns[1] = app.Path;
-                columns[2] = app.CommandLine;
-                this.dataGrid.Rows.Add(columns);
-            //    SmallIcons.Images.RemoveByKey(app.Name);
-            //    var iconBitmap = RemoteAppFunction.GetAppBitmap(app.Name);
-            //    var appItem = new ListViewItem(app.Name);
-            //    appItem.ToolTipText = app.FullName;
-            //    appItem.ImageIndex = 0;
-            //    SmallIcons.Images.Add(app.Name, iconBitmap);
-            //    appItem.ImageKey = app.Name;
-            //    AppList.Items.Add(appItem);
+                SmallIcons.Images.RemoveByKey(app.Name);
+                var iconBitmap = RemoteAppFunction.GetAppBitmap(app.Name);
+                var appItem = new ListViewItem(app.Name);
+                appItem.ToolTipText = app.FullName;
+                appItem.ImageIndex = 0;
+                SmallIcons.Images.Add(app.Name, iconBitmap);
+                appItem.ImageKey = app.Name;
+                appItem.SubItems.Add(app.FullName);
+                appItem.SubItems.Add("||"+app.Name);
+                appItem.SubItems.Add(app.CommandLine);
+                AppList.Items.Add(appItem);
             }
 
 
             if (apps.Count == 0)
             {
                 NoAppsLabel.Visible = true;
-                buttonRemove.Enabled = false;
-                buttonEdit.Enabled = false;
             }
             else
             {
-                this.dataGrid.ClearSelection();
                 NoAppsLabel.Visible = false;
+            }
+
+            buttonRemove.Enabled = false;
+            buttonEdit.Enabled = false;
+        }
+
+        private void AppList_DoubleClick(object sender, EventArgs e)
+        {
+            if (AppList.SelectedItems.Count == 1)
+            {
+                EditRemoteApp(AppList.SelectedItems[0].Text);
+            }
+        }
+
+        private void AppList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (AppList.SelectedItems.Count == 1)
+            {
+                buttonRemove.Enabled = true;
+                buttonEdit.Enabled = true;
+            }
+            else
+            {
                 buttonRemove.Enabled = false;
                 buttonEdit.Enabled = false;
             }
-
-//            buttonRemove.Enabled = false;
-//            buttonEdit.Enabled = false;
         }
-
-        //private void AppList_DoubleClick(object sender, EventArgs e)
-        //{
-        //    if (AppList.SelectedItems.Count == 1)
-        //    {
-        //        EditRemoteApp(AppList.SelectedItems[0].Text);
-        //    }
-        //}
-
-        string SelectedApplicationName;
-
-        private void dataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = this.dataGrid.Rows[e.RowIndex];
-                SelectedApplicationName = row.Cells["Application Name"].Value.ToString();
-                this.buttonEdit.Enabled = true;
-                this.buttonRemove.Enabled = true;
-            }
-
-        }
-
-        //private void AppList_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    if (AppList.SelectedItems.Count == 1)
-        //    {
-        //        buttonRemove.Enabled = true;
-        //        buttonEdit.Enabled = true;
-        //    }
-        //    else
-        //    {
-        //        buttonRemove.Enabled = false;
-        //        buttonEdit.Enabled = false;
-        //    }
-        //}
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            EditRemoteApp(this.SelectedApplicationName);
-
-            //if (AppList.SelectedItems.Count == 1)
-            //{
-            //    EditRemoteApp(AppList.SelectedItems[0].Text);
-            //}
+            if (AppList.SelectedItems.Count == 1)
+            {
+                EditRemoteApp(AppList.SelectedItems[0].Text);
+            }
         }
 
         private void EditRemoteApp(string AppName)
@@ -134,12 +102,12 @@ namespace RemoteApplicationPublisher
             var sra = new SystemRemoteApps();
             var remoteAppEditWindow = new RemoteAppEditWindow(this);
             remoteAppEditWindow.EditRemoteApp(sra.GetApp(AppName));
-            ReloadApps();
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            DeleteRemoteApp(this.SelectedApplicationName);
+            DeleteRemoteApp(AppList.SelectedItems[0].Text);
+            ReloadApps();
         }
 
         private void DeleteRemoteApp(string AppName)
@@ -149,7 +117,6 @@ namespace RemoteApplicationPublisher
                 var sra = new SystemRemoteApps();
                 sra.DeleteApp(AppName);
             }
-            ReloadApps();
         }
 
         private void CreateButton_Click(object sender, EventArgs e)
@@ -180,7 +147,7 @@ namespace RemoteApplicationPublisher
         private void NewRemoteAppadvancedToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var remoteAppEditWindow = new RemoteAppEditWindow(this);
-            remoteAppEditWindow.CreateRemoteApp(true);
+            remoteAppEditWindow.CreateRemoteApp();
             ReloadApps();
         }
 
@@ -201,5 +168,72 @@ namespace RemoteApplicationPublisher
 
         }
 
+        private void buttonSettingsMenu_Click(object sender, EventArgs e)
+        {
+            Point screenPoint = buttonSettingsMenu.PointToScreen(new Point(buttonSettingsMenu.Left, buttonSettingsMenu.Bottom));
+            if (screenPoint.Y + contextSettingsMenuStrip.Size.Height > Screen.PrimaryScreen.WorkingArea.Height) {
+                contextSettingsMenuStrip.Show(buttonSettingsMenu, new Point(0, -contextSettingsMenuStrip.Size.Height));
+            } else {
+                contextSettingsMenuStrip.Show(buttonSettingsMenu, new Point(0, buttonSettingsMenu.Height));
+            }    
+        }
+
+        private void backupApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BackupSaveFileDialog.FileName = System.Net.Dns.GetHostName() + " RemoteApps Backup " + DateTime.Now.ToString("yyyy-MM-dd") + ".reg";
+            DialogResult = BackupSaveFileDialog.ShowDialog();
+
+            if (DialogResult == DialogResult.OK)
+            {
+                string RemoteAppRegPath = @"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Terminal Server\TSAppAllowList\Applications";
+                string BackupSavePath = BackupSaveFileDialog.FileName;
+
+                var StartInfo = new ProcessStartInfo("reg.exe", "export \"" + RemoteAppRegPath + "\" \"" + BackupSavePath + "\" /y");
+                StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                Process.Start(StartInfo);
+            }
+        }
+
+        private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var remoteAppAboutWindow = new RemoteAppAboutWindow(this);
+            remoteAppAboutWindow.ShowDialog();
+        }
+
+        private void AppList_MouseClick(object sender, MouseEventArgs e)
+        {
+            // if (e.Button == MouseButtons.Right)
+            // {
+            //     var item = AppList.HitTest(e.Location).Item;
+            //     if (item != null)
+            //     {
+            //         AppList.FocusedItem = item;
+            //         listViewContextMenuStrip.Show(AppList, e.Location);
+            //     }
+            // }
+        }
+
+        private void copyToClipboardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (AppList.FocusedItem != null)
+            {
+                var clipboardText = AppList.FocusedItem.Text;
+                Clipboard.SetText(clipboardText);
+            }
+        }
+
+        private void AppList_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                var hittest = AppList.HitTest(e.Location);
+                var item = AppList.HitTest(e.Location).Item;
+                if (item != null)
+                {
+                    AppList.FocusedItem = item;
+                    listViewContextMenuStrip.Show(AppList, e.Location);
+                }
+            }
+        }
     }
 }

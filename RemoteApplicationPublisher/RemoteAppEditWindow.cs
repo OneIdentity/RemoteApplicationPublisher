@@ -32,20 +32,16 @@ namespace RemoteApplicationPublisher
             return RemoteApp;
         }
 
-        public RemoteApp CreateRemoteApp(bool advanced = false)
+        public RemoteApp CreateRemoteApp()
         {
             Text = "New RemoteApp";
             Size = MinimumSize;
             HelpSystem.SetupTips(this);
             CommandLineOptionCombo.SelectedIndex = 1;
 
-            if (advanced)
+            if (DoBrowsePath() == true)
             {
-                ShowDialog();
-            }
-            else if (DoBrowsePath() == true)
-            {
-                SaveAndCloseOrWindow();
+                SaveAndEditWindow();
             }
 
             Dispose();
@@ -160,6 +156,36 @@ namespace RemoteApplicationPublisher
         private void SaveButton_Click(object sender, EventArgs e)
         {
             SaveAndClose();
+        }
+
+        private void SaveAndEditWindow()
+        {
+            if (string.IsNullOrEmpty(ShortNameText.Text))
+            {
+                MessageBox.Show("Name must not be blank.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            else if (string.IsNullOrEmpty(FullNameText.Text))
+            {
+                MessageBox.Show("Full name must not be blank.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            else if (string.IsNullOrEmpty(PathText.Text))
+            {
+                MessageBox.Show("Path must not be blank.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            else if (!((ShortNameText.Text ?? "") == (RemoteApp.Name ?? "")) & DoesAppExist(ShortNameText.Text))
+            {
+                MessageBox.Show("A RemoteApp with the same name already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            else if (Text == "New RemoteApp" & DoesAppExist(ShortNameText.Text))
+            {
+                MessageBox.Show("A RemoteApp with the same name already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            else
+            {
+                SaveRemoteApp(ShortNameText.Text.Trim(), FullNameText.Text, PathText.Text, PathText.Text, CommandLineText.Text, CommandLineOptionCombo.SelectedIndex, PathText.Text, 0, 0);
+                Text = "Properties of " + FullNameText.Text;
+                ShowDialog();
+            }
         }
 
         private void SaveAndCloseOrWindow()
