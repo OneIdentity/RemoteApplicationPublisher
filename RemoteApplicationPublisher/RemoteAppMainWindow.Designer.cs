@@ -225,6 +225,7 @@ namespace RemoteApplicationPublisher
             this.AppList.UseCompatibleStateImageBehavior = false;
             this.AppList.View = System.Windows.Forms.View.Details;
             this.AppList.SelectedIndexChanged += new System.EventHandler(this.AppList_SelectedIndexChanged);
+            this.AppList.DoubleClick += new System.EventHandler(this.AppList_DoubleClick);
             this.AppList.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AppList_MouseDown);
             // 
             // ShortName
