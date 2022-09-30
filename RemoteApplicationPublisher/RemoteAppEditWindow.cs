@@ -2,6 +2,7 @@
 using System;
 using System.IO;
 using System.Windows.Forms;
+using Microsoft.Win32;
 
 namespace RemoteApplicationPublisher
 {
@@ -11,6 +12,12 @@ namespace RemoteApplicationPublisher
 
         private RemoteApp RemoteApp = new RemoteApp();
         private RemoteAppMainWindow _mainWindow;
+        private string RemoteAppOriginalPath = string.Empty;
+
+        // Hard coded for now. This needs to be found dynamically.
+        private string remoteLauncher = @"C:\Program Files\OneIdentity\RemoteApp Launcher\OI-SG-RemoteApp-Launcher.exe";
+        private string commandLineTemplate = @"--cmd ""{0}"" --args ""{{username}}{{password}}{{asset}}""";
+
 
         public RemoteAppEditWindow(RemoteAppMainWindow mainWindow)
         {
@@ -69,6 +76,7 @@ namespace RemoteApplicationPublisher
             PathText.Text = RemoteApp.Path;
             CommandLineText.Text = RemoteApp.CommandLine;
             CommandLineOptionCombo.SelectedIndex = RemoteApp.CommandLineOption;
+            checkBoxOILauncher.Checked = RemoteApp.UseLauncher;
 
             Icon = RemoteAppFunction.ReturnIcon(RemoteApp.Path);
         }
@@ -132,6 +140,7 @@ namespace RemoteApplicationPublisher
             RemoteApp.CommandLine = CommandLine;
             RemoteApp.CommandLineOption = CommandLineSetting;
             RemoteApp.TSWA = Convert.ToBoolean(ShowInTSWA);
+            RemoteApp.UseLauncher = Convert.ToBoolean(checkBoxOILauncher.Checked);
 
             SysApps.SaveApp(RemoteApp);
 
@@ -256,5 +265,31 @@ namespace RemoteApplicationPublisher
             RemoteAppFunction.ValidateAppName(ShortNameText);
         }
 
+        private void checkBoxOILauncher_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxOILauncher.Checked)
+            {
+                RemoteAppOriginalPath = PathText.Text;
+                PathText.Text = remoteLauncher;
+                CommandLineOptionCombo.SelectedIndex = 2;
+                CommandLineText.Text = string.Format(commandLineTemplate, RemoteAppOriginalPath);
+            }
+            else
+            {
+                var sra = new SystemRemoteApps();
+                var currentApp = sra.GetApp(ShortNameText.Text);
+                if (currentApp != null)
+                {
+                    RemoteAppOriginalPath = currentApp.VPath;
+                }
+                PathText.Text = RemoteAppOriginalPath;
+                CommandLineOptionCombo.SelectedIndex = 1;
+                CommandLineText.Text = string.Empty;
+            }
+
+            PathText.Enabled = !checkBoxOILauncher.Checked;
+            BrowsePath.Enabled = !checkBoxOILauncher.Checked;
+            CommandLineOptionCombo.Enabled = !checkBoxOILauncher.Checked;
+        }
     }
 }

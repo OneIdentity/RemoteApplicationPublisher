@@ -48,6 +48,7 @@ namespace RemoteApplicationPublisher
             this.ShortNameText = new System.Windows.Forms.TextBox();
             this.FullNameText = new System.Windows.Forms.TextBox();
             this.labelTitle = new System.Windows.Forms.Label();
+            this.checkBoxOILauncher = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // SmallerIcons
@@ -74,7 +75,7 @@ namespace RemoteApplicationPublisher
             "Disabled",
             "Optional",
             "Enforced"});
-            this.CommandLineOptionCombo.Location = new System.Drawing.Point(18, 229);
+            this.CommandLineOptionCombo.Location = new System.Drawing.Point(18, 256);
             this.CommandLineOptionCombo.Name = "CommandLineOptionCombo";
             this.CommandLineOptionCombo.Size = new System.Drawing.Size(81, 23);
             this.CommandLineOptionCombo.TabIndex = 1;
@@ -84,7 +85,7 @@ namespace RemoteApplicationPublisher
             this.CommandLineText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.CommandLineText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CommandLineText.Location = new System.Drawing.Point(18, 283);
+            this.CommandLineText.Location = new System.Drawing.Point(18, 310);
             this.CommandLineText.Name = "CommandLineText";
             this.CommandLineText.Size = new System.Drawing.Size(390, 23);
             this.CommandLineText.TabIndex = 5;
@@ -93,7 +94,7 @@ namespace RemoteApplicationPublisher
             // 
             this.Label8.AutoSize = true;
             this.Label8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.Label8.Location = new System.Drawing.Point(15, 210);
+            this.Label8.Location = new System.Drawing.Point(15, 237);
             this.Label8.Name = "Label8";
             this.Label8.Size = new System.Drawing.Size(129, 15);
             this.Label8.TabIndex = 0;
@@ -104,7 +105,7 @@ namespace RemoteApplicationPublisher
             this.Label6.AutoSize = true;
             this.Label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.Label6.Location = new System.Drawing.Point(15, 263);
+            this.Label6.Location = new System.Drawing.Point(15, 290);
             this.Label6.Name = "Label6";
             this.Label6.Size = new System.Drawing.Size(151, 15);
             this.Label6.TabIndex = 4;
@@ -120,7 +121,7 @@ namespace RemoteApplicationPublisher
             this.CancelEditButton.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CancelEditButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(150)))), ((int)(((byte)(209)))));
             this.CancelEditButton.ImageList = this.SmallerIcons;
-            this.CancelEditButton.Location = new System.Drawing.Point(263, 346);
+            this.CancelEditButton.Location = new System.Drawing.Point(263, 361);
             this.CancelEditButton.Name = "CancelEditButton";
             this.CancelEditButton.Size = new System.Drawing.Size(75, 34);
             this.CancelEditButton.TabIndex = 3;
@@ -154,7 +155,7 @@ namespace RemoteApplicationPublisher
             this.SaveButton.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SaveButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.SaveButton.ImageList = this.SmallerIcons;
-            this.SaveButton.Location = new System.Drawing.Point(350, 346);
+            this.SaveButton.Location = new System.Drawing.Point(350, 361);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(60, 34);
             this.SaveButton.TabIndex = 4;
@@ -167,7 +168,7 @@ namespace RemoteApplicationPublisher
             // 
             this.PathText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.PathText.Location = new System.Drawing.Point(18, 177);
+            this.PathText.Location = new System.Drawing.Point(18, 204);
             this.PathText.Name = "PathText";
             this.PathText.Size = new System.Drawing.Size(360, 23);
             this.PathText.TabIndex = 1;
@@ -176,7 +177,7 @@ namespace RemoteApplicationPublisher
             // 
             this.Label4.AutoSize = true;
             this.Label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.Label4.Location = new System.Drawing.Point(15, 157);
+            this.Label4.Location = new System.Drawing.Point(15, 184);
             this.Label4.Name = "Label4";
             this.Label4.Size = new System.Drawing.Size(95, 15);
             this.Label4.TabIndex = 0;
@@ -187,7 +188,7 @@ namespace RemoteApplicationPublisher
             this.BrowsePath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BrowsePath.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BrowsePath.Image = ((System.Drawing.Image)(resources.GetObject("BrowsePath.Image")));
-            this.BrowsePath.Location = new System.Drawing.Point(382, 175);
+            this.BrowsePath.Location = new System.Drawing.Point(382, 202);
             this.BrowsePath.Name = "BrowsePath";
             this.BrowsePath.Size = new System.Drawing.Size(27, 27);
             this.BrowsePath.TabIndex = 2;
@@ -248,6 +249,18 @@ namespace RemoteApplicationPublisher
             this.labelTitle.TabIndex = 5;
             this.labelTitle.Text = "Application Properties";
             // 
+            // checkBoxOILauncher
+            // 
+            this.checkBoxOILauncher.AutoSize = true;
+            this.checkBoxOILauncher.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.checkBoxOILauncher.Location = new System.Drawing.Point(18, 159);
+            this.checkBoxOILauncher.Name = "checkBoxOILauncher";
+            this.checkBoxOILauncher.Size = new System.Drawing.Size(165, 19);
+            this.checkBoxOILauncher.TabIndex = 6;
+            this.checkBoxOILauncher.Text = "Use One Identity Launcher";
+            this.checkBoxOILauncher.UseVisualStyleBackColor = true;
+            this.checkBoxOILauncher.CheckedChanged += new System.EventHandler(this.checkBoxOILauncher_CheckedChanged);
+            // 
             // RemoteAppEditWindow
             // 
             this.AcceptButton = this.SaveButton;
@@ -255,7 +268,8 @@ namespace RemoteApplicationPublisher
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.CancelButton = this.CancelEditButton;
-            this.ClientSize = new System.Drawing.Size(429, 391);
+            this.ClientSize = new System.Drawing.Size(429, 406);
+            this.Controls.Add(this.checkBoxOILauncher);
             this.Controls.Add(this.Label8);
             this.Controls.Add(this.Label6);
             this.Controls.Add(this.PathText);
@@ -273,9 +287,9 @@ namespace RemoteApplicationPublisher
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1500, 430);
+            this.MaximumSize = new System.Drawing.Size(1500, 445);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(445, 430);
+            this.MinimumSize = new System.Drawing.Size(445, 445);
             this.Name = "RemoteAppEditWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Publish Application";
@@ -301,5 +315,6 @@ namespace RemoteApplicationPublisher
         internal TextBox ShortNameText;
         internal TextBox FullNameText;
         private Label labelTitle;
+        private CheckBox checkBoxOILauncher;
     }
 }
