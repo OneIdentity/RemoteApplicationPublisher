@@ -30,6 +30,7 @@ namespace RemoteApplicationPublisher
         public string CommandLine = "";
         public int CommandLineOption = 1;
         public bool TSWA = false;
+        public bool UseLauncher = false;
     }
 
     public class SystemRemoteApps
@@ -86,6 +87,7 @@ namespace RemoteApplicationPublisher
                 App.IconPath = Convert.ToString(AppKey.GetValue("IconPath", ""));
                 App.IconIndex = Convert.ToInt32(AppKey.GetValue("IconIndex", 0));
                 App.TSWA = Convert.ToBoolean(AppKey.GetValue("ShowInTSWA", 0));
+                App.UseLauncher = Convert.ToBoolean(AppKey.GetValue("UseLauncher", 0));
             }
 
             return App;
@@ -103,12 +105,16 @@ namespace RemoteApplicationPublisher
             AppKey.SetValue("Name", RemoteApp.FullName, RegistryValueKind.String);
 
             AppKey.SetValue("Path", RemoteApp.Path, RegistryValueKind.String);
-            AppKey.SetValue("VPath", RemoteApp.VPath, RegistryValueKind.String);
+            if (!RemoteApp.UseLauncher)
+            {
+                AppKey.SetValue("VPath", RemoteApp.VPath, RegistryValueKind.String);
+            }
             AppKey.SetValue("RequiredCommandLine", RemoteApp.CommandLine, RegistryValueKind.String);
             AppKey.SetValue("CommandLineSetting", RemoteApp.CommandLineOption, RegistryValueKind.DWord);
             AppKey.SetValue("IconPath", RemoteApp.IconPath, RegistryValueKind.String);
             AppKey.SetValue("IconIndex", RemoteApp.IconIndex, RegistryValueKind.DWord);
             AppKey.SetValue("ShowInTSWA", RemoteApp.TSWA, RegistryValueKind.DWord);
+            AppKey.SetValue("UseLauncher", RemoteApp.UseLauncher, RegistryValueKind.DWord);
         }
 
         public void RenameApp(string RemoteAppOldName, string RemoteAppNewName)
