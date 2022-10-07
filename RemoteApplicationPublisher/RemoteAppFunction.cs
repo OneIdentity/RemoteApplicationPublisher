@@ -23,7 +23,6 @@ namespace RemoteApplicationPublisher
 
         public static void ValidatePort(TextBox textBox)
         {
-            var cloc = textBox.SelectionStart;
             var result = int.TryParse(textBox.Text, out var port);
             if (!result)
             {
@@ -33,12 +32,10 @@ namespace RemoteApplicationPublisher
             if (port > 65535d)
             {
                 textBox.Text = "65535";
-                cloc = textBox.Text.Length;
             }
 
             textBox.Text = port.ToString();
             textBox.Select(textBox.Text.Length, 0);
-            textBox.Select(cloc, 0);
         }
 
         public static void ValidateSeconds(NumericUpDown counter)
@@ -54,21 +51,15 @@ namespace RemoteApplicationPublisher
 
         public static void ValidateAppName(TextBox textBox)
         {
-            ValidateTextBoxR(textBox, @"[^\p{L}0-9\-_"" ""]");
+            ValidateTextBoxR(textBox, @"[^\p{L}0-9\-_"" ""()]");
         }
 
         private static void ValidateTextBoxR(TextBox textBox, string regex)
         {
-            int cloc = textBox.SelectionStart;
             var rx = new Regex(regex);
             if (rx.IsMatch(textBox.Text))
             {
                 textBox.Text = rx.Replace(textBox.Text, "");
-                textBox.Select(cloc - 1, 0);
-            }
-            else
-            {
-                textBox.Select(cloc, 0);
             }
         }
 
