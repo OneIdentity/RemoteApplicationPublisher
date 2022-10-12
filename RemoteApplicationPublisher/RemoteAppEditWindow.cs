@@ -13,6 +13,7 @@ namespace RemoteApplicationPublisher
         private RemoteApp RemoteApp = new RemoteApp();
         private RemoteAppMainWindow _mainWindow;
         private string RemoteAppOriginalPath = string.Empty;
+        private bool populatingEditDialog = false;
 
         // Hard coded for now. This needs to be found dynamically.
         private string remoteLauncher = @"C:\Program Files\OneIdentity\RemoteApp Launcher\OI-SG-RemoteApp-Launcher.exe";
@@ -32,7 +33,15 @@ namespace RemoteApplicationPublisher
             Text = "Properties of " + RemoteApp.Name;
             Size = MinimumSize;
             HelpSystem.SetupTips(this);
+
+            // LoadValues() may set checkBoxOILauncher.Checked to true, which will trigger checkBoxOILauncher_CheckedChanged.
+            // Method checkBoxOILauncher_CheckedChanged will change values in the edit dialog when checkBoxOILauncher gets checked.
+            // We don't want those values to change just because the edit dialog is raised.  We temporarily set a bool here that
+            // we check within checkBoxOILauncher_CheckedChanged to avoid changing those values.
+            populatingEditDialog = true;
             LoadValues();
+            populatingEditDialog = false;
+
             var dlgResult = ShowDialog();
             _mainWindow.ReloadApps();
             Dispose();
@@ -68,10 +77,7 @@ namespace RemoteApplicationPublisher
 
         public void LoadValues()
         {
-
             ShortNameText.Text = RemoteApp.Name;
-            CommandLineOptionCombo.SelectedIndex = RemoteApp.CommandLineOption;
-
             FullNameText.Text = RemoteApp.FullName;
             PathText.Text = RemoteApp.Path;
             CommandLineText.Text = RemoteApp.CommandLine;
@@ -267,24 +273,27 @@ namespace RemoteApplicationPublisher
 
         private void checkBoxOILauncher_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBoxOILauncher.Checked)
+            if (!populatingEditDialog)
             {
-                RemoteAppOriginalPath = PathText.Text;
-                PathText.Text = remoteLauncher;
-                CommandLineOptionCombo.SelectedIndex = 2;
-                CommandLineText.Text = string.Format(commandLineTemplate, RemoteAppOriginalPath);
-            }
-            else
-            {
-                var sra = new SystemRemoteApps();
-                var currentApp = sra.GetApp(ShortNameText.Text);
-                if (currentApp != null)
+                if (checkBoxOILauncher.Checked)
                 {
-                    RemoteAppOriginalPath = currentApp.VPath;
+                    RemoteAppOriginalPath = PathText.Text;
+                    PathText.Text = remoteLauncher;
+                    CommandLineOptionCombo.SelectedIndex = 2;
+                    CommandLineText.Text = string.Format(commandLineTemplate, RemoteAppOriginalPath);
                 }
-                PathText.Text = RemoteAppOriginalPath;
-                CommandLineOptionCombo.SelectedIndex = 1;
-                CommandLineText.Text = string.Empty;
+                else
+                {
+                    var sra = new SystemRemoteApps();
+                    var currentApp = sra.GetApp(ShortNameText.Text);
+                    if (currentApp != null)
+                    {
+                        RemoteAppOriginalPath = currentApp.VPath;
+                    }
+                    PathText.Text = RemoteAppOriginalPath;
+                    CommandLineOptionCombo.SelectedIndex = 1;
+                    CommandLineText.Text = string.Empty;
+                }
             }
 
             PathText.Enabled = !checkBoxOILauncher.Checked;
