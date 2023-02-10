@@ -188,8 +188,8 @@
             <Component Id="mscordaccore.dll" Guid="*">
                 <File Id="mscordaccore.dll" KeyPath="yes" Source="$(var.SourceDir)\mscordaccore.dll" />
             </Component>
-            <Component Id="mscordaccore_amd64_amd64_6.0.922.41905.dll" Guid="*">
-                <File Id="mscordaccore_amd64_amd64_6.0.922.41905.dll" KeyPath="yes" Source="$(var.SourceDir)\mscordaccore_amd64_amd64_6.0.922.41905.dll" />
+            <Component Id="mscordaccore_amd64_amd64_6.0.1122.52304.dll" Guid="*">
+                <File Id="mscordaccore_amd64_amd64_6.0.1122.52304.dll" KeyPath="yes" Source="$(var.SourceDir)\mscordaccore_amd64_amd64_6.0.1122.52304.dll" />
             </Component>
             <Component Id="mscordbi.dll" Guid="*">
                 <File Id="mscordbi.dll" KeyPath="yes" Source="$(var.SourceDir)\mscordbi.dll" />
@@ -1606,7 +1606,7 @@
             <ComponentRef Id="Microsoft.Win32.Registry.dll" />
             <ComponentRef Id="Microsoft.Win32.SystemEvents.dll" />
             <ComponentRef Id="mscordaccore.dll" />
-            <ComponentRef Id="mscordaccore_amd64_amd64_6.0.922.41905.dll" />
+            <ComponentRef Id="mscordaccore_amd64_amd64_6.0.1122.52304.dll" />
             <ComponentRef Id="mscordbi.dll" />
             <ComponentRef Id="mscorlib.dll" />
             <ComponentRef Id="mscorrc.dll" />
