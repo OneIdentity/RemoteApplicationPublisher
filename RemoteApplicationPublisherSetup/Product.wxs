@@ -51,7 +51,7 @@
 	<Fragment>
 		<Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="ProgramFiles64Folder">
-				<Directory Id="INSTALLLOCATION" Name="!(loc.ProductNameFolder" />
+				<Directory Id="INSTALLLOCATION" Name="!(loc.ProductNameFolder)" />
 			</Directory>
       <Directory Id="ProgramMenuFolder">
         <Directory Id="ApplicationProgramsFolder" Name="Remote Application Publisher"/>
