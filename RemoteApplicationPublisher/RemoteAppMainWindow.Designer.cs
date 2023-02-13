@@ -111,13 +111,16 @@ namespace RemoteApplicationPublisher
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.Controls.Add(this.buttonEdit);
             this.panel1.Controls.Add(this.buttonSettingsMenu);
             this.panel1.Controls.Add(this.buttonRemove);
             this.panel1.Controls.Add(this.buttonAdd);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(655, 37);
+            this.panel1.Size = new System.Drawing.Size(655, 32);
             this.panel1.TabIndex = 8;
             // 
             // buttonEdit
@@ -135,10 +138,11 @@ namespace RemoteApplicationPublisher
             // 
             // buttonSettingsMenu
             // 
+            this.buttonSettingsMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSettingsMenu.FlatAppearance.BorderSize = 0;
             this.buttonSettingsMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSettingsMenu.Image = ((System.Drawing.Image)(resources.GetObject("buttonSettingsMenu.Image")));
-            this.buttonSettingsMenu.Location = new System.Drawing.Point(612, 3);
+            this.buttonSettingsMenu.Location = new System.Drawing.Point(614, 3);
             this.buttonSettingsMenu.Name = "buttonSettingsMenu";
             this.buttonSettingsMenu.Size = new System.Drawing.Size(31, 26);
             this.buttonSettingsMenu.TabIndex = 3;
@@ -252,7 +256,7 @@ namespace RemoteApplicationPublisher
             // 
             this.labelSeparator1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelSeparator1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelSeparator1.Location = new System.Drawing.Point(0, 40);
+            this.labelSeparator1.Location = new System.Drawing.Point(0, 37);
             this.labelSeparator1.Name = "labelSeparator1";
             this.labelSeparator1.Size = new System.Drawing.Size(655, 1);
             this.labelSeparator1.TabIndex = 10;
@@ -275,7 +279,7 @@ namespace RemoteApplicationPublisher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(655, 341);
             this.Controls.Add(this.labelSeparator1);
@@ -290,6 +294,7 @@ namespace RemoteApplicationPublisher
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Remote Application Publisher";
             this.Load += new System.EventHandler(this.RemoteAppMainWindow_Load);
+            this.Resize += new System.EventHandler(this.RemoteAppMainWindow_Resize);
             this.Disposed += new System.EventHandler(this.RemoteAppMainWindow_Disposed);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.remoteAppCollectionBindingSource)).EndInit();
