@@ -232,5 +232,10 @@ namespace RemoteApplicationPublisher
                 }
             }
         }
+
+        private void RemoteAppMainWindow_Resize(object sender, EventArgs e)
+        {
+            labelSeparator1.Size = new Size(this.Size.Width, 2);
+        }
     }
 }
