@@ -27,7 +27,7 @@ namespace RemoteApplicationPublisher
             var sra = new SystemRemoteApps();
             sra.Init();
 
-            Text = "Remote Application Publisher " + Application.ProductVersion + " (" + System.Net.Dns.GetHostName() + ")";
+            Text = "Remote Application Publisher " + Application.ProductVersion;
             HelpSystem.SetupTips(this);
             ReloadApps();
         }
