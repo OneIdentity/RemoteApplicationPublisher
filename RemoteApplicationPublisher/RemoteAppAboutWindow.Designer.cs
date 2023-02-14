@@ -86,7 +86,7 @@ namespace RemoteApplicationPublisher
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(383, 39);
             this.label2.TabIndex = 8;
-            this.label2.Text = "© 2022 OneIdentity LLC. ALL RIGHTS RESERVED.";
+            this.label2.Text = "© 2023 OneIdentity LLC. ALL RIGHTS RESERVED.";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelSeparator1
