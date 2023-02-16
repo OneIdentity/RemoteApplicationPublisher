@@ -62,6 +62,8 @@
   </Target>
   <Target Name="BeforeBuild">
     <Exec Command="dotnet publish $(ProjectDir)\..\RemoteApplicationPublisher\RemoteApplicationPublisher.csproj -c $(Configuration) -o $(ProjectDir)bin\$(Configuration)\Publish --self-contained true -r win-x64" />
+    <Exec Condition="'$(SignFiles)'=='true'" Command="&quot;$(SignToolPath)&quot; sign /v /f &quot;$(CertificatePath)&quot;  /p &quot;$(CertificatePassword)&quot; &quot;$(ProjectDir)bin\$(Configuration)\Publish\RemoteApplicationPublisher.dll&quot;" />
+    <Exec Condition="'$(SignFiles)'=='true'" Command="&quot;$(SignToolPath)&quot; sign /v /f &quot;$(CertificatePath)&quot;  /p &quot;$(CertificatePassword)&quot; &quot;$(ProjectDir)bin\$(Configuration)\Publish\RemoteApplicationPublisher.exe&quot;" />
     <HeatDirectory SuppressAllWarnings="true" ToolPath="$(WixToolPath)" AutogenerateGuids="$(HarvestDirectoryAutogenerateGuids)" OutputFile="Component-generated.wxs" SuppressFragments="true" SuppressUniqueIds="true" Transforms="%(HarvestDirectory.Transforms)" Directory="$(ProjectDir)bin\$(Configuration)\Publish" ComponentGroupName="RemoteAppsPub_CommonAssemblies" DirectoryRefId="INSTALLLOCATION" KeepEmptyDirectories="false" PreprocessorVariable="var.SourceDir" SuppressRootDirectory="true" SuppressRegistry="true">
     </HeatDirectory>
     <GetAssemblyIdentity AssemblyFiles="$(ProjectDir)bin\$(Configuration)\Publish\RemoteApplicationPublisher.dll">
@@ -70,6 +72,9 @@
     <CreateProperty Value="RemoteApplicationPublisher_%(AsmInfo.Version)_$(Configuration)">
       <Output TaskParameter="Value" PropertyName="TargetName" />
     </CreateProperty>
+  </Target>
+  <Target Name="AfterBuild">
+    <Exec Condition="'$(SignFiles)'=='true'" Command="&quot;$(SignToolPath)&quot; sign /v /f &quot;$(CertificatePath)&quot;  /p &quot;$(CertificatePassword)&quot; &quot;$(ProjectDir)bin\$(Configuration)\en-us\*.msi&quot;" />
   </Target>
   <PropertyGroup>
     <PreBuildEvent />
