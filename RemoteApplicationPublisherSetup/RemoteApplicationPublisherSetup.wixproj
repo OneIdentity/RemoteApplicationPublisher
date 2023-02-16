@@ -24,6 +24,9 @@
     <DefineConstants>SourceDir=bin\$(Configuration)\publish</DefineConstants>
     <SuppressIces>ICE61;ICE63;ICE64</SuppressIces>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignToolPath>C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe</SignToolPath>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="Component-generated.wxs" />
     <Compile Include="Product.wxs" />
