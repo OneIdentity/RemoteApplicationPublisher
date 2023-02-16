@@ -4,8 +4,11 @@
 # https://docs.microsoft.com/azure/devops/pipelines/apps/windows/dot-net
 
 trigger:
-- main
-
+  branches:
+    include:
+      - main
+      - release-*
+pr: none
 pool:
   vmImage: 'windows-latest'
 
@@ -19,6 +22,8 @@ variables:
   isReleaseBranch: $[ or( eq(variables['Build.SourceBranch'], 'refs/heads/main'), startsWith(variables['Build.SourceBranch'], 'refs/heads/release-') ) ]
   setupProjectDir: 'RemoteApplicationPublisherSetup'
   setupProject: '**/$(setupProjectDir)/*.wixproj'
+  codeSigningCertFileName: 'OneIdentityCodeSigning.pfx'
+  signingToolPath: 'C:\Program Files (x86)\Windows Kits\10\bin\10.0.18362.0\x64'
 
 steps:
 - task: Bash@3
@@ -40,10 +45,28 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
+- task: AzureKeyVault@1
+  inputs:
+    azureSubscription: 'Azure.Infrastructure.CodeSigning'
+    KeyVaultName: 'CodeSigningCertificates'
+    SecretsFilter: '*'
+  displayName: 'Get code signing certificate from Azure Key Vault'
+  condition: and(succeeded(), eq(variables.isReleaseBranch, true))
+
+- powershell: |
+      $kvSecretBytes = [System.Convert]::FromBase64String("$(OneIdentity-CodeSigning)")
+      $certCollection = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2Collection
+      $certCollection.Import($kvSecretBytes,$null,[System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable)
+      $protectedCertificateBytes = $certCollection.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12,"$(OneIdentity-CodeSigningCertPassword)")
+      $certpath = '$(Build.BinariesDirectory)\$(codeSigningCertFileName)'
+      Write-Verbose -Verbose $certpath
+      [System.IO.File]::WriteAllBytes($certpath, $protectedCertificateBytes)
+  displayName: 'Save code signing certificate to PFX file'
+  condition: and(succeeded(), eq(variables.isReleaseBranch, true))
+
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
-    #msbuildArgs: '/p:buildId=$(Build.BuildId)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
   displayName: 'Build $(solution)'
@@ -53,8 +76,24 @@ steps:
     solution: '$(setupProject)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  displayName: 'Build $(setupProject)'
+  displayName: 'Build $(setupProject) no signing'
+  condition: and(succeeded(), eq(variables.isReleaseBranch, false))
+
+- task: VSBuild@1
+  inputs:
+    solution: '$(setupProject)'
+    msbuildArgs: '/p:SignFiles=true /p:CertificatePassword=$(OneIdentity-CodeSigningCertPassword) /p:CertificatePath="$(Build.BinariesDirectory)\$(codeSigningCertFileName)" '
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  displayName: 'Build $(setupProject) with signing'
   condition: and(succeeded(), eq(variables.isReleaseBranch, true))
+
+- task: DeleteFiles@1
+  inputs:
+    SourceFolder: '$(Build.BinariesDirectory)'
+    Contents: '$(codeSigningCertFileName)'
+  condition: succeededOrFailed()
+  displayName: 'Delete code signing certificate files'
 
 - task: ArchiveFiles@2
   inputs:
@@ -89,8 +128,8 @@ steps:
     action: 'create'
     target: '$(Build.SourceVersion)'
     tagSource: 'userSpecifiedTag'
-    tag: 'release-1.0.0.$(Build.BuildId)'
-    title: '1.0.0.$(Build.BuildId)'
+    tag: 'release-$(VersionString)'
+    title: '$(VersionString)'
     isPreRelease: $(isPrerelease)
     changeLogCompareToRelease: 'lastFullRelease'
     changeLogType: 'commitBased'
