@@ -53,7 +53,7 @@ namespace RemoteApplicationPublisher
             Text = "New RemoteApp";
             Size = MinimumSize;
             HelpSystem.SetupTips(this);
-            CommandLineOptionCombo.SelectedIndex = 1;
+            radioButtonOptional.Checked = true;
 
             EditRemoteApp(new RemoteApp());
 
@@ -78,8 +78,21 @@ namespace RemoteApplicationPublisher
             FullNameText.Text = RemoteApp.FullName;
             PathText.Text = RemoteApp.Path;
             CommandLineText.Text = RemoteApp.CommandLine;
-            CommandLineOptionCombo.SelectedIndex = RemoteApp.CommandLineOption;
+            switch (RemoteApp.CommandLineOption)
+            {
+                case 0:
+                    radioButtonDisabled.Checked = true;
+                    break;
+                case 1:
+                    radioButtonOptional.Checked = true;
+                    break;
+                case 2:
+                    radioButtonEnforced.Checked = true;
+                    break;
+            }
             checkBoxOILauncher.Checked = RemoteApp.UseLauncher;
+
+            checkBoxDebug.Checked = CommandLineText.Text.Contains(enableDebug);
 
             Icon = RemoteAppFunction.ReturnIcon(RemoteApp.Path);
         }
@@ -195,10 +208,20 @@ namespace RemoteApplicationPublisher
             }
             else
             {
-                SaveRemoteApp(ShortNameText.Text.Trim(), FullNameText.Text, PathText.Text, PathText.Text, CommandLineText.Text, CommandLineOptionCombo.SelectedIndex, PathText.Text, 0, 0);
+                SaveRemoteApp(ShortNameText.Text.Trim(), FullNameText.Text, PathText.Text, PathText.Text, CommandLineText.Text, GetCommandLineOption(), PathText.Text, 0, 0);
                 Text = "Properties of " + FullNameText.Text;
                 ShowDialog();
             }
+        }
+
+        private int GetCommandLineOption()
+        {
+            var option = 1;
+            if (radioButtonDisabled.Checked)
+                option = 0;
+            else if (radioButtonEnforced.Checked)
+                option = 2;
+            return option;
         }
 
         private void SaveAndCloseOrWindow()
@@ -230,7 +253,7 @@ namespace RemoteApplicationPublisher
             }
             else
             {
-                SaveRemoteApp(ShortNameText.Text.Trim(), FullNameText.Text, PathText.Text, PathText.Text, CommandLineText.Text, CommandLineOptionCombo.SelectedIndex, PathText.Text, 0, 0);
+                SaveRemoteApp(ShortNameText.Text.Trim(), FullNameText.Text, PathText.Text, PathText.Text, CommandLineText.Text, GetCommandLineOption(), PathText.Text, 0, 0);
                 Close();
             }
         }
@@ -259,7 +282,7 @@ namespace RemoteApplicationPublisher
             }
             else
             {
-                SaveRemoteApp(ShortNameText.Text.Trim(), FullNameText.Text, PathText.Text, PathText.Text, CommandLineText.Text, CommandLineOptionCombo.SelectedIndex, PathText.Text, 0, 0);
+                SaveRemoteApp(ShortNameText.Text.Trim(), FullNameText.Text, PathText.Text, PathText.Text, CommandLineText.Text, GetCommandLineOption(), PathText.Text, 0, 0);
                 Close();
             }
         }
@@ -277,7 +300,7 @@ namespace RemoteApplicationPublisher
                 {
                     RemoteAppOriginalPath = PathText.Text;
                     PathText.Text = remoteLauncher;
-                    CommandLineOptionCombo.SelectedIndex = 2;
+                    radioButtonEnforced.Checked = true;
                     CommandLineText.Text = string.Format(commandLineTemplate, RemoteAppOriginalPath);
                 }
                 else
@@ -289,14 +312,14 @@ namespace RemoteApplicationPublisher
                         RemoteAppOriginalPath = currentApp.VPath;
                     }
                     PathText.Text = RemoteAppOriginalPath;
-                    CommandLineOptionCombo.SelectedIndex = 1;
+                    radioButtonOptional.Checked = true;
                     CommandLineText.Text = string.Empty;
                 }
             }
 
             PathText.Enabled = !checkBoxOILauncher.Checked;
             BrowsePath.Enabled = !checkBoxOILauncher.Checked;
-            CommandLineOptionCombo.Enabled = !checkBoxOILauncher.Checked;
+            panelOptions.Enabled = !checkBoxOILauncher.Checked;
         }
 
         private void PathText_TextChanged(object sender, EventArgs e)
