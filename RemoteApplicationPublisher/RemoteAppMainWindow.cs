@@ -54,7 +54,13 @@ namespace RemoteApplicationPublisher
                 appItem.SubItems.Add(app.CommandLine);
                 AppList.Items.Add(appItem);
             }
+            AppList.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
 
+            foreach (ColumnHeader column in AppList.Columns)
+            {
+                if (column.Width < 85)
+                    column.Width = 85;
+            }
 
             if (apps.Count == 0)
             {

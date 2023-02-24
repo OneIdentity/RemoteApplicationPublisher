@@ -18,7 +18,7 @@ namespace RemoteApplicationPublisher
         // Hard coded for now. This needs to be found dynamically.
         private string remoteLauncher = @"C:\Program Files\OneIdentity\RemoteApp Launcher\OI-SG-RemoteApp-Launcher.exe";
         private string commandLineTemplate = @"--cmd ""{0}"" --args ""{{username}}{{password}}{{asset}}""";
-
+        private string enableDebug = @"--enable-debug";
 
         public RemoteAppEditWindow(RemoteAppMainWindow mainWindow)
         {
@@ -55,10 +55,7 @@ namespace RemoteApplicationPublisher
             HelpSystem.SetupTips(this);
             CommandLineOptionCombo.SelectedIndex = 1;
 
-            if (DoBrowsePath() == true)
-            {
-                SaveAndEditWindow();
-            }
+            EditRemoteApp(new RemoteApp());
 
             Dispose();
             return RemoteApp;
@@ -116,8 +113,9 @@ namespace RemoteApplicationPublisher
                     var title = RemoteAppFunction.GetEXETitle(FilePath);
                     if (string.IsNullOrEmpty(ShortNameText.Text))
                         RemoteApp.Name = RemoteAppFunction.FixShortAppName(title);
-                    if (string.IsNullOrEmpty(FullNameText.Text))
-                        RemoteApp.FullName = title;
+                    else
+                        RemoteApp.Name = ShortNameText.Text;
+                    RemoteApp.FullName = title;
                 }
                 LoadValues();
                 DoBrowsePathRet = true;
@@ -299,6 +297,24 @@ namespace RemoteApplicationPublisher
             PathText.Enabled = !checkBoxOILauncher.Checked;
             BrowsePath.Enabled = !checkBoxOILauncher.Checked;
             CommandLineOptionCombo.Enabled = !checkBoxOILauncher.Checked;
+        }
+
+        private void PathText_TextChanged(object sender, EventArgs e)
+        {
+            this.textBoxFullPath.Text = this.PathText.Text + " " + this.CommandLineText.Text;
+        }
+
+        private void CommandLineText_TextChanged(object sender, EventArgs e)
+        {
+            this.textBoxFullPath.Text = this.PathText.Text + " " + this.CommandLineText.Text;
+        }
+
+        private void checkBoxDebug_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.checkBoxDebug.Checked && !this.CommandLineText.Text.Contains(enableDebug))
+                this.CommandLineText.Text += enableDebug;
+            if (!this.checkBoxDebug.Checked && this.CommandLineText.Text.Contains(enableDebug))
+                this.CommandLineText.Text = this.CommandLineText.Text.Replace(enableDebug,"");
         }
     }
 }

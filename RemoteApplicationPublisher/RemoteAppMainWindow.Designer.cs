@@ -80,13 +80,11 @@ namespace RemoteApplicationPublisher
             // 
             // NoAppsLabel
             // 
-            this.NoAppsLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.NoAppsLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.NoAppsLabel.ForeColor = System.Drawing.Color.DarkGray;
-            this.NoAppsLabel.Location = new System.Drawing.Point(12, 144);
+            this.NoAppsLabel.Location = new System.Drawing.Point(0, 32);
             this.NoAppsLabel.Name = "NoAppsLabel";
-            this.NoAppsLabel.Size = new System.Drawing.Size(631, 73);
+            this.NoAppsLabel.Size = new System.Drawing.Size(711, 363);
             this.NoAppsLabel.TabIndex = 0;
             this.NoAppsLabel.Text = "There are no RemoteApps hosted on this computer.\r\nClick + to add one.";
             this.NoAppsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -98,11 +96,11 @@ namespace RemoteApplicationPublisher
             this.ToolsMenuStrip.AutoSize = false;
             this.ToolsMenuStrip.BackColor = System.Drawing.Color.Transparent;
             this.ToolsMenuStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.ToolsMenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.ToolsMenuStrip.Location = new System.Drawing.Point(258, 3);
             this.ToolsMenuStrip.Name = "ToolsMenuStrip";
             this.ToolsMenuStrip.ShowItemToolTips = true;
-            this.ToolsMenuStrip.Size = new System.Drawing.Size(655, 37);
-            this.ToolsMenuStrip.TabIndex = 5;
+            this.ToolsMenuStrip.Size = new System.Drawing.Size(132, 26);
+            this.ToolsMenuStrip.TabIndex = 2;
             // 
             // BackupSaveFileDialog
             // 
@@ -111,16 +109,16 @@ namespace RemoteApplicationPublisher
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.Controls.Add(this.buttonEdit);
             this.panel1.Controls.Add(this.buttonSettingsMenu);
             this.panel1.Controls.Add(this.buttonRemove);
             this.panel1.Controls.Add(this.buttonAdd);
+            this.panel1.Controls.Add(this.ToolsMenuStrip);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(655, 32);
+            this.panel1.Size = new System.Drawing.Size(711, 32);
             this.panel1.TabIndex = 8;
             // 
             // buttonEdit
@@ -142,7 +140,7 @@ namespace RemoteApplicationPublisher
             this.buttonSettingsMenu.FlatAppearance.BorderSize = 0;
             this.buttonSettingsMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSettingsMenu.Image = ((System.Drawing.Image)(resources.GetObject("buttonSettingsMenu.Image")));
-            this.buttonSettingsMenu.Location = new System.Drawing.Point(614, 3);
+            this.buttonSettingsMenu.Location = new System.Drawing.Point(670, 3);
             this.buttonSettingsMenu.Name = "buttonSettingsMenu";
             this.buttonSettingsMenu.Size = new System.Drawing.Size(31, 26);
             this.buttonSettingsMenu.TabIndex = 3;
@@ -208,9 +206,6 @@ namespace RemoteApplicationPublisher
             // 
             // AppList
             // 
-            this.AppList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.AppList.BackColor = System.Drawing.Color.White;
             this.AppList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.AppList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -218,13 +213,15 @@ namespace RemoteApplicationPublisher
             this.FullName,
             this.ProgramPath,
             this.CommandLine});
+            this.AppList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AppList.FullRowSelect = true;
             this.AppList.LargeImageList = this.SmallIcons;
-            this.AppList.Location = new System.Drawing.Point(10, 46);
+            this.AppList.Location = new System.Drawing.Point(0, 32);
             this.AppList.MultiSelect = false;
             this.AppList.Name = "AppList";
-            this.AppList.Size = new System.Drawing.Size(644, 295);
+            this.AppList.Size = new System.Drawing.Size(711, 363);
             this.AppList.SmallImageList = this.SmallIcons;
+            this.AppList.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.AppList.TabIndex = 1;
             this.AppList.UseCompatibleStateImageBehavior = false;
             this.AppList.View = System.Windows.Forms.View.Details;
@@ -235,30 +232,31 @@ namespace RemoteApplicationPublisher
             // ShortName
             // 
             this.ShortName.Text = "Name";
-            this.ShortName.Width = 140;
+            this.ShortName.Width = 44;
             // 
             // FullName
             // 
             this.FullName.Text = "Full Name";
-            this.FullName.Width = 140;
+            this.FullName.Width = 66;
             // 
             // ProgramPath
             // 
             this.ProgramPath.Text = "Program Path";
-            this.ProgramPath.Width = 120;
+            this.ProgramPath.Width = 85;
             // 
             // CommandLine
             // 
-            this.CommandLine.Text = "CommandLine";
-            this.CommandLine.Width = 400;
+            this.CommandLine.Text = "Command Line";
+            this.CommandLine.Width = 516;
             // 
             // labelSeparator1
             // 
             this.labelSeparator1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelSeparator1.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelSeparator1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelSeparator1.Location = new System.Drawing.Point(0, 37);
+            this.labelSeparator1.Location = new System.Drawing.Point(0, 32);
             this.labelSeparator1.Name = "labelSeparator1";
-            this.labelSeparator1.Size = new System.Drawing.Size(655, 1);
+            this.labelSeparator1.Size = new System.Drawing.Size(711, 1);
             this.labelSeparator1.TabIndex = 10;
             // 
             // listViewContextMenuStrip
@@ -281,12 +279,11 @@ namespace RemoteApplicationPublisher
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(655, 341);
+            this.ClientSize = new System.Drawing.Size(711, 395);
             this.Controls.Add(this.labelSeparator1);
             this.Controls.Add(this.AppList);
             this.Controls.Add(this.NoAppsLabel);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.ToolsMenuStrip);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(450, 300);
