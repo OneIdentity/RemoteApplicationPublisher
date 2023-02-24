@@ -31,7 +31,6 @@ namespace RemoteApplicationPublisher
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RemoteAppEditWindow));
             this.SmallerIcons = new System.Windows.Forms.ImageList(this.components);
-            this.CommandLineOptionCombo = new System.Windows.Forms.ComboBox();
             this.CommandLineText = new System.Windows.Forms.TextBox();
             this.Label8 = new System.Windows.Forms.Label();
             this.Label6 = new System.Windows.Forms.Label();
@@ -52,6 +51,11 @@ namespace RemoteApplicationPublisher
             this.label9 = new System.Windows.Forms.Label();
             this.textBoxFullPath = new System.Windows.Forms.TextBox();
             this.checkBoxDebug = new System.Windows.Forms.CheckBox();
+            this.panelOptions = new System.Windows.Forms.Panel();
+            this.radioButtonEnforced = new System.Windows.Forms.RadioButton();
+            this.radioButtonOptional = new System.Windows.Forms.RadioButton();
+            this.radioButtonDisabled = new System.Windows.Forms.RadioButton();
+            this.panelOptions.SuspendLayout();
             this.SuspendLayout();
             // 
             // SmallerIcons
@@ -69,20 +73,6 @@ namespace RemoteApplicationPublisher
             this.SmallerIcons.Images.SetKeyName(7, "doc_file_document_manager_paper_phone.ico");
             this.SmallerIcons.Images.SetKeyName(8, "cross.ico");
             // 
-            // CommandLineOptionCombo
-            // 
-            this.CommandLineOptionCombo.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.CommandLineOptionCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CommandLineOptionCombo.FormattingEnabled = true;
-            this.CommandLineOptionCombo.Items.AddRange(new object[] {
-            "Disabled",
-            "Optional",
-            "Enforced"});
-            this.CommandLineOptionCombo.Location = new System.Drawing.Point(18, 256);
-            this.CommandLineOptionCombo.Name = "CommandLineOptionCombo";
-            this.CommandLineOptionCombo.Size = new System.Drawing.Size(81, 23);
-            this.CommandLineOptionCombo.TabIndex = 5;
-            // 
             // CommandLineText
             // 
             this.CommandLineText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -91,14 +81,14 @@ namespace RemoteApplicationPublisher
             this.CommandLineText.Location = new System.Drawing.Point(18, 310);
             this.CommandLineText.Name = "CommandLineText";
             this.CommandLineText.Size = new System.Drawing.Size(390, 23);
-            this.CommandLineText.TabIndex = 6;
+            this.CommandLineText.TabIndex = 8;
             this.CommandLineText.TextChanged += new System.EventHandler(this.CommandLineText_TextChanged);
             // 
             // Label8
             // 
             this.Label8.AutoSize = true;
             this.Label8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.Label8.Location = new System.Drawing.Point(15, 237);
+            this.Label8.Location = new System.Drawing.Point(15, 238);
             this.Label8.Name = "Label8";
             this.Label8.Size = new System.Drawing.Size(129, 15);
             this.Label8.TabIndex = 0;
@@ -128,7 +118,7 @@ namespace RemoteApplicationPublisher
             this.CancelEditButton.Location = new System.Drawing.Point(263, 441);
             this.CancelEditButton.Name = "CancelEditButton";
             this.CancelEditButton.Size = new System.Drawing.Size(75, 34);
-            this.CancelEditButton.TabIndex = 8;
+            this.CancelEditButton.TabIndex = 11;
             this.CancelEditButton.Text = "Cancel";
             this.CancelEditButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.CancelEditButton.UseVisualStyleBackColor = false;
@@ -162,7 +152,7 @@ namespace RemoteApplicationPublisher
             this.SaveButton.Location = new System.Drawing.Point(350, 441);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(60, 34);
-            this.SaveButton.TabIndex = 9;
+            this.SaveButton.TabIndex = 12;
             this.SaveButton.Text = "Save";
             this.SaveButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.SaveButton.UseVisualStyleBackColor = false;
@@ -261,7 +251,7 @@ namespace RemoteApplicationPublisher
             this.checkBoxOILauncher.Location = new System.Drawing.Point(18, 160);
             this.checkBoxOILauncher.Name = "checkBoxOILauncher";
             this.checkBoxOILauncher.Size = new System.Drawing.Size(165, 19);
-            this.checkBoxOILauncher.TabIndex = 7;
+            this.checkBoxOILauncher.TabIndex = 10;
             this.checkBoxOILauncher.Text = "Use One Identity Launcher";
             this.checkBoxOILauncher.UseVisualStyleBackColor = true;
             this.checkBoxOILauncher.CheckedChanged += new System.EventHandler(this.checkBoxOILauncher_CheckedChanged);
@@ -295,13 +285,56 @@ namespace RemoteApplicationPublisher
             this.checkBoxDebug.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxDebug.AutoSize = true;
             this.checkBoxDebug.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.checkBoxDebug.Location = new System.Drawing.Point(309, 260);
+            this.checkBoxDebug.Location = new System.Drawing.Point(309, 261);
             this.checkBoxDebug.Name = "checkBoxDebug";
             this.checkBoxDebug.Size = new System.Drawing.Size(99, 19);
-            this.checkBoxDebug.TabIndex = 12;
+            this.checkBoxDebug.TabIndex = 9;
             this.checkBoxDebug.Text = "Enable Debug";
             this.checkBoxDebug.UseVisualStyleBackColor = true;
             this.checkBoxDebug.CheckedChanged += new System.EventHandler(this.checkBoxDebug_CheckedChanged);
+            // 
+            // panelOptions
+            // 
+            this.panelOptions.Controls.Add(this.radioButtonEnforced);
+            this.panelOptions.Controls.Add(this.radioButtonOptional);
+            this.panelOptions.Controls.Add(this.radioButtonDisabled);
+            this.panelOptions.Location = new System.Drawing.Point(15, 255);
+            this.panelOptions.Name = "panelOptions";
+            this.panelOptions.Size = new System.Drawing.Size(244, 34);
+            this.panelOptions.TabIndex = 13;
+            // 
+            // radioButtonEnforced
+            // 
+            this.radioButtonEnforced.AutoSize = true;
+            this.radioButtonEnforced.Location = new System.Drawing.Point(156, 5);
+            this.radioButtonEnforced.Name = "radioButtonEnforced";
+            this.radioButtonEnforced.Size = new System.Drawing.Size(72, 19);
+            this.radioButtonEnforced.TabIndex = 7;
+            this.radioButtonEnforced.TabStop = true;
+            this.radioButtonEnforced.Text = "Enforced";
+            this.radioButtonEnforced.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonOptional
+            // 
+            this.radioButtonOptional.AutoSize = true;
+            this.radioButtonOptional.Location = new System.Drawing.Point(79, 5);
+            this.radioButtonOptional.Name = "radioButtonOptional";
+            this.radioButtonOptional.Size = new System.Drawing.Size(71, 19);
+            this.radioButtonOptional.TabIndex = 6;
+            this.radioButtonOptional.TabStop = true;
+            this.radioButtonOptional.Text = "Optional";
+            this.radioButtonOptional.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonDisabled
+            // 
+            this.radioButtonDisabled.AutoSize = true;
+            this.radioButtonDisabled.Location = new System.Drawing.Point(3, 5);
+            this.radioButtonDisabled.Name = "radioButtonDisabled";
+            this.radioButtonDisabled.Size = new System.Drawing.Size(70, 19);
+            this.radioButtonDisabled.TabIndex = 5;
+            this.radioButtonDisabled.TabStop = true;
+            this.radioButtonDisabled.Text = "Disabled";
+            this.radioButtonDisabled.UseVisualStyleBackColor = true;
             // 
             // RemoteAppEditWindow
             // 
@@ -311,6 +344,7 @@ namespace RemoteApplicationPublisher
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.CancelButton = this.CancelEditButton;
             this.ClientSize = new System.Drawing.Size(429, 486);
+            this.Controls.Add(this.panelOptions);
             this.Controls.Add(this.checkBoxDebug);
             this.Controls.Add(this.textBoxFullPath);
             this.Controls.Add(this.label9);
@@ -320,7 +354,6 @@ namespace RemoteApplicationPublisher
             this.Controls.Add(this.PathText);
             this.Controls.Add(this.CommandLineText);
             this.Controls.Add(this.Label4);
-            this.Controls.Add(this.CommandLineOptionCombo);
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.BrowsePath);
             this.Controls.Add(this.FullNameText);
@@ -336,11 +369,12 @@ namespace RemoteApplicationPublisher
             this.Name = "RemoteAppEditWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Publish Application";
+            this.panelOptions.ResumeLayout(false);
+            this.panelOptions.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
-        internal ComboBox CommandLineOptionCombo;
         internal TextBox CommandLineText;
         internal Label Label8;
         internal Label Label6;
@@ -362,5 +396,9 @@ namespace RemoteApplicationPublisher
         internal Label label9;
         internal TextBox textBoxFullPath;
         private CheckBox checkBoxDebug;
+        private Panel panelOptions;
+        private RadioButton radioButtonEnforced;
+        private RadioButton radioButtonOptional;
+        private RadioButton radioButtonDisabled;
     }
 }
