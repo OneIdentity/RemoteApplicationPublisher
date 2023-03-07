@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Runtime.Versioning;
 using System.Windows.Forms;
 using Microsoft.Win32;
 
 namespace RemoteApplicationPublisher
 {
+    [SupportedOSPlatform("windows")]
     public partial class RemoteAppHostOptions : Form
     {
         private RemoteAppMainWindow _mainWindow;
@@ -139,7 +141,10 @@ namespace RemoteApplicationPublisher
                 TimeoutIdleCheckBox.Checked = false;
             }
 
+// Code has a default value.
+#pragma warning disable 8605
             var fResetBroken = ((Int32)PolicyKey.GetValue("fResetBroken", 0)) == 0 ? false : true;
+#pragma warning restore 8605
             if (fResetBroken != default)
             {
                 LogoffWhenTimoutCheckBox.Checked = true;
@@ -149,7 +154,11 @@ namespace RemoteApplicationPublisher
                 LogoffWhenTimoutCheckBox.Checked = false;
             }
 
+// Code has a default value.
+#pragma warning disable 8605
             var fAllowUnlistedRemotePrograms = ((Int32)PolicyKey.GetValue("fAllowUnlistedRemotePrograms", 0)) == 0 ? false : true;
+// Code has a default value.
+#pragma warning restore 8605
             if (fAllowUnlistedRemotePrograms != default)
             {
                 AllowUnlistedRemoteProgramsCheckBox.Checked = true;

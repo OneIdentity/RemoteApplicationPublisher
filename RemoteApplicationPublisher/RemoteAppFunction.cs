@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Runtime.Versioning;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Microsoft.Win32;
@@ -9,6 +10,7 @@ using Microsoft.Win32;
 namespace RemoteApplicationPublisher
 {
 
+    [SupportedOSPlatform("windows")]
     static class RemoteAppFunction
     {
 

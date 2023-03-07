@@ -284,6 +284,7 @@ namespace RemoteApplicationPublisher
             // 
             this.checkBoxDebug.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxDebug.AutoSize = true;
+            this.checkBoxDebug.Enabled = false;
             this.checkBoxDebug.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.checkBoxDebug.Location = new System.Drawing.Point(309, 261);
             this.checkBoxDebug.Name = "checkBoxDebug";

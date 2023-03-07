@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Runtime.Versioning;
 using Microsoft.Win32;
 
 namespace RemoteApplicationPublisher
@@ -33,6 +34,7 @@ namespace RemoteApplicationPublisher
         public bool UseLauncher = false;
     }
 
+    [SupportedOSPlatform("windows")]
     public class SystemRemoteApps
     {
         private string RegistryPath = @"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Terminal Server\TSAppAllowList\Applications";
@@ -49,9 +51,9 @@ namespace RemoteApplicationPublisher
         {
             string RegistryPathCV = @"SOFTWARE\Microsoft\Windows NT\CurrentVersion\";
             var cvKey = Registry.LocalMachine.OpenSubKey(RegistryPathCV, true);
-            var tsKey = cvKey.CreateSubKey("Terminal Server");
-            var tsaaKey = tsKey.CreateSubKey("TSAppAllowList");
-            var appKey = tsaaKey.CreateSubKey("Applications");
+            var tsKey = cvKey?.CreateSubKey("Terminal Server");
+            var tsaaKey = tsKey?.CreateSubKey("TSAppAllowList");
+            var appKey = tsaaKey?.CreateSubKey("Applications");
         }
 
         public RemoteAppCollection GetAll()
