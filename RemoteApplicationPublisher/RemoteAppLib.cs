@@ -3,6 +3,7 @@ using System;
 using System.Runtime.Versioning;
 using Microsoft.Win32;
 
+#pragma warning disable 8618
 namespace RemoteApplicationPublisher
 {
 
@@ -77,6 +78,8 @@ namespace RemoteApplicationPublisher
         {
             var App = new RemoteApp();
 
+// AppKey has been checked for null and GetValue() is using a default.
+#pragma warning disable 8601
             var AppKey = BaseKey.OpenSubKey(Name);
             if (AppKey != null)
             {
@@ -91,6 +94,7 @@ namespace RemoteApplicationPublisher
                 App.TSWA = Convert.ToBoolean(AppKey.GetValue("ShowInTSWA", 0));
                 App.UseLauncher = Convert.ToBoolean(AppKey.GetValue("UseLauncher", 0));
             }
+#pragma warning restore 8601
 
             return App;
         }
