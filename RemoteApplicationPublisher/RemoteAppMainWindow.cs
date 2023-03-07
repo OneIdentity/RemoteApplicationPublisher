@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Drawing;
+using System.Runtime.Versioning;
 using System.Windows.Forms;
 
 namespace RemoteApplicationPublisher
 {
+    [SupportedOSPlatform("windows")]
     public partial class RemoteAppMainWindow : Form
     {
         private string clipboardText = string.Empty;
@@ -210,7 +212,7 @@ namespace RemoteApplicationPublisher
 
         private void copyToClipboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (AppList.FocusedItem != null)
+            if (AppList.FocusedItem != null && !string.IsNullOrEmpty(clipboardText))
             {
                 Clipboard.SetText(clipboardText);
             }

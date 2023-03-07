@@ -1,12 +1,14 @@
 ﻿
 using System;
 using System.IO;
+using System.Runtime.Versioning;
 using System.Windows.Forms;
 using Microsoft.Win32;
 
 namespace RemoteApplicationPublisher
 {
 
+    [SupportedOSPlatform("windows")]
     public partial class RemoteAppEditWindow : Form
     {
 
@@ -29,7 +31,7 @@ namespace RemoteApplicationPublisher
         public RemoteApp EditRemoteApp(RemoteApp selectedRemoteApp)
         {
             HelpSystem.SetupTips(this);
-            RemoteApp = selectedRemoteApp;
+            RemoteApp = selectedRemoteApp ?? new RemoteApp();
             Text = "Properties of " + RemoteApp.Name;
             Size = MinimumSize;
             HelpSystem.SetupTips(this);
@@ -91,8 +93,16 @@ namespace RemoteApplicationPublisher
                     break;
             }
             checkBoxOILauncher.Checked = RemoteApp.UseLauncher;
+            checkBoxDebug.Enabled = checkBoxOILauncher.Checked;
 
-            checkBoxDebug.Checked = CommandLineText.Text.Contains(enableDebug);
+            if (checkBoxOILauncher.Checked)
+            {
+                checkBoxDebug.Checked = CommandLineText.Text.Contains(enableDebug);
+            }
+            else
+            {
+                checkBoxDebug.Checked = false;
+            }
 
             Icon = RemoteAppFunction.ReturnIcon(RemoteApp.Path);
         }
@@ -139,13 +149,14 @@ namespace RemoteApplicationPublisher
 
         private void SaveRemoteApp(string ShortName, string FullName, string Path, string VPath, string CommandLine, int CommandLineSetting, string IconPath, int IconIndex, int ShowInTSWA)
         {
-
             var SysApps = new SystemRemoteApps();
 
             if (RemoteApp.Name is not null & !(Text == "New RemoteApp"))
             {
-                if (!((RemoteApp.Name ?? "") == (ShortName ?? "")))
+                if (RemoteApp.Name != null && ShortName != null && !((RemoteApp.Name ?? "") == (ShortName ?? "")))
+#pragma warning disable 8604
                     SysApps.RenameApp(RemoteApp.Name, ShortName);
+#pragma warning restore 8604
             }
 
             RemoteApp.Name = ShortName;
@@ -186,19 +197,22 @@ namespace RemoteApplicationPublisher
 
         private void SaveAndEditWindow()
         {
-            if (string.IsNullOrEmpty(ShortNameText.Text))
+            if (string.IsNullOrEmpty(ShortNameText?.Text))
             {
                 MessageBox.Show("Name must not be blank.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
-            else if (string.IsNullOrEmpty(FullNameText.Text))
+            else if (string.IsNullOrEmpty(FullNameText?.Text))
             {
                 MessageBox.Show("Full name must not be blank.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
-            else if (string.IsNullOrEmpty(PathText.Text))
+            else if (string.IsNullOrEmpty(PathText?.Text))
             {
                 MessageBox.Show("Path must not be blank.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
+// Already checked for null or empty.
+#pragma warning disable 8604
             else if (!((ShortNameText.Text ?? "") == (RemoteApp.Name ?? "")) & DoesAppExist(ShortNameText.Text))
+#pragma warning restore 8604
             {
                 MessageBox.Show("A RemoteApp with the same name already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
@@ -226,12 +240,12 @@ namespace RemoteApplicationPublisher
 
         private void SaveAndCloseOrWindow()
         {
-            if (string.IsNullOrEmpty(ShortNameText.Text))
+            if (string.IsNullOrEmpty(ShortNameText?.Text))
             {
                 MessageBox.Show("Name must not be blank.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 ShowDialog();
             }
-            else if (string.IsNullOrEmpty(FullNameText.Text))
+            else if (string.IsNullOrEmpty(FullNameText?.Text))
             {
                 MessageBox.Show("Full name must not be blank.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 ShowDialog();
@@ -241,7 +255,10 @@ namespace RemoteApplicationPublisher
                 MessageBox.Show("Path must not be blank.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 ShowDialog();
             }
+// Already checked for null.
+#pragma warning disable 8604
             else if (!((ShortNameText.Text ?? "") == (RemoteApp.Name ?? "")) & DoesAppExist(ShortNameText.Text))
+#pragma warning restore 8604
             {
                 MessageBox.Show("A RemoteApp with the same name already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 ShowDialog();
@@ -260,19 +277,22 @@ namespace RemoteApplicationPublisher
 
         private void SaveAndClose()
         {
-            if (string.IsNullOrEmpty(ShortNameText.Text))
+            if (string.IsNullOrEmpty(ShortNameText?.Text))
             {
                 MessageBox.Show("Name must not be blank.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
-            else if (string.IsNullOrEmpty(FullNameText.Text))
+            else if (string.IsNullOrEmpty(FullNameText?.Text))
             {
                 MessageBox.Show("Full name must not be blank.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
-            else if (string.IsNullOrEmpty(PathText.Text))
+            else if (string.IsNullOrEmpty(PathText?.Text))
             {
                 MessageBox.Show("Path must not be blank.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
+// Already checked for null.
+#pragma warning disable 8604
             else if (!((ShortNameText.Text ?? "") == (RemoteApp.Name ?? "")) & DoesAppExist(ShortNameText.Text))
+#pragma warning restore 8604
             {
                 MessageBox.Show("A RemoteApp with the same name already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
@@ -313,10 +333,12 @@ namespace RemoteApplicationPublisher
                     }
                     PathText.Text = RemoteAppOriginalPath;
                     radioButtonOptional.Checked = true;
+                    checkBoxDebug.Checked = false;
                     CommandLineText.Text = string.Empty;
                 }
             }
 
+            checkBoxDebug.Enabled = checkBoxOILauncher.Checked;
             PathText.Enabled = !checkBoxOILauncher.Checked;
             BrowsePath.Enabled = !checkBoxOILauncher.Checked;
             panelOptions.Enabled = !checkBoxOILauncher.Checked;
