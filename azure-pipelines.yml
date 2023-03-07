@@ -13,12 +13,11 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  #version: '1.0.0.$(Build.BuildId)'
-  semanticVersion: "1.0.0"
+  semanticVersion: "1.0.1"
   solution: '**/*.sln'
   buildPlatform: 'x64'
   buildConfiguration: 'Release'
-  isPrerelease: ${{ true }}
+  isPrerelease: ${{ false }}
   isReleaseBranch: $[ or( eq(variables['Build.SourceBranch'], 'refs/heads/main'), startsWith(variables['Build.SourceBranch'], 'refs/heads/release-') ) ]
   setupProjectDir: 'RemoteApplicationPublisherSetup'
   setupProject: '**/$(setupProjectDir)/*.wixproj'
