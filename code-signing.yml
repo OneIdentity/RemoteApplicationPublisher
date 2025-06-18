@@ -1,0 +1,46 @@
+steps:
+- task: AzureKeyVault@2
+  displayName: 'Get code signing certificate from Azure Key Vault'
+  inputs:
+    # The "Common" project in Azure has been setup with a new Connected Service under Project Settings > Service Connections.
+    # We may not have permissions to view them, but they are there. And this service connection should then have access to
+    # the SPPCodeSigning Key Vault under the OneIdentity.Ops.SaaS.AzureDevOpsInfrastructure subscription, in the CodeSigningCertificates
+    # resource group.
+    ConnectedServiceName: "OneIdentity.Infrastructure.SPPCodeSigning"
+    KeyVaultName: "SPPCodeSigning"
+    SecretsFilter: "SPPCodeSigning-Password, SPPCodeSigning-TotpPrivateKey"
+
+# SSL.com example:
+# https://www.ssl.com/how-to/how-to-integrate-esigner-cka-with-ci-cd-tools-for-automated-code-signing/#ftoc-heading-1
+# and click on the Azure Pipeline tab.
+- powershell: |
+    # Download and unzip eSignerCKA setup. This downloads their latest version, which when unzipped has
+    # a file name that also contains the version number. So we need to move it to a known name.
+    Invoke-WebRequest -OutFile eSigner_CKA_Setup.zip "https://www.ssl.com/download/ssl-com-esigner-cka"
+    Expand-Archive -Force eSigner_CKA_Setup.zip
+    Remove-Item eSigner_CKA_Setup.zip
+    Move-Item -Path "eSigner_CKA_*\*.exe" -Destination "eSigner_CKA_Installer.exe"
+  displayName: "Download and Unzip eSignerCKA Setup"
+
+- powershell: |
+    .\eSigner_CKA_Installer.exe /CURRENTUSER /VERYSILENT /SUPPRESSMSGBOXES /DIR="$(Build.SourcesDirectory)\eSignerCKA" | Out-Null
+    dir $(Build.SourcesDirectory)\eSignerCKA
+  displayName: "Setup eSignerCKA in silent mode and output installation directory"
+
+- powershell: |
+    $(Build.SourcesDirectory)\eSignerCKA\eSignerCKATool.exe config -mode "product" -user "ssl.oid.safeguardpp@groups.quest.com" -pass "$(SPPCodeSigning-Password)" -totp "$(SPPCodeSigning-TotpPrivateKey)" -key "$(Build.SourcesDirectory)\eSignerCKA\master.key" -r
+  displayName: "Configure account information on eSignerCKA using Azure Key Vault values"
+
+- powershell: |
+    $(Build.SourcesDirectory)\eSignerCKA\eSignerCKATool.exe unload
+    $(Build.SourcesDirectory)\eSignerCKA\eSignerCKATool.exe load
+  displayName: "Unload and load certificate into Windows Certificate Store"
+
+# We should now be able to access the certificate using the standard Windows signtool.exe from the Windows SDK,
+# which should be installed on the build agent images being used.
+#
+# Typically, you often see examples of signtool.exe and other things accessing the certificate by the thumbprint.
+# And in fact, the sample SSL.com code includes a bunch of extra PowerShell script to get the thumbprint. But the
+# signtool.exe can take a /n parameter to specify the name of the certificate. So we can use that instead. And
+# hopefully that won't change when we renew the certificate.
+# "signtool.exe" sign /fd sha256 /tr http://ts.ssl.com /td sha256 /n "One Identity LLC" "C:\path\to\program.exe"

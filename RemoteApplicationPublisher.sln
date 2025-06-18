@@ -7,6 +7,26 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RemoteApplicationPublisher"
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "RemoteApplicationPublisherSetup", "RemoteApplicationPublisherSetup\RemoteApplicationPublisherSetup.wixproj", "{5EEA7966-CB7D-4FE5-8B6E-7B416A4C4EB0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		Images\RAPAppConfigurationSPP-SPS.PNG = Images\RAPAppConfigurationSPP-SPS.PNG
+		Images\RAPAppConfigureScreen.PNG = Images\RAPAppConfigureScreen.PNG
+		Images\RAPCopyToClipboard.PNG = Images\RAPCopyToClipboard.PNG
+		Images\RAPHostOptionsDialog.PNG = Images\RAPHostOptionsDialog.PNG
+		Images\RAPMainScreen.PNG = Images\RAPMainScreen.PNG
+		Images\SPPAutoLoginConfiguration.PNG = Images\SPPAutoLoginConfiguration.PNG
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{3817A582-03B8-4262-8E95-ED69C42042CF}"
+	ProjectSection(SolutionItems) = preProject
+		azure-pipelines.yml = azure-pipelines.yml
+		code-signing.yml = code-signing.yml
+		LICENSE = LICENSE
+		LICENSE.rtf = LICENSE.rtf
+		README.md = README.md
+		versionnumber.ps1 = versionnumber.ps1
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64

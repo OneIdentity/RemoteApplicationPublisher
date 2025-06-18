@@ -21,8 +21,7 @@ variables:
   isReleaseBranch: $[ or( eq(variables['Build.SourceBranch'], 'refs/heads/main'), startsWith(variables['Build.SourceBranch'], 'refs/heads/release-') ) ]
   setupProjectDir: 'RemoteApplicationPublisherSetup'
   setupProject: '**/$(setupProjectDir)/*.wixproj'
-  codeSigningCertFileName: 'OneIdentityCodeSigning.pfx'
-  signingToolPath: 'C:\Program Files (x86)\Windows Kits\10\bin\10.0.18362.0\x64'
+  signingToolPath: 'C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe'
 
 steps:
 - task: Bash@3
@@ -38,61 +37,25 @@ steps:
     arguments: $(Build.SourcesDirectory) $(semanticVersion) $(Build.BuildId) $$(isPrerelease)
   displayName: 'Setting build version'
 
-- task: NuGetToolInstaller@1
+- template: code-signing.yml
 
-- task: NuGetCommand@2
+# Explicitly install .NET 6 SDK because that is what the project is targeting. Newer build agents don't have it installed.
+- task: UseDotNet@2
   inputs:
-    restoreSolution: '$(solution)'
+    version: 6.x
+  displayName: Explicitly Install .NET 6 SDK
 
-- task: AzureKeyVault@1
-  inputs:
-    azureSubscription: 'Azure.Infrastructure.CodeSigning'
-    KeyVaultName: 'CodeSigningCertificates'
-    SecretsFilter: '*'
-  displayName: 'Get code signing certificate from Azure Key Vault'
-  condition: and(succeeded(), eq(variables.isReleaseBranch, true))
-
-- powershell: |
-      $kvSecretBytes = [System.Convert]::FromBase64String("$(OneIdentity-CodeSigning)")
-      $certCollection = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2Collection
-      $certCollection.Import($kvSecretBytes,$null,[System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable)
-      $protectedCertificateBytes = $certCollection.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12,"$(OneIdentity-CodeSigningCertPassword)")
-      $certpath = '$(Build.BinariesDirectory)\$(codeSigningCertFileName)'
-      Write-Verbose -Verbose $certpath
-      [System.IO.File]::WriteAllBytes($certpath, $protectedCertificateBytes)
-  displayName: 'Save code signing certificate to PFX file'
-  condition: and(succeeded(), eq(variables.isReleaseBranch, true))
-
-- task: VSBuild@1
-  inputs:
-    solution: '$(solution)'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-  displayName: 'Build $(solution)'
-
+# The setup project effectively has a "pre-build" event that will call dotnet publish on the main project
+# to compile it before compiling the setup project itself. There is also a call to sign the output assemblies
+# of the main project after it builds. Finally, there is an "after build" event that signs the MSI of the
+# setup project.
 - task: VSBuild@1
   inputs:
     solution: '$(setupProject)'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-  displayName: 'Build $(setupProject) no signing'
-  condition: and(succeeded(), eq(variables.isReleaseBranch, false))
-
-- task: VSBuild@1
-  inputs:
-    solution: '$(setupProject)'
-    msbuildArgs: '/p:SignFiles=true /p:CertificatePassword=$(OneIdentity-CodeSigningCertPassword) /p:CertificatePath="$(Build.BinariesDirectory)\$(codeSigningCertFileName)" '
+    msbuildArgs: '/p:SignFiles=true /p:SignToolPath="$(signingToolPath)"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
   displayName: 'Build $(setupProject) with signing'
-  condition: and(succeeded(), eq(variables.isReleaseBranch, true))
-
-- task: DeleteFiles@1
-  inputs:
-    SourceFolder: '$(Build.BinariesDirectory)'
-    Contents: '$(codeSigningCertFileName)'
-  condition: succeededOrFailed()
-  displayName: 'Delete code signing certificate files'
 
 - task: ArchiveFiles@2
   inputs:

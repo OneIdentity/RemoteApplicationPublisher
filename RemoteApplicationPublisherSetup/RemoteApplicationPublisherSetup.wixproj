@@ -24,9 +24,6 @@
     <DefineConstants>SourceDir=bin\$(Configuration)\publish</DefineConstants>
     <SuppressIces>ICE61;ICE63;ICE64</SuppressIces>
   </PropertyGroup>
-  <PropertyGroup>
-    <SignToolPath>C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe</SignToolPath>
-  </PropertyGroup>
   <ItemGroup>
     <Compile Include="Component-generated.wxs" />
     <Compile Include="Product.wxs" />
@@ -65,8 +62,7 @@
   </Target>
   <Target Name="BeforeBuild">
     <Exec Command="dotnet publish $(ProjectDir)\..\RemoteApplicationPublisher\RemoteApplicationPublisher.csproj -c $(Configuration) -o $(ProjectDir)bin\$(Configuration)\Publish --self-contained true -r win-x64" />
-    <Exec Condition="'$(SignFiles)'=='true'" Command="&quot;$(SignToolPath)&quot; sign /v /f &quot;$(CertificatePath)&quot;  /p &quot;$(CertificatePassword)&quot; &quot;$(ProjectDir)bin\$(Configuration)\Publish\RemoteApplicationPublisher.dll&quot;" />
-    <Exec Condition="'$(SignFiles)'=='true'" Command="&quot;$(SignToolPath)&quot; sign /v /f &quot;$(CertificatePath)&quot;  /p &quot;$(CertificatePassword)&quot; &quot;$(ProjectDir)bin\$(Configuration)\Publish\RemoteApplicationPublisher.exe&quot;" />
+    <Exec Condition="'$(SignFiles)'=='true'" Command="REM Sign target file(s). Use new SSL.com Extended Validation Code Signing certificate that requires&#xD;&#xA;REM special setup and use of their eSignerCKA. That setup is done in the Azure Pipeline build script.&#xD;&#xA;REM Then, use of the signtool.exe should remain pretty much the same. We will now have signtool.exe&#xD;&#xA;REM lookup the certificate by the subject/issued to name, instead of the thumbprint. Hopefully that&#xD;&#xA;REM won't change when the certificate is renewed. We also don't have to specify the certificate password&#xD;&#xA;REM here since we are effectively accessing it from the Windows Certificate Store, and the setup of&#xD;&#xA;REM the SSL.com eSignerCKA has our credentials.&#xD;&#xA;REM We should only have two files to sign. All others are framework dependent.&#xD;&#xA;&quot;$(SignToolPath)&quot; sign /v /fd SHA256 /tr http://ts.ssl.com /td sha256 /n &quot;One Identity LLC&quot; &quot;$(ProjectDir)bin\$(Configuration)\Publish\RemoteApplicationPublisher.dll&quot; &quot;$(ProjectDir)bin\$(Configuration)\Publish\RemoteApplicationPublisher.exe&quot;" />
     <HeatDirectory SuppressAllWarnings="true" ToolPath="$(WixToolPath)" AutogenerateGuids="$(HarvestDirectoryAutogenerateGuids)" OutputFile="Component-generated.wxs" SuppressFragments="true" SuppressUniqueIds="true" Transforms="%(HarvestDirectory.Transforms)" Directory="$(ProjectDir)bin\$(Configuration)\Publish" ComponentGroupName="RemoteAppsPub_CommonAssemblies" DirectoryRefId="INSTALLLOCATION" KeepEmptyDirectories="false" PreprocessorVariable="var.SourceDir" SuppressRootDirectory="true" SuppressRegistry="true">
     </HeatDirectory>
     <GetAssemblyIdentity AssemblyFiles="$(ProjectDir)bin\$(Configuration)\Publish\RemoteApplicationPublisher.dll">
@@ -77,7 +73,7 @@
     </CreateProperty>
   </Target>
   <Target Name="AfterBuild">
-    <Exec Condition="'$(SignFiles)'=='true'" Command="&quot;$(SignToolPath)&quot; sign /v /f &quot;$(CertificatePath)&quot;  /p &quot;$(CertificatePassword)&quot; &quot;$(ProjectDir)bin\$(Configuration)\en-us\*.msi&quot;" />
+    <Exec Condition="'$(SignFiles)'=='true'" Command="REM Sign target file(s). Use new SSL.com Extended Validation Code Signing certificate that requires&#xD;&#xA;REM special setup and use of their eSignerCKA. That setup is done in the Azure Pipeline build script.&#xD;&#xA;REM Then, use of the signtool.exe should remain pretty much the same. We will now have signtool.exe&#xD;&#xA;REM lookup the certificate by the subject/issued to name, instead of the thumbprint. Hopefully that&#xD;&#xA;REM won't change when the certificate is renewed. We also don't have to specify the certificate password&#xD;&#xA;REM here since we are effectively accessing it from the Windows Certificate Store, and the setup of&#xD;&#xA;REM the SSL.com eSignerCKA has our credentials.&#xD;&#xA;&quot;$(SignToolPath)&quot; sign /v /fd SHA256 /tr http://ts.ssl.com /td sha256 /n &quot;One Identity LLC&quot; &quot;$(ProjectDir)bin\$(Configuration)\en-us\*.msi&quot;" />
   </Target>
   <PropertyGroup>
     <PreBuildEvent />
